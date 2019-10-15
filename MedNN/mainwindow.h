@@ -6,6 +6,7 @@
 #include <QGraphicsPixmapItem>
 #include <QFileDialog>
 #include <QtDebug>
+#include <QDir>
 //
 #include <csvfile.h>
 

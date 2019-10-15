@@ -69,7 +69,8 @@ void MainWindow::setCsvModel(QStandardItemModel *csvModel)
 
 void MainWindow::rowIntoGui(QStandardItemModel *model, int rowNumber)
 {
-    ui->nameLE->setText(model->data(model->index(rowNumber, 1)).toString());
+    QString imgName = model->data(model->index(rowNumber, 1)).toString() + ".jpg";
+    ui->nameLE->setText(imgName);
     ui->sizeWSb->setValue(model->data(model->index(rowNumber, 3)).toInt());
     ui->sizeHSb->setValue(model->data(model->index(rowNumber, 4)).toInt());
     ui->diagnosisLE->setText(model->data(model->index(rowNumber, 6)).toString());
@@ -80,4 +81,11 @@ void MainWindow::rowIntoGui(QStandardItemModel *model, int rowNumber)
         ui->sexMRb->setChecked(true);
     else if(sex == "female")
         ui->sexFRb->setChecked(true);
+
+    if(!ui->imageFolderLE->text().isEmpty())
+    {
+        QString imgPath = ui->imageFolderLE->text() + QDir::separator() + imgName;
+        QImage img(imgPath);
+        showImg(img);
+    }
 }
