@@ -21,6 +21,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void setCsvModel(QStandardItemModel *csvModel);
+
 signals:
     void imgUpdated(QImage img);
 private slots:
@@ -44,8 +46,11 @@ private:
     QString _folderPath;
     QString _csvpath;
     QString _currentImg;
+    int _currentIndex;
     QGraphicsScene *_scene;
+    QStandardItemModel *_csvModel;
     //
+    void rowIntoGui(QStandardItemModel *model, int rowNumber);
 
 };
 #endif // MAINWINDOW_H
