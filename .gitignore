@@ -43,3 +43,6 @@ target_wrapper.*
 CMakeLists.txt.user*
 .ipynb_checkpoints/
 img/
+*.jpg
+img.zip
+MedNN/Download_img - Jupyter Notebook.pdf
