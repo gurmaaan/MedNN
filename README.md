@@ -10,6 +10,8 @@
 1. Скачивание [мета-данных ](https://github.com/gurmaaan/MedNN/blob/master/Download_meta.ipynb). Скачиваются мета-данные всей БД. Это сделано чтобы можно было фильтровать данные которые будут скачиваться в удобном формате pd.DataFrame
 2. Скачивание самих [изображений](https://github.com/gurmaaan/MedNN/blob/master/Download_img.ipynb). Все изображения сохраняются в папку _img_.
 
+> Скачивание мета-данных происходит очень долго. Готовая выгрузка метаданных по всей базе лежит в [csv-файле](https://github.com/gurmaaan/MedNN/blob/master/img_meta.csv) в репозитории. 
+
 ## 2. Деление выборки на train и test
 Берутся метаданные. Имя выступает X, класс выступает как y. Далее делается стандартный sklearn [train_test_split](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)
 Далее создаются папки train и test (validation), а внутри них папки соответсвующие классам изображений. В [этом блокноте](https://github.com/gurmaaan/MedNN/blob/master/Sort_img_into_folders.ipynb) происходит сортировка изображений по нужным папкам соответсвующим классам изображений. Это нужно для превращения их в дальнейшем в тензоры для обучения нейросетей
