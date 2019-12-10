@@ -8,7 +8,8 @@
 #include <QtDebug>
 #include <QDir>
 //
-#include <csvfile.h>
+#include "csvfile.h"
+#include "learningwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -37,7 +38,9 @@ private slots:
 
     void on_actionOpen_Folder_triggered();
 
- public slots:
+    void on_learnBtn_clicked();
+
+public slots:
 
     void showImg(QImage img);
 
@@ -50,6 +53,7 @@ private:
     int _currentIndex;
     QGraphicsScene *_scene;
     QStandardItemModel *_csvModel;
+    LearningWindow _lw;
     //
     void rowIntoGui(QStandardItemModel *model, int rowNumber);
 

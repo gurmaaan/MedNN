@@ -85,7 +85,15 @@ void MainWindow::rowIntoGui(QStandardItemModel *model, int rowNumber)
     if(!ui->imageFolderLE->text().isEmpty())
     {
         QString imgPath = ui->imageFolderLE->text() + QDir::separator() + imgName;
+//        qDebug() << imgPath;
         QImage img(imgPath);
+//        qDebug() << img.size();
         showImg(img);
     }
+}
+
+void MainWindow::on_learnBtn_clicked()
+{
+    _lw.show();
+    ui->usageBtn->setEnabled(true);
 }
