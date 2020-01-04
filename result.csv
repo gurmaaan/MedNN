@@ -1,265 +1,3306 @@
 ,real,pred,answer
-0,melanoma,vascular lesion,0
-1,vascular lesion,vascular lesion,1
-2,vascular lesion,vascular lesion,1
-3,actinic keratosis,vascular lesion,0
-4,basal cell carcinoma,vascular lesion,0
-5,dermatofibroma,vascular lesion,0
-6,pigmented benign keratosis,vascular lesion,0
-7,dermatofibroma,vascular lesion,0
-8,vascular lesion,vascular lesion,1
-9,vascular lesion,vascular lesion,1
-10,pigmented benign keratosis,vascular lesion,0
-11,pigmented benign keratosis,vascular lesion,0
-12,nevus,vascular lesion,0
-13,nevus,vascular lesion,0
-14,pigmented benign keratosis,vascular lesion,0
-15,basal cell carcinoma,vascular lesion,0
-16,actinic keratosis,vascular lesion,0
-17,pigmented benign keratosis,vascular lesion,0
-18,squamous cell carcinoma,vascular lesion,0
-19,squamous cell carcinoma,vascular lesion,0
-20,actinic keratosis,vascular lesion,0
-21,actinic keratosis,vascular lesion,0
-22,pigmented benign keratosis,vascular lesion,0
-23,squamous cell carcinoma,vascular lesion,0
-24,basal cell carcinoma,vascular lesion,0
-25,actinic keratosis,vascular lesion,0
-26,dermatofibroma,vascular lesion,0
-27,vascular lesion,vascular lesion,1
-28,melanoma,vascular lesion,0
-29,melanoma,vascular lesion,0
-30,basal cell carcinoma,vascular lesion,0
-31,vascular lesion,melanoma,0
-32,dermatofibroma,vascular lesion,0
-33,basal cell carcinoma,vascular lesion,0
-34,vascular lesion,vascular lesion,1
-35,actinic keratosis,vascular lesion,0
-36,squamous cell carcinoma,vascular lesion,0
-37,actinic keratosis,vascular lesion,0
-38,vascular lesion,vascular lesion,1
-39,melanoma,vascular lesion,0
-40,vascular lesion,vascular lesion,1
-41,squamous cell carcinoma,vascular lesion,0
-42,pigmented benign keratosis,vascular lesion,0
-43,melanoma,vascular lesion,0
-44,melanoma,vascular lesion,0
-45,nevus,vascular lesion,0
-46,basal cell carcinoma,vascular lesion,0
-47,dermatofibroma,vascular lesion,0
-48,vascular lesion,vascular lesion,1
-49,melanoma,vascular lesion,0
-50,pigmented benign keratosis,vascular lesion,0
-51,vascular lesion,vascular lesion,1
-52,melanoma,vascular lesion,0
-53,squamous cell carcinoma,vascular lesion,0
-54,squamous cell carcinoma,vascular lesion,0
-55,melanoma,vascular lesion,0
-56,actinic keratosis,vascular lesion,0
-57,pigmented benign keratosis,vascular lesion,0
-58,squamous cell carcinoma,vascular lesion,0
-59,melanoma,vascular lesion,0
-60,squamous cell carcinoma,vascular lesion,0
-61,squamous cell carcinoma,vascular lesion,0
-62,pigmented benign keratosis,vascular lesion,0
-63,melanoma,vascular lesion,0
-64,actinic keratosis,vascular lesion,0
-65,basal cell carcinoma,vascular lesion,0
-66,pigmented benign keratosis,melanoma,0
-67,vascular lesion,vascular lesion,1
-68,melanoma,vascular lesion,0
-69,nevus,vascular lesion,0
-70,nevus,vascular lesion,0
-71,squamous cell carcinoma,vascular lesion,0
-72,melanoma,vascular lesion,0
-73,dermatofibroma,vascular lesion,0
-74,actinic keratosis,vascular lesion,0
-75,nevus,vascular lesion,0
-76,pigmented benign keratosis,vascular lesion,0
-77,dermatofibroma,vascular lesion,0
-78,nevus,vascular lesion,0
-79,actinic keratosis,vascular lesion,0
-80,dermatofibroma,vascular lesion,0
-81,squamous cell carcinoma,vascular lesion,0
-82,squamous cell carcinoma,vascular lesion,0
-83,squamous cell carcinoma,vascular lesion,0
-84,pigmented benign keratosis,vascular lesion,0
-85,actinic keratosis,vascular lesion,0
-86,squamous cell carcinoma,vascular lesion,0
-87,melanoma,vascular lesion,0
-88,nevus,vascular lesion,0
-89,squamous cell carcinoma,vascular lesion,0
-90,dermatofibroma,vascular lesion,0
-91,pigmented benign keratosis,vascular lesion,0
-92,pigmented benign keratosis,vascular lesion,0
-93,actinic keratosis,vascular lesion,0
-94,basal cell carcinoma,vascular lesion,0
-95,vascular lesion,vascular lesion,1
-96,actinic keratosis,vascular lesion,0
-97,squamous cell carcinoma,vascular lesion,0
-98,dermatofibroma,vascular lesion,0
-99,basal cell carcinoma,vascular lesion,0
-100,vascular lesion,vascular lesion,1
-101,nevus,vascular lesion,0
-102,melanoma,vascular lesion,0
-103,pigmented benign keratosis,vascular lesion,0
-104,basal cell carcinoma,vascular lesion,0
-105,squamous cell carcinoma,vascular lesion,0
-106,dermatofibroma,vascular lesion,0
-107,melanoma,melanoma,1
-108,actinic keratosis,vascular lesion,0
-109,nevus,vascular lesion,0
-110,nevus,vascular lesion,0
-111,pigmented benign keratosis,vascular lesion,0
-112,pigmented benign keratosis,vascular lesion,0
-113,vascular lesion,vascular lesion,1
-114,basal cell carcinoma,vascular lesion,0
-115,nevus,vascular lesion,0
-116,pigmented benign keratosis,vascular lesion,0
-117,dermatofibroma,vascular lesion,0
-118,dermatofibroma,vascular lesion,0
-119,actinic keratosis,vascular lesion,0
-120,squamous cell carcinoma,vascular lesion,0
-121,basal cell carcinoma,vascular lesion,0
-122,melanoma,vascular lesion,0
-123,melanoma,vascular lesion,0
-124,basal cell carcinoma,vascular lesion,0
-125,melanoma,vascular lesion,0
-126,dermatofibroma,vascular lesion,0
-127,melanoma,vascular lesion,0
-128,dermatofibroma,vascular lesion,0
-129,squamous cell carcinoma,vascular lesion,0
-130,squamous cell carcinoma,vascular lesion,0
-131,vascular lesion,vascular lesion,1
-132,vascular lesion,vascular lesion,1
-133,squamous cell carcinoma,vascular lesion,0
-134,actinic keratosis,vascular lesion,0
-135,vascular lesion,vascular lesion,1
-136,nevus,vascular lesion,0
-137,melanoma,vascular lesion,0
-138,basal cell carcinoma,vascular lesion,0
-139,basal cell carcinoma,vascular lesion,0
-140,vascular lesion,vascular lesion,1
-141,vascular lesion,vascular lesion,1
-142,squamous cell carcinoma,vascular lesion,0
-143,basal cell carcinoma,vascular lesion,0
-144,melanoma,vascular lesion,0
-145,actinic keratosis,vascular lesion,0
-146,squamous cell carcinoma,vascular lesion,0
-147,nevus,vascular lesion,0
-148,vascular lesion,vascular lesion,1
-149,nevus,vascular lesion,0
-150,basal cell carcinoma,vascular lesion,0
-151,actinic keratosis,vascular lesion,0
-152,vascular lesion,vascular lesion,1
-153,nevus,vascular lesion,0
-154,basal cell carcinoma,vascular lesion,0
-155,vascular lesion,vascular lesion,1
-156,dermatofibroma,vascular lesion,0
-157,melanoma,vascular lesion,0
-158,nevus,vascular lesion,0
-159,vascular lesion,vascular lesion,1
-160,melanoma,melanoma,1
-161,dermatofibroma,vascular lesion,0
-162,nevus,vascular lesion,0
-163,squamous cell carcinoma,vascular lesion,0
-164,actinic keratosis,vascular lesion,0
-165,basal cell carcinoma,vascular lesion,0
-166,vascular lesion,vascular lesion,1
-167,pigmented benign keratosis,vascular lesion,0
-168,dermatofibroma,vascular lesion,0
-169,actinic keratosis,vascular lesion,0
-170,dermatofibroma,vascular lesion,0
-171,melanoma,melanoma,1
-172,basal cell carcinoma,vascular lesion,0
-173,squamous cell carcinoma,vascular lesion,0
+0,squamous cell carcinoma,basal cell carcinoma,0
+1,nevus,nevus,1
+2,nevus,nevus,1
+3,nevus,nevus,1
+4,nevus,nevus,1
+5,nevus,nevus,1
+6,nevus,nevus,1
+7,melanoma,melanoma,1
+8,pigmented benign keratosis,pigmented benign keratosis,1
+9,nevus,nevus,1
+10,nevus,nevus,1
+11,nevus,nevus,1
+12,nevus,nevus,1
+13,melanoma,nevus,0
+14,vascular lesion,nevus,0
+15,nevus,nevus,1
+16,melanoma,nevus,0
+17,nevus,nevus,1
+18,nevus,nevus,1
+19,nevus,nevus,1
+20,nevus,nevus,1
+21,melanoma,nevus,0
+22,melanoma,nevus,0
+23,melanoma,nevus,0
+24,nevus,nevus,1
+25,nevus,nevus,1
+26,nevus,nevus,1
+27,nevus,nevus,1
+28,basal cell carcinoma,nevus,0
+29,nevus,nevus,1
+30,melanoma,nevus,0
+31,nevus,nevus,1
+32,nevus,nevus,1
+33,nevus,nevus,1
+34,pigmented benign keratosis,nevus,0
+35,nevus,nevus,1
+36,nevus,nevus,1
+37,nevus,nevus,1
+38,nevus,pigmented benign keratosis,0
+39,pigmented benign keratosis,nevus,0
+40,nevus,nevus,1
+41,basal cell carcinoma,pigmented benign keratosis,0
+42,nevus,nevus,1
+43,pigmented benign keratosis,melanoma,0
+44,nevus,nevus,1
+45,nevus,pigmented benign keratosis,0
+46,nevus,melanoma,0
+47,nevus,nevus,1
+48,nevus,nevus,1
+49,nevus,nevus,1
+50,melanoma,nevus,0
+51,pigmented benign keratosis,nevus,0
+52,nevus,nevus,1
+53,pigmented benign keratosis,nevus,0
+54,nevus,nevus,1
+55,nevus,nevus,1
+56,melanoma,nevus,0
+57,nevus,nevus,1
+58,nevus,nevus,1
+59,pigmented benign keratosis,pigmented benign keratosis,1
+60,pigmented benign keratosis,nevus,0
+61,melanoma,nevus,0
+62,nevus,nevus,1
+63,nevus,nevus,1
+64,vascular lesion,nevus,0
+65,nevus,nevus,1
+66,actinic keratosis,nevus,0
+67,nevus,nevus,1
+68,nevus,nevus,1
+69,nevus,nevus,1
+70,nevus,nevus,1
+71,nevus,nevus,1
+72,actinic keratosis,nevus,0
+73,nevus,nevus,1
+74,actinic keratosis,nevus,0
+75,nevus,nevus,1
+76,nevus,nevus,1
+77,nevus,nevus,1
+78,vascular lesion,nevus,0
+79,nevus,pigmented benign keratosis,0
+80,nevus,nevus,1
+81,nevus,nevus,1
+82,pigmented benign keratosis,nevus,0
+83,nevus,nevus,1
+84,nevus,nevus,1
+85,nevus,nevus,1
+86,nevus,nevus,1
+87,vascular lesion,nevus,0
+88,melanoma,melanoma,1
+89,nevus,nevus,1
+90,nevus,nevus,1
+91,melanoma,nevus,0
+92,pigmented benign keratosis,nevus,0
+93,basal cell carcinoma,basal cell carcinoma,1
+94,nevus,nevus,1
+95,basal cell carcinoma,basal cell carcinoma,1
+96,nevus,nevus,1
+97,nevus,nevus,1
+98,nevus,nevus,1
+99,nevus,nevus,1
+100,nevus,nevus,1
+101,nevus,nevus,1
+102,melanoma,nevus,0
+103,melanoma,nevus,0
+104,nevus,nevus,1
+105,nevus,nevus,1
+106,nevus,nevus,1
+107,melanoma,pigmented benign keratosis,0
+108,nevus,nevus,1
+109,nevus,nevus,1
+110,nevus,melanoma,0
+111,actinic keratosis,basal cell carcinoma,0
+112,pigmented benign keratosis,pigmented benign keratosis,1
+113,nevus,nevus,1
+114,melanoma,melanoma,1
+115,nevus,nevus,1
+116,nevus,nevus,1
+117,nevus,nevus,1
+118,nevus,nevus,1
+119,pigmented benign keratosis,nevus,0
+120,nevus,nevus,1
+121,nevus,nevus,1
+122,basal cell carcinoma,basal cell carcinoma,1
+123,nevus,nevus,1
+124,nevus,nevus,1
+125,melanoma,nevus,0
+126,nevus,nevus,1
+127,melanoma,nevus,0
+128,nevus,nevus,1
+129,dermatofibroma,basal cell carcinoma,0
+130,actinic keratosis,nevus,0
+131,melanoma,nevus,0
+132,squamous cell carcinoma,nevus,0
+133,melanoma,nevus,0
+134,nevus,nevus,1
+135,pigmented benign keratosis,pigmented benign keratosis,1
+136,nevus,nevus,1
+137,nevus,nevus,1
+138,nevus,nevus,1
+139,nevus,nevus,1
+140,nevus,nevus,1
+141,nevus,nevus,1
+142,melanoma,nevus,0
+143,nevus,nevus,1
+144,nevus,nevus,1
+145,nevus,nevus,1
+146,basal cell carcinoma,nevus,0
+147,melanoma,nevus,0
+148,nevus,nevus,1
+149,nevus,nevus,1
+150,nevus,nevus,1
+151,nevus,nevus,1
+152,nevus,melanoma,0
+153,nevus,nevus,1
+154,nevus,nevus,1
+155,nevus,nevus,1
+156,nevus,nevus,1
+157,nevus,nevus,1
+158,squamous cell carcinoma,nevus,0
+159,nevus,nevus,1
+160,pigmented benign keratosis,pigmented benign keratosis,1
+161,melanoma,nevus,0
+162,pigmented benign keratosis,nevus,0
+163,squamous cell carcinoma,pigmented benign keratosis,0
+164,nevus,nevus,1
+165,nevus,nevus,1
+166,nevus,nevus,1
+167,nevus,nevus,1
+168,nevus,nevus,1
+169,pigmented benign keratosis,nevus,0
+170,nevus,nevus,1
+171,nevus,nevus,1
+172,nevus,nevus,1
+173,melanoma,nevus,0
 174,melanoma,melanoma,1
-175,dermatofibroma,vascular lesion,0
-176,squamous cell carcinoma,vascular lesion,0
-177,pigmented benign keratosis,vascular lesion,0
-178,dermatofibroma,vascular lesion,0
-179,nevus,vascular lesion,0
-180,actinic keratosis,vascular lesion,0
-181,actinic keratosis,vascular lesion,0
-182,melanoma,vascular lesion,0
-183,vascular lesion,vascular lesion,1
-184,pigmented benign keratosis,vascular lesion,0
-185,actinic keratosis,vascular lesion,0
-186,actinic keratosis,vascular lesion,0
-187,nevus,vascular lesion,0
-188,dermatofibroma,vascular lesion,0
-189,nevus,vascular lesion,0
-190,nevus,vascular lesion,0
-191,melanoma,vascular lesion,0
-192,pigmented benign keratosis,vascular lesion,0
-193,vascular lesion,vascular lesion,1
-194,pigmented benign keratosis,melanoma,0
-195,dermatofibroma,vascular lesion,0
-196,dermatofibroma,vascular lesion,0
-197,basal cell carcinoma,vascular lesion,0
-198,dermatofibroma,vascular lesion,0
-199,basal cell carcinoma,vascular lesion,0
-200,squamous cell carcinoma,vascular lesion,0
-201,pigmented benign keratosis,vascular lesion,0
-202,basal cell carcinoma,vascular lesion,0
-203,dermatofibroma,vascular lesion,0
-204,nevus,vascular lesion,0
-205,basal cell carcinoma,vascular lesion,0
-206,melanoma,vascular lesion,0
-207,vascular lesion,vascular lesion,1
-208,pigmented benign keratosis,vascular lesion,0
-209,squamous cell carcinoma,vascular lesion,0
-210,squamous cell carcinoma,vascular lesion,0
-211,basal cell carcinoma,vascular lesion,0
-212,basal cell carcinoma,vascular lesion,0
-213,pigmented benign keratosis,vascular lesion,0
-214,actinic keratosis,vascular lesion,0
-215,pigmented benign keratosis,vascular lesion,0
-216,nevus,vascular lesion,0
-217,dermatofibroma,vascular lesion,0
-218,nevus,vascular lesion,0
-219,melanoma,melanoma,1
-220,melanoma,vascular lesion,0
-221,basal cell carcinoma,vascular lesion,0
-222,vascular lesion,vascular lesion,1
-223,pigmented benign keratosis,vascular lesion,0
-224,vascular lesion,vascular lesion,1
-225,dermatofibroma,vascular lesion,0
-226,nevus,vascular lesion,0
-227,actinic keratosis,vascular lesion,0
-228,nevus,vascular lesion,0
-229,actinic keratosis,vascular lesion,0
-230,pigmented benign keratosis,vascular lesion,0
-231,actinic keratosis,vascular lesion,0
-232,basal cell carcinoma,vascular lesion,0
-233,dermatofibroma,vascular lesion,0
-234,basal cell carcinoma,vascular lesion,0
-235,nevus,vascular lesion,0
-236,squamous cell carcinoma,vascular lesion,0
-237,vascular lesion,vascular lesion,1
-238,basal cell carcinoma,vascular lesion,0
-239,pigmented benign keratosis,vascular lesion,0
-240,basal cell carcinoma,vascular lesion,0
-241,melanoma,vascular lesion,0
-242,dermatofibroma,vascular lesion,0
-243,nevus,vascular lesion,0
-244,basal cell carcinoma,vascular lesion,0
-245,dermatofibroma,vascular lesion,0
-246,melanoma,vascular lesion,0
-247,nevus,vascular lesion,0
-248,squamous cell carcinoma,vascular lesion,0
-249,actinic keratosis,vascular lesion,0
-250,squamous cell carcinoma,vascular lesion,0
-251,dermatofibroma,vascular lesion,0
-252,dermatofibroma,vascular lesion,0
-253,actinic keratosis,vascular lesion,0
-254,basal cell carcinoma,vascular lesion,0
-255,nevus,vascular lesion,0
-256,vascular lesion,vascular lesion,1
-257,nevus,vascular lesion,0
-258,actinic keratosis,vascular lesion,0
-259,actinic keratosis,vascular lesion,0
-260,vascular lesion,vascular lesion,1
-261,nevus,vascular lesion,0
-262,pigmented benign keratosis,vascular lesion,0
-263,pigmented benign keratosis,vascular lesion,0
+175,nevus,nevus,1
+176,nevus,nevus,1
+177,nevus,nevus,1
+178,nevus,nevus,1
+179,melanoma,melanoma,1
+180,pigmented benign keratosis,pigmented benign keratosis,1
+181,melanoma,nevus,0
+182,nevus,nevus,1
+183,pigmented benign keratosis,pigmented benign keratosis,1
+184,melanoma,pigmented benign keratosis,0
+185,nevus,pigmented benign keratosis,0
+186,nevus,nevus,1
+187,nevus,nevus,1
+188,nevus,nevus,1
+189,nevus,nevus,1
+190,nevus,nevus,1
+191,nevus,nevus,1
+192,nevus,nevus,1
+193,nevus,nevus,1
+194,melanoma,pigmented benign keratosis,0
+195,nevus,basal cell carcinoma,0
+196,nevus,nevus,1
+197,nevus,nevus,1
+198,nevus,nevus,1
+199,nevus,nevus,1
+200,basal cell carcinoma,nevus,0
+201,nevus,nevus,1
+202,nevus,nevus,1
+203,nevus,nevus,1
+204,nevus,nevus,1
+205,melanoma,nevus,0
+206,nevus,nevus,1
+207,nevus,nevus,1
+208,nevus,nevus,1
+209,melanoma,nevus,0
+210,nevus,nevus,1
+211,melanoma,melanoma,1
+212,melanoma,pigmented benign keratosis,0
+213,nevus,nevus,1
+214,melanoma,nevus,0
+215,basal cell carcinoma,basal cell carcinoma,1
+216,pigmented benign keratosis,nevus,0
+217,pigmented benign keratosis,nevus,0
+218,nevus,nevus,1
+219,nevus,nevus,1
+220,nevus,nevus,1
+221,nevus,nevus,1
+222,nevus,nevus,1
+223,nevus,nevus,1
+224,pigmented benign keratosis,nevus,0
+225,nevus,nevus,1
+226,nevus,nevus,1
+227,nevus,pigmented benign keratosis,0
+228,melanoma,melanoma,1
+229,pigmented benign keratosis,nevus,0
+230,basal cell carcinoma,nevus,0
+231,melanoma,nevus,0
+232,nevus,nevus,1
+233,nevus,nevus,1
+234,pigmented benign keratosis,melanoma,0
+235,nevus,nevus,1
+236,nevus,nevus,1
+237,nevus,nevus,1
+238,squamous cell carcinoma,pigmented benign keratosis,0
+239,nevus,melanoma,0
+240,nevus,nevus,1
+241,nevus,nevus,1
+242,pigmented benign keratosis,pigmented benign keratosis,1
+243,nevus,nevus,1
+244,nevus,nevus,1
+245,nevus,nevus,1
+246,nevus,nevus,1
+247,pigmented benign keratosis,pigmented benign keratosis,1
+248,nevus,nevus,1
+249,nevus,nevus,1
+250,pigmented benign keratosis,nevus,0
+251,melanoma,nevus,0
+252,nevus,nevus,1
+253,nevus,nevus,1
+254,pigmented benign keratosis,melanoma,0
+255,nevus,nevus,1
+256,nevus,nevus,1
+257,melanoma,nevus,0
+258,nevus,nevus,1
+259,nevus,nevus,1
+260,nevus,basal cell carcinoma,0
+261,nevus,nevus,1
+262,nevus,nevus,1
+263,nevus,nevus,1
+264,melanoma,pigmented benign keratosis,0
+265,nevus,nevus,1
+266,nevus,nevus,1
+267,melanoma,nevus,0
+268,nevus,nevus,1
+269,nevus,nevus,1
+270,nevus,nevus,1
+271,vascular lesion,nevus,0
+272,nevus,nevus,1
+273,pigmented benign keratosis,nevus,0
+274,pigmented benign keratosis,nevus,0
+275,nevus,nevus,1
+276,pigmented benign keratosis,pigmented benign keratosis,1
+277,basal cell carcinoma,basal cell carcinoma,1
+278,nevus,nevus,1
+279,pigmented benign keratosis,basal cell carcinoma,0
+280,nevus,nevus,1
+281,nevus,pigmented benign keratosis,0
+282,nevus,nevus,1
+283,nevus,nevus,1
+284,squamous cell carcinoma,basal cell carcinoma,0
+285,nevus,nevus,1
+286,nevus,nevus,1
+287,nevus,nevus,1
+288,nevus,nevus,1
+289,nevus,nevus,1
+290,nevus,nevus,1
+291,nevus,nevus,1
+292,nevus,nevus,1
+293,basal cell carcinoma,nevus,0
+294,nevus,melanoma,0
+295,nevus,nevus,1
+296,nevus,melanoma,0
+297,pigmented benign keratosis,pigmented benign keratosis,1
+298,pigmented benign keratosis,nevus,0
+299,nevus,melanoma,0
+300,nevus,melanoma,0
+301,nevus,nevus,1
+302,nevus,nevus,1
+303,pigmented benign keratosis,nevus,0
+304,pigmented benign keratosis,nevus,0
+305,nevus,nevus,1
+306,nevus,nevus,1
+307,dermatofibroma,pigmented benign keratosis,0
+308,pigmented benign keratosis,pigmented benign keratosis,1
+309,melanoma,nevus,0
+310,basal cell carcinoma,basal cell carcinoma,1
+311,nevus,nevus,1
+312,nevus,nevus,1
+313,nevus,nevus,1
+314,nevus,nevus,1
+315,nevus,nevus,1
+316,nevus,nevus,1
+317,melanoma,nevus,0
+318,nevus,nevus,1
+319,pigmented benign keratosis,nevus,0
+320,melanoma,melanoma,1
+321,nevus,nevus,1
+322,nevus,nevus,1
+323,pigmented benign keratosis,pigmented benign keratosis,1
+324,nevus,nevus,1
+325,nevus,nevus,1
+326,pigmented benign keratosis,pigmented benign keratosis,1
+327,nevus,nevus,1
+328,squamous cell carcinoma,melanoma,0
+329,melanoma,nevus,0
+330,nevus,nevus,1
+331,nevus,pigmented benign keratosis,0
+332,nevus,nevus,1
+333,nevus,nevus,1
+334,nevus,nevus,1
+335,basal cell carcinoma,nevus,0
+336,nevus,nevus,1
+337,nevus,nevus,1
+338,pigmented benign keratosis,nevus,0
+339,pigmented benign keratosis,nevus,0
+340,nevus,nevus,1
+341,basal cell carcinoma,pigmented benign keratosis,0
+342,nevus,nevus,1
+343,basal cell carcinoma,nevus,0
+344,nevus,nevus,1
+345,nevus,nevus,1
+346,nevus,nevus,1
+347,pigmented benign keratosis,melanoma,0
+348,pigmented benign keratosis,nevus,0
+349,nevus,nevus,1
+350,nevus,nevus,1
+351,pigmented benign keratosis,pigmented benign keratosis,1
+352,melanoma,melanoma,1
+353,nevus,nevus,1
+354,melanoma,nevus,0
+355,nevus,nevus,1
+356,nevus,nevus,1
+357,nevus,nevus,1
+358,nevus,nevus,1
+359,nevus,nevus,1
+360,nevus,nevus,1
+361,nevus,nevus,1
+362,nevus,nevus,1
+363,nevus,nevus,1
+364,nevus,nevus,1
+365,nevus,nevus,1
+366,basal cell carcinoma,nevus,0
+367,nevus,nevus,1
+368,nevus,nevus,1
+369,melanoma,nevus,0
+370,nevus,nevus,1
+371,melanoma,nevus,0
+372,nevus,nevus,1
+373,nevus,nevus,1
+374,nevus,nevus,1
+375,nevus,nevus,1
+376,nevus,nevus,1
+377,melanoma,pigmented benign keratosis,0
+378,pigmented benign keratosis,nevus,0
+379,squamous cell carcinoma,nevus,0
+380,dermatofibroma,nevus,0
+381,melanoma,nevus,0
+382,basal cell carcinoma,nevus,0
+383,nevus,nevus,1
+384,pigmented benign keratosis,pigmented benign keratosis,1
+385,pigmented benign keratosis,nevus,0
+386,nevus,nevus,1
+387,pigmented benign keratosis,pigmented benign keratosis,1
+388,pigmented benign keratosis,melanoma,0
+389,nevus,nevus,1
+390,basal cell carcinoma,nevus,0
+391,melanoma,nevus,0
+392,nevus,basal cell carcinoma,0
+393,nevus,nevus,1
+394,nevus,nevus,1
+395,nevus,nevus,1
+396,nevus,nevus,1
+397,nevus,nevus,1
+398,nevus,nevus,1
+399,nevus,nevus,1
+400,vascular lesion,nevus,0
+401,nevus,nevus,1
+402,basal cell carcinoma,nevus,0
+403,melanoma,melanoma,1
+404,nevus,nevus,1
+405,melanoma,nevus,0
+406,melanoma,nevus,0
+407,nevus,nevus,1
+408,nevus,pigmented benign keratosis,0
+409,pigmented benign keratosis,nevus,0
+410,nevus,nevus,1
+411,nevus,pigmented benign keratosis,0
+412,pigmented benign keratosis,pigmented benign keratosis,1
+413,pigmented benign keratosis,nevus,0
+414,nevus,nevus,1
+415,melanoma,nevus,0
+416,nevus,melanoma,0
+417,basal cell carcinoma,nevus,0
+418,basal cell carcinoma,pigmented benign keratosis,0
+419,nevus,nevus,1
+420,melanoma,nevus,0
+421,nevus,nevus,1
+422,nevus,nevus,1
+423,nevus,nevus,1
+424,nevus,nevus,1
+425,nevus,nevus,1
+426,basal cell carcinoma,basal cell carcinoma,1
+427,nevus,nevus,1
+428,nevus,nevus,1
+429,nevus,nevus,1
+430,dermatofibroma,nevus,0
+431,pigmented benign keratosis,nevus,0
+432,nevus,nevus,1
+433,nevus,nevus,1
+434,nevus,nevus,1
+435,nevus,nevus,1
+436,actinic keratosis,basal cell carcinoma,0
+437,nevus,nevus,1
+438,nevus,nevus,1
+439,nevus,nevus,1
+440,pigmented benign keratosis,nevus,0
+441,melanoma,nevus,0
+442,nevus,nevus,1
+443,nevus,nevus,1
+444,nevus,nevus,1
+445,nevus,nevus,1
+446,nevus,nevus,1
+447,nevus,nevus,1
+448,pigmented benign keratosis,nevus,0
+449,nevus,nevus,1
+450,nevus,nevus,1
+451,nevus,nevus,1
+452,melanoma,melanoma,1
+453,pigmented benign keratosis,nevus,0
+454,melanoma,nevus,0
+455,nevus,nevus,1
+456,vascular lesion,nevus,0
+457,nevus,nevus,1
+458,nevus,nevus,1
+459,nevus,nevus,1
+460,nevus,nevus,1
+461,nevus,nevus,1
+462,basal cell carcinoma,basal cell carcinoma,1
+463,nevus,nevus,1
+464,nevus,nevus,1
+465,nevus,nevus,1
+466,nevus,nevus,1
+467,nevus,nevus,1
+468,nevus,nevus,1
+469,nevus,nevus,1
+470,nevus,nevus,1
+471,pigmented benign keratosis,pigmented benign keratosis,1
+472,nevus,nevus,1
+473,melanoma,nevus,0
+474,nevus,nevus,1
+475,nevus,pigmented benign keratosis,0
+476,melanoma,nevus,0
+477,nevus,nevus,1
+478,pigmented benign keratosis,pigmented benign keratosis,1
+479,actinic keratosis,pigmented benign keratosis,0
+480,melanoma,nevus,0
+481,nevus,nevus,1
+482,actinic keratosis,basal cell carcinoma,0
+483,nevus,nevus,1
+484,nevus,nevus,1
+485,nevus,nevus,1
+486,nevus,nevus,1
+487,nevus,nevus,1
+488,nevus,nevus,1
+489,nevus,nevus,1
+490,melanoma,nevus,0
+491,pigmented benign keratosis,nevus,0
+492,dermatofibroma,nevus,0
+493,nevus,nevus,1
+494,nevus,nevus,1
+495,nevus,nevus,1
+496,nevus,nevus,1
+497,nevus,nevus,1
+498,melanoma,melanoma,1
+499,nevus,nevus,1
+500,basal cell carcinoma,nevus,0
+501,melanoma,nevus,0
+502,nevus,nevus,1
+503,vascular lesion,nevus,0
+504,melanoma,nevus,0
+505,nevus,nevus,1
+506,basal cell carcinoma,nevus,0
+507,nevus,nevus,1
+508,nevus,nevus,1
+509,nevus,nevus,1
+510,nevus,nevus,1
+511,nevus,nevus,1
+512,nevus,nevus,1
+513,nevus,nevus,1
+514,nevus,melanoma,0
+515,nevus,nevus,1
+516,pigmented benign keratosis,nevus,0
+517,melanoma,nevus,0
+518,nevus,nevus,1
+519,nevus,nevus,1
+520,nevus,nevus,1
+521,nevus,nevus,1
+522,nevus,nevus,1
+523,nevus,pigmented benign keratosis,0
+524,nevus,nevus,1
+525,nevus,nevus,1
+526,nevus,nevus,1
+527,melanoma,nevus,0
+528,squamous cell carcinoma,nevus,0
+529,nevus,nevus,1
+530,basal cell carcinoma,pigmented benign keratosis,0
+531,nevus,nevus,1
+532,nevus,nevus,1
+533,basal cell carcinoma,nevus,0
+534,pigmented benign keratosis,pigmented benign keratosis,1
+535,nevus,nevus,1
+536,nevus,nevus,1
+537,nevus,nevus,1
+538,nevus,nevus,1
+539,dermatofibroma,nevus,0
+540,nevus,nevus,1
+541,melanoma,melanoma,1
+542,basal cell carcinoma,pigmented benign keratosis,0
+543,nevus,nevus,1
+544,nevus,nevus,1
+545,melanoma,nevus,0
+546,nevus,nevus,1
+547,nevus,nevus,1
+548,dermatofibroma,nevus,0
+549,nevus,nevus,1
+550,nevus,pigmented benign keratosis,0
+551,nevus,pigmented benign keratosis,0
+552,nevus,melanoma,0
+553,melanoma,nevus,0
+554,nevus,nevus,1
+555,pigmented benign keratosis,nevus,0
+556,nevus,nevus,1
+557,squamous cell carcinoma,nevus,0
+558,nevus,nevus,1
+559,pigmented benign keratosis,pigmented benign keratosis,1
+560,melanoma,nevus,0
+561,nevus,nevus,1
+562,nevus,melanoma,0
+563,nevus,melanoma,0
+564,nevus,nevus,1
+565,pigmented benign keratosis,nevus,0
+566,nevus,nevus,1
+567,squamous cell carcinoma,nevus,0
+568,vascular lesion,nevus,0
+569,nevus,nevus,1
+570,pigmented benign keratosis,pigmented benign keratosis,1
+571,nevus,nevus,1
+572,nevus,nevus,1
+573,nevus,nevus,1
+574,nevus,nevus,1
+575,nevus,nevus,1
+576,nevus,nevus,1
+577,nevus,nevus,1
+578,nevus,nevus,1
+579,nevus,nevus,1
+580,nevus,melanoma,0
+581,melanoma,nevus,0
+582,nevus,nevus,1
+583,nevus,nevus,1
+584,actinic keratosis,nevus,0
+585,melanoma,pigmented benign keratosis,0
+586,nevus,pigmented benign keratosis,0
+587,nevus,nevus,1
+588,nevus,nevus,1
+589,nevus,nevus,1
+590,nevus,nevus,1
+591,nevus,nevus,1
+592,nevus,nevus,1
+593,pigmented benign keratosis,nevus,0
+594,pigmented benign keratosis,nevus,0
+595,nevus,nevus,1
+596,nevus,nevus,1
+597,basal cell carcinoma,nevus,0
+598,nevus,nevus,1
+599,pigmented benign keratosis,pigmented benign keratosis,1
+600,nevus,nevus,1
+601,melanoma,nevus,0
+602,nevus,nevus,1
+603,nevus,nevus,1
+604,nevus,nevus,1
+605,nevus,nevus,1
+606,dermatofibroma,pigmented benign keratosis,0
+607,nevus,nevus,1
+608,nevus,nevus,1
+609,nevus,nevus,1
+610,nevus,melanoma,0
+611,nevus,nevus,1
+612,pigmented benign keratosis,nevus,0
+613,basal cell carcinoma,nevus,0
+614,pigmented benign keratosis,nevus,0
+615,nevus,nevus,1
+616,pigmented benign keratosis,nevus,0
+617,nevus,nevus,1
+618,nevus,nevus,1
+619,squamous cell carcinoma,pigmented benign keratosis,0
+620,nevus,nevus,1
+621,nevus,nevus,1
+622,nevus,nevus,1
+623,nevus,nevus,1
+624,nevus,nevus,1
+625,nevus,nevus,1
+626,pigmented benign keratosis,nevus,0
+627,pigmented benign keratosis,pigmented benign keratosis,1
+628,actinic keratosis,pigmented benign keratosis,0
+629,nevus,nevus,1
+630,nevus,nevus,1
+631,nevus,nevus,1
+632,nevus,nevus,1
+633,nevus,nevus,1
+634,nevus,nevus,1
+635,basal cell carcinoma,basal cell carcinoma,1
+636,nevus,nevus,1
+637,nevus,nevus,1
+638,nevus,nevus,1
+639,nevus,nevus,1
+640,nevus,nevus,1
+641,nevus,nevus,1
+642,nevus,nevus,1
+643,nevus,nevus,1
+644,nevus,nevus,1
+645,melanoma,nevus,0
+646,nevus,nevus,1
+647,nevus,nevus,1
+648,pigmented benign keratosis,nevus,0
+649,dermatofibroma,pigmented benign keratosis,0
+650,nevus,nevus,1
+651,nevus,nevus,1
+652,nevus,nevus,1
+653,melanoma,nevus,0
+654,melanoma,melanoma,1
+655,melanoma,nevus,0
+656,squamous cell carcinoma,nevus,0
+657,nevus,nevus,1
+658,nevus,nevus,1
+659,nevus,pigmented benign keratosis,0
+660,nevus,nevus,1
+661,nevus,nevus,1
+662,nevus,nevus,1
+663,melanoma,nevus,0
+664,nevus,nevus,1
+665,melanoma,nevus,0
+666,basal cell carcinoma,basal cell carcinoma,1
+667,nevus,melanoma,0
+668,basal cell carcinoma,pigmented benign keratosis,0
+669,actinic keratosis,pigmented benign keratosis,0
+670,nevus,nevus,1
+671,nevus,basal cell carcinoma,0
+672,nevus,nevus,1
+673,nevus,nevus,1
+674,nevus,nevus,1
+675,nevus,nevus,1
+676,nevus,nevus,1
+677,squamous cell carcinoma,nevus,0
+678,nevus,nevus,1
+679,basal cell carcinoma,nevus,0
+680,nevus,nevus,1
+681,nevus,nevus,1
+682,nevus,nevus,1
+683,nevus,nevus,1
+684,basal cell carcinoma,nevus,0
+685,nevus,nevus,1
+686,nevus,nevus,1
+687,nevus,nevus,1
+688,nevus,nevus,1
+689,nevus,pigmented benign keratosis,0
+690,nevus,nevus,1
+691,nevus,nevus,1
+692,nevus,nevus,1
+693,nevus,nevus,1
+694,pigmented benign keratosis,pigmented benign keratosis,1
+695,nevus,nevus,1
+696,melanoma,nevus,0
+697,basal cell carcinoma,basal cell carcinoma,1
+698,nevus,nevus,1
+699,nevus,nevus,1
+700,nevus,nevus,1
+701,nevus,nevus,1
+702,melanoma,nevus,0
+703,nevus,nevus,1
+704,melanoma,pigmented benign keratosis,0
+705,nevus,nevus,1
+706,melanoma,nevus,0
+707,squamous cell carcinoma,nevus,0
+708,nevus,nevus,1
+709,actinic keratosis,basal cell carcinoma,0
+710,pigmented benign keratosis,pigmented benign keratosis,1
+711,vascular lesion,nevus,0
+712,nevus,nevus,1
+713,nevus,nevus,1
+714,nevus,nevus,1
+715,basal cell carcinoma,basal cell carcinoma,1
+716,nevus,nevus,1
+717,actinic keratosis,nevus,0
+718,pigmented benign keratosis,nevus,0
+719,nevus,nevus,1
+720,nevus,nevus,1
+721,pigmented benign keratosis,pigmented benign keratosis,1
+722,nevus,nevus,1
+723,nevus,nevus,1
+724,nevus,melanoma,0
+725,nevus,nevus,1
+726,vascular lesion,nevus,0
+727,pigmented benign keratosis,pigmented benign keratosis,1
+728,nevus,nevus,1
+729,melanoma,nevus,0
+730,melanoma,nevus,0
+731,nevus,nevus,1
+732,nevus,nevus,1
+733,basal cell carcinoma,basal cell carcinoma,1
+734,nevus,pigmented benign keratosis,0
+735,nevus,nevus,1
+736,nevus,nevus,1
+737,nevus,nevus,1
+738,nevus,nevus,1
+739,nevus,nevus,1
+740,nevus,nevus,1
+741,nevus,nevus,1
+742,basal cell carcinoma,pigmented benign keratosis,0
+743,melanoma,nevus,0
+744,nevus,nevus,1
+745,nevus,nevus,1
+746,melanoma,melanoma,1
+747,nevus,nevus,1
+748,nevus,nevus,1
+749,nevus,nevus,1
+750,nevus,nevus,1
+751,pigmented benign keratosis,nevus,0
+752,nevus,nevus,1
+753,nevus,nevus,1
+754,nevus,nevus,1
+755,pigmented benign keratosis,nevus,0
+756,nevus,nevus,1
+757,nevus,nevus,1
+758,nevus,nevus,1
+759,dermatofibroma,basal cell carcinoma,0
+760,nevus,nevus,1
+761,melanoma,nevus,0
+762,nevus,nevus,1
+763,squamous cell carcinoma,nevus,0
+764,nevus,nevus,1
+765,melanoma,nevus,0
+766,nevus,nevus,1
+767,nevus,nevus,1
+768,nevus,nevus,1
+769,nevus,nevus,1
+770,nevus,nevus,1
+771,basal cell carcinoma,pigmented benign keratosis,0
+772,nevus,nevus,1
+773,nevus,nevus,1
+774,pigmented benign keratosis,nevus,0
+775,nevus,nevus,1
+776,basal cell carcinoma,basal cell carcinoma,1
+777,melanoma,nevus,0
+778,nevus,nevus,1
+779,nevus,nevus,1
+780,nevus,nevus,1
+781,nevus,nevus,1
+782,nevus,melanoma,0
+783,nevus,pigmented benign keratosis,0
+784,basal cell carcinoma,basal cell carcinoma,1
+785,melanoma,melanoma,1
+786,nevus,nevus,1
+787,nevus,nevus,1
+788,pigmented benign keratosis,pigmented benign keratosis,1
+789,nevus,nevus,1
+790,nevus,nevus,1
+791,actinic keratosis,pigmented benign keratosis,0
+792,nevus,nevus,1
+793,nevus,nevus,1
+794,melanoma,nevus,0
+795,nevus,nevus,1
+796,pigmented benign keratosis,nevus,0
+797,nevus,nevus,1
+798,nevus,nevus,1
+799,melanoma,pigmented benign keratosis,0
+800,basal cell carcinoma,pigmented benign keratosis,0
+801,nevus,nevus,1
+802,pigmented benign keratosis,pigmented benign keratosis,1
+803,pigmented benign keratosis,nevus,0
+804,nevus,nevus,1
+805,nevus,nevus,1
+806,nevus,nevus,1
+807,nevus,melanoma,0
+808,nevus,nevus,1
+809,melanoma,nevus,0
+810,nevus,nevus,1
+811,nevus,nevus,1
+812,melanoma,pigmented benign keratosis,0
+813,nevus,nevus,1
+814,nevus,nevus,1
+815,pigmented benign keratosis,nevus,0
+816,nevus,nevus,1
+817,nevus,nevus,1
+818,nevus,nevus,1
+819,nevus,nevus,1
+820,nevus,nevus,1
+821,pigmented benign keratosis,nevus,0
+822,vascular lesion,nevus,0
+823,nevus,nevus,1
+824,nevus,melanoma,0
+825,nevus,nevus,1
+826,nevus,nevus,1
+827,squamous cell carcinoma,pigmented benign keratosis,0
+828,nevus,nevus,1
+829,nevus,nevus,1
+830,nevus,nevus,1
+831,melanoma,nevus,0
+832,nevus,pigmented benign keratosis,0
+833,pigmented benign keratosis,pigmented benign keratosis,1
+834,nevus,nevus,1
+835,nevus,nevus,1
+836,melanoma,pigmented benign keratosis,0
+837,melanoma,nevus,0
+838,nevus,nevus,1
+839,nevus,nevus,1
+840,nevus,nevus,1
+841,actinic keratosis,basal cell carcinoma,0
+842,nevus,nevus,1
+843,basal cell carcinoma,basal cell carcinoma,1
+844,nevus,nevus,1
+845,melanoma,nevus,0
+846,nevus,nevus,1
+847,nevus,nevus,1
+848,melanoma,nevus,0
+849,nevus,nevus,1
+850,squamous cell carcinoma,basal cell carcinoma,0
+851,nevus,nevus,1
+852,nevus,nevus,1
+853,nevus,nevus,1
+854,nevus,nevus,1
+855,nevus,nevus,1
+856,melanoma,nevus,0
+857,melanoma,melanoma,1
+858,melanoma,nevus,0
+859,nevus,nevus,1
+860,squamous cell carcinoma,pigmented benign keratosis,0
+861,nevus,nevus,1
+862,melanoma,nevus,0
+863,nevus,nevus,1
+864,nevus,nevus,1
+865,basal cell carcinoma,basal cell carcinoma,1
+866,nevus,nevus,1
+867,nevus,nevus,1
+868,nevus,nevus,1
+869,melanoma,melanoma,1
+870,nevus,nevus,1
+871,nevus,nevus,1
+872,pigmented benign keratosis,basal cell carcinoma,0
+873,dermatofibroma,basal cell carcinoma,0
+874,nevus,nevus,1
+875,nevus,nevus,1
+876,nevus,nevus,1
+877,nevus,nevus,1
+878,nevus,nevus,1
+879,nevus,nevus,1
+880,nevus,melanoma,0
+881,nevus,nevus,1
+882,melanoma,nevus,0
+883,nevus,nevus,1
+884,basal cell carcinoma,nevus,0
+885,basal cell carcinoma,nevus,0
+886,nevus,nevus,1
+887,nevus,pigmented benign keratosis,0
+888,nevus,nevus,1
+889,basal cell carcinoma,basal cell carcinoma,1
+890,nevus,nevus,1
+891,nevus,nevus,1
+892,basal cell carcinoma,basal cell carcinoma,1
+893,nevus,nevus,1
+894,nevus,nevus,1
+895,pigmented benign keratosis,nevus,0
+896,nevus,nevus,1
+897,melanoma,basal cell carcinoma,0
+898,nevus,nevus,1
+899,nevus,nevus,1
+900,squamous cell carcinoma,nevus,0
+901,melanoma,pigmented benign keratosis,0
+902,melanoma,nevus,0
+903,melanoma,nevus,0
+904,squamous cell carcinoma,nevus,0
+905,dermatofibroma,nevus,0
+906,nevus,nevus,1
+907,nevus,nevus,1
+908,nevus,nevus,1
+909,melanoma,pigmented benign keratosis,0
+910,nevus,nevus,1
+911,nevus,nevus,1
+912,nevus,nevus,1
+913,dermatofibroma,nevus,0
+914,melanoma,nevus,0
+915,nevus,nevus,1
+916,nevus,nevus,1
+917,pigmented benign keratosis,pigmented benign keratosis,1
+918,nevus,nevus,1
+919,pigmented benign keratosis,pigmented benign keratosis,1
+920,pigmented benign keratosis,pigmented benign keratosis,1
+921,melanoma,nevus,0
+922,basal cell carcinoma,nevus,0
+923,basal cell carcinoma,nevus,0
+924,melanoma,nevus,0
+925,pigmented benign keratosis,nevus,0
+926,nevus,nevus,1
+927,pigmented benign keratosis,pigmented benign keratosis,1
+928,nevus,nevus,1
+929,nevus,nevus,1
+930,nevus,pigmented benign keratosis,0
+931,squamous cell carcinoma,nevus,0
+932,basal cell carcinoma,basal cell carcinoma,1
+933,nevus,nevus,1
+934,pigmented benign keratosis,nevus,0
+935,nevus,nevus,1
+936,nevus,nevus,1
+937,nevus,nevus,1
+938,melanoma,nevus,0
+939,vascular lesion,nevus,0
+940,nevus,nevus,1
+941,nevus,nevus,1
+942,melanoma,pigmented benign keratosis,0
+943,nevus,nevus,1
+944,basal cell carcinoma,basal cell carcinoma,1
+945,nevus,nevus,1
+946,pigmented benign keratosis,pigmented benign keratosis,1
+947,nevus,nevus,1
+948,nevus,nevus,1
+949,nevus,nevus,1
+950,nevus,nevus,1
+951,nevus,nevus,1
+952,nevus,nevus,1
+953,nevus,nevus,1
+954,squamous cell carcinoma,nevus,0
+955,pigmented benign keratosis,pigmented benign keratosis,1
+956,nevus,nevus,1
+957,nevus,nevus,1
+958,melanoma,pigmented benign keratosis,0
+959,nevus,pigmented benign keratosis,0
+960,nevus,nevus,1
+961,pigmented benign keratosis,nevus,0
+962,pigmented benign keratosis,pigmented benign keratosis,1
+963,nevus,nevus,1
+964,nevus,nevus,1
+965,nevus,nevus,1
+966,nevus,nevus,1
+967,nevus,nevus,1
+968,nevus,melanoma,0
+969,nevus,nevus,1
+970,nevus,nevus,1
+971,nevus,nevus,1
+972,nevus,nevus,1
+973,nevus,nevus,1
+974,nevus,nevus,1
+975,nevus,nevus,1
+976,melanoma,nevus,0
+977,nevus,nevus,1
+978,nevus,nevus,1
+979,pigmented benign keratosis,nevus,0
+980,pigmented benign keratosis,nevus,0
+981,nevus,nevus,1
+982,nevus,nevus,1
+983,nevus,nevus,1
+984,dermatofibroma,pigmented benign keratosis,0
+985,nevus,nevus,1
+986,nevus,nevus,1
+987,basal cell carcinoma,nevus,0
+988,nevus,nevus,1
+989,nevus,nevus,1
+990,nevus,nevus,1
+991,melanoma,nevus,0
+992,melanoma,nevus,0
+993,nevus,nevus,1
+994,nevus,nevus,1
+995,nevus,nevus,1
+996,nevus,nevus,1
+997,pigmented benign keratosis,nevus,0
+998,nevus,nevus,1
+999,basal cell carcinoma,nevus,0
+1000,pigmented benign keratosis,nevus,0
+1001,squamous cell carcinoma,basal cell carcinoma,0
+1002,nevus,nevus,1
+1003,nevus,nevus,1
+1004,nevus,nevus,1
+1005,nevus,nevus,1
+1006,basal cell carcinoma,nevus,0
+1007,nevus,pigmented benign keratosis,0
+1008,nevus,nevus,1
+1009,nevus,nevus,1
+1010,nevus,nevus,1
+1011,nevus,nevus,1
+1012,pigmented benign keratosis,pigmented benign keratosis,1
+1013,nevus,nevus,1
+1014,nevus,nevus,1
+1015,nevus,nevus,1
+1016,pigmented benign keratosis,nevus,0
+1017,basal cell carcinoma,nevus,0
+1018,melanoma,pigmented benign keratosis,0
+1019,basal cell carcinoma,nevus,0
+1020,pigmented benign keratosis,nevus,0
+1021,nevus,nevus,1
+1022,melanoma,nevus,0
+1023,melanoma,nevus,0
+1024,nevus,nevus,1
+1025,melanoma,melanoma,1
+1026,pigmented benign keratosis,nevus,0
+1027,nevus,nevus,1
+1028,pigmented benign keratosis,nevus,0
+1029,nevus,nevus,1
+1030,nevus,nevus,1
+1031,nevus,nevus,1
+1032,nevus,melanoma,0
+1033,nevus,nevus,1
+1034,nevus,nevus,1
+1035,nevus,nevus,1
+1036,basal cell carcinoma,nevus,0
+1037,nevus,nevus,1
+1038,basal cell carcinoma,nevus,0
+1039,nevus,nevus,1
+1040,nevus,nevus,1
+1041,melanoma,nevus,0
+1042,nevus,nevus,1
+1043,pigmented benign keratosis,nevus,0
+1044,nevus,nevus,1
+1045,nevus,nevus,1
+1046,nevus,nevus,1
+1047,nevus,nevus,1
+1048,squamous cell carcinoma,nevus,0
+1049,nevus,basal cell carcinoma,0
+1050,nevus,nevus,1
+1051,nevus,nevus,1
+1052,nevus,nevus,1
+1053,nevus,nevus,1
+1054,nevus,nevus,1
+1055,nevus,nevus,1
+1056,nevus,melanoma,0
+1057,actinic keratosis,pigmented benign keratosis,0
+1058,basal cell carcinoma,basal cell carcinoma,1
+1059,melanoma,nevus,0
+1060,pigmented benign keratosis,basal cell carcinoma,0
+1061,nevus,nevus,1
+1062,melanoma,nevus,0
+1063,nevus,nevus,1
+1064,nevus,nevus,1
+1065,nevus,nevus,1
+1066,melanoma,melanoma,1
+1067,nevus,nevus,1
+1068,nevus,nevus,1
+1069,nevus,nevus,1
+1070,pigmented benign keratosis,nevus,0
+1071,nevus,nevus,1
+1072,nevus,melanoma,0
+1073,nevus,nevus,1
+1074,nevus,nevus,1
+1075,melanoma,nevus,0
+1076,pigmented benign keratosis,nevus,0
+1077,nevus,nevus,1
+1078,nevus,basal cell carcinoma,0
+1079,nevus,nevus,1
+1080,nevus,nevus,1
+1081,nevus,nevus,1
+1082,pigmented benign keratosis,nevus,0
+1083,nevus,nevus,1
+1084,nevus,nevus,1
+1085,nevus,nevus,1
+1086,nevus,nevus,1
+1087,nevus,nevus,1
+1088,nevus,nevus,1
+1089,nevus,nevus,1
+1090,pigmented benign keratosis,nevus,0
+1091,nevus,nevus,1
+1092,nevus,nevus,1
+1093,nevus,nevus,1
+1094,nevus,nevus,1
+1095,nevus,nevus,1
+1096,nevus,nevus,1
+1097,nevus,nevus,1
+1098,nevus,nevus,1
+1099,pigmented benign keratosis,nevus,0
+1100,nevus,nevus,1
+1101,nevus,nevus,1
+1102,melanoma,pigmented benign keratosis,0
+1103,nevus,nevus,1
+1104,nevus,nevus,1
+1105,nevus,nevus,1
+1106,nevus,nevus,1
+1107,nevus,nevus,1
+1108,melanoma,nevus,0
+1109,nevus,nevus,1
+1110,pigmented benign keratosis,basal cell carcinoma,0
+1111,nevus,nevus,1
+1112,basal cell carcinoma,basal cell carcinoma,1
+1113,nevus,nevus,1
+1114,basal cell carcinoma,pigmented benign keratosis,0
+1115,melanoma,melanoma,1
+1116,nevus,nevus,1
+1117,pigmented benign keratosis,nevus,0
+1118,basal cell carcinoma,basal cell carcinoma,1
+1119,nevus,nevus,1
+1120,nevus,nevus,1
+1121,nevus,nevus,1
+1122,nevus,nevus,1
+1123,pigmented benign keratosis,melanoma,0
+1124,pigmented benign keratosis,nevus,0
+1125,nevus,basal cell carcinoma,0
+1126,nevus,nevus,1
+1127,nevus,nevus,1
+1128,vascular lesion,nevus,0
+1129,nevus,nevus,1
+1130,nevus,melanoma,0
+1131,nevus,nevus,1
+1132,nevus,nevus,1
+1133,nevus,nevus,1
+1134,nevus,nevus,1
+1135,squamous cell carcinoma,nevus,0
+1136,nevus,nevus,1
+1137,nevus,nevus,1
+1138,nevus,nevus,1
+1139,nevus,nevus,1
+1140,pigmented benign keratosis,basal cell carcinoma,0
+1141,nevus,nevus,1
+1142,nevus,nevus,1
+1143,melanoma,nevus,0
+1144,melanoma,pigmented benign keratosis,0
+1145,nevus,nevus,1
+1146,melanoma,nevus,0
+1147,melanoma,nevus,0
+1148,nevus,nevus,1
+1149,melanoma,nevus,0
+1150,nevus,nevus,1
+1151,pigmented benign keratosis,nevus,0
+1152,basal cell carcinoma,nevus,0
+1153,nevus,nevus,1
+1154,nevus,nevus,1
+1155,nevus,nevus,1
+1156,melanoma,nevus,0
+1157,nevus,nevus,1
+1158,melanoma,nevus,0
+1159,melanoma,nevus,0
+1160,nevus,nevus,1
+1161,melanoma,pigmented benign keratosis,0
+1162,nevus,nevus,1
+1163,nevus,basal cell carcinoma,0
+1164,nevus,nevus,1
+1165,melanoma,pigmented benign keratosis,0
+1166,nevus,nevus,1
+1167,nevus,nevus,1
+1168,melanoma,nevus,0
+1169,squamous cell carcinoma,nevus,0
+1170,nevus,nevus,1
+1171,nevus,nevus,1
+1172,dermatofibroma,nevus,0
+1173,nevus,nevus,1
+1174,nevus,nevus,1
+1175,melanoma,melanoma,1
+1176,pigmented benign keratosis,nevus,0
+1177,pigmented benign keratosis,pigmented benign keratosis,1
+1178,nevus,nevus,1
+1179,nevus,nevus,1
+1180,pigmented benign keratosis,basal cell carcinoma,0
+1181,nevus,nevus,1
+1182,nevus,nevus,1
+1183,nevus,nevus,1
+1184,nevus,nevus,1
+1185,nevus,nevus,1
+1186,pigmented benign keratosis,nevus,0
+1187,nevus,nevus,1
+1188,nevus,nevus,1
+1189,nevus,nevus,1
+1190,nevus,nevus,1
+1191,nevus,nevus,1
+1192,nevus,nevus,1
+1193,nevus,nevus,1
+1194,nevus,nevus,1
+1195,basal cell carcinoma,pigmented benign keratosis,0
+1196,pigmented benign keratosis,pigmented benign keratosis,1
+1197,nevus,basal cell carcinoma,0
+1198,nevus,nevus,1
+1199,nevus,nevus,1
+1200,basal cell carcinoma,nevus,0
+1201,nevus,nevus,1
+1202,nevus,nevus,1
+1203,nevus,nevus,1
+1204,nevus,nevus,1
+1205,actinic keratosis,nevus,0
+1206,nevus,melanoma,0
+1207,pigmented benign keratosis,pigmented benign keratosis,1
+1208,nevus,nevus,1
+1209,nevus,nevus,1
+1210,nevus,nevus,1
+1211,nevus,nevus,1
+1212,melanoma,nevus,0
+1213,melanoma,pigmented benign keratosis,0
+1214,melanoma,nevus,0
+1215,nevus,nevus,1
+1216,pigmented benign keratosis,melanoma,0
+1217,nevus,nevus,1
+1218,pigmented benign keratosis,nevus,0
+1219,pigmented benign keratosis,pigmented benign keratosis,1
+1220,nevus,nevus,1
+1221,pigmented benign keratosis,pigmented benign keratosis,1
+1222,dermatofibroma,nevus,0
+1223,nevus,nevus,1
+1224,nevus,nevus,1
+1225,nevus,nevus,1
+1226,nevus,nevus,1
+1227,nevus,nevus,1
+1228,nevus,nevus,1
+1229,basal cell carcinoma,basal cell carcinoma,1
+1230,nevus,nevus,1
+1231,melanoma,pigmented benign keratosis,0
+1232,nevus,nevus,1
+1233,nevus,nevus,1
+1234,melanoma,melanoma,1
+1235,basal cell carcinoma,nevus,0
+1236,vascular lesion,nevus,0
+1237,nevus,nevus,1
+1238,pigmented benign keratosis,nevus,0
+1239,nevus,nevus,1
+1240,nevus,nevus,1
+1241,melanoma,nevus,0
+1242,nevus,nevus,1
+1243,nevus,nevus,1
+1244,nevus,nevus,1
+1245,nevus,nevus,1
+1246,nevus,nevus,1
+1247,nevus,nevus,1
+1248,nevus,nevus,1
+1249,nevus,nevus,1
+1250,pigmented benign keratosis,nevus,0
+1251,nevus,nevus,1
+1252,nevus,melanoma,0
+1253,melanoma,nevus,0
+1254,basal cell carcinoma,pigmented benign keratosis,0
+1255,nevus,nevus,1
+1256,nevus,nevus,1
+1257,nevus,nevus,1
+1258,basal cell carcinoma,nevus,0
+1259,nevus,nevus,1
+1260,dermatofibroma,nevus,0
+1261,nevus,nevus,1
+1262,nevus,nevus,1
+1263,nevus,nevus,1
+1264,melanoma,pigmented benign keratosis,0
+1265,pigmented benign keratosis,melanoma,0
+1266,basal cell carcinoma,nevus,0
+1267,nevus,melanoma,0
+1268,pigmented benign keratosis,nevus,0
+1269,nevus,melanoma,0
+1270,nevus,nevus,1
+1271,nevus,nevus,1
+1272,nevus,nevus,1
+1273,basal cell carcinoma,nevus,0
+1274,melanoma,pigmented benign keratosis,0
+1275,melanoma,melanoma,1
+1276,pigmented benign keratosis,pigmented benign keratosis,1
+1277,melanoma,nevus,0
+1278,nevus,nevus,1
+1279,nevus,nevus,1
+1280,melanoma,nevus,0
+1281,pigmented benign keratosis,melanoma,0
+1282,pigmented benign keratosis,nevus,0
+1283,melanoma,nevus,0
+1284,nevus,nevus,1
+1285,nevus,nevus,1
+1286,melanoma,melanoma,1
+1287,nevus,nevus,1
+1288,nevus,nevus,1
+1289,nevus,nevus,1
+1290,nevus,nevus,1
+1291,nevus,nevus,1
+1292,nevus,nevus,1
+1293,nevus,nevus,1
+1294,nevus,nevus,1
+1295,melanoma,melanoma,1
+1296,nevus,pigmented benign keratosis,0
+1297,nevus,pigmented benign keratosis,0
+1298,nevus,nevus,1
+1299,nevus,melanoma,0
+1300,nevus,nevus,1
+1301,nevus,pigmented benign keratosis,0
+1302,nevus,nevus,1
+1303,nevus,nevus,1
+1304,nevus,nevus,1
+1305,nevus,nevus,1
+1306,melanoma,melanoma,1
+1307,nevus,nevus,1
+1308,pigmented benign keratosis,nevus,0
+1309,nevus,nevus,1
+1310,nevus,nevus,1
+1311,nevus,nevus,1
+1312,nevus,nevus,1
+1313,pigmented benign keratosis,nevus,0
+1314,nevus,nevus,1
+1315,nevus,nevus,1
+1316,vascular lesion,nevus,0
+1317,nevus,nevus,1
+1318,nevus,nevus,1
+1319,nevus,nevus,1
+1320,nevus,pigmented benign keratosis,0
+1321,nevus,nevus,1
+1322,nevus,nevus,1
+1323,nevus,nevus,1
+1324,nevus,nevus,1
+1325,dermatofibroma,nevus,0
+1326,actinic keratosis,pigmented benign keratosis,0
+1327,nevus,nevus,1
+1328,nevus,nevus,1
+1329,nevus,nevus,1
+1330,pigmented benign keratosis,pigmented benign keratosis,1
+1331,pigmented benign keratosis,nevus,0
+1332,pigmented benign keratosis,nevus,0
+1333,melanoma,nevus,0
+1334,melanoma,nevus,0
+1335,nevus,nevus,1
+1336,pigmented benign keratosis,nevus,0
+1337,nevus,nevus,1
+1338,nevus,nevus,1
+1339,nevus,nevus,1
+1340,melanoma,nevus,0
+1341,nevus,nevus,1
+1342,melanoma,nevus,0
+1343,melanoma,melanoma,1
+1344,nevus,nevus,1
+1345,nevus,nevus,1
+1346,nevus,nevus,1
+1347,nevus,melanoma,0
+1348,melanoma,nevus,0
+1349,nevus,nevus,1
+1350,melanoma,nevus,0
+1351,nevus,nevus,1
+1352,melanoma,nevus,0
+1353,pigmented benign keratosis,nevus,0
+1354,nevus,nevus,1
+1355,nevus,nevus,1
+1356,nevus,nevus,1
+1357,nevus,nevus,1
+1358,nevus,nevus,1
+1359,pigmented benign keratosis,pigmented benign keratosis,1
+1360,melanoma,nevus,0
+1361,nevus,nevus,1
+1362,nevus,nevus,1
+1363,nevus,nevus,1
+1364,nevus,nevus,1
+1365,melanoma,nevus,0
+1366,nevus,nevus,1
+1367,nevus,nevus,1
+1368,basal cell carcinoma,nevus,0
+1369,vascular lesion,nevus,0
+1370,nevus,nevus,1
+1371,nevus,nevus,1
+1372,nevus,nevus,1
+1373,melanoma,nevus,0
+1374,nevus,nevus,1
+1375,melanoma,nevus,0
+1376,nevus,nevus,1
+1377,nevus,nevus,1
+1378,nevus,nevus,1
+1379,nevus,nevus,1
+1380,nevus,nevus,1
+1381,nevus,nevus,1
+1382,melanoma,nevus,0
+1383,nevus,nevus,1
+1384,pigmented benign keratosis,nevus,0
+1385,nevus,nevus,1
+1386,nevus,melanoma,0
+1387,nevus,nevus,1
+1388,nevus,basal cell carcinoma,0
+1389,pigmented benign keratosis,nevus,0
+1390,pigmented benign keratosis,nevus,0
+1391,pigmented benign keratosis,nevus,0
+1392,nevus,nevus,1
+1393,nevus,nevus,1
+1394,nevus,nevus,1
+1395,nevus,nevus,1
+1396,dermatofibroma,pigmented benign keratosis,0
+1397,actinic keratosis,basal cell carcinoma,0
+1398,melanoma,nevus,0
+1399,basal cell carcinoma,basal cell carcinoma,1
+1400,nevus,nevus,1
+1401,nevus,nevus,1
+1402,nevus,nevus,1
+1403,melanoma,nevus,0
+1404,melanoma,melanoma,1
+1405,nevus,nevus,1
+1406,nevus,nevus,1
+1407,melanoma,nevus,0
+1408,melanoma,nevus,0
+1409,nevus,nevus,1
+1410,nevus,nevus,1
+1411,nevus,nevus,1
+1412,basal cell carcinoma,melanoma,0
+1413,nevus,nevus,1
+1414,pigmented benign keratosis,pigmented benign keratosis,1
+1415,nevus,nevus,1
+1416,melanoma,pigmented benign keratosis,0
+1417,nevus,nevus,1
+1418,nevus,nevus,1
+1419,nevus,nevus,1
+1420,dermatofibroma,nevus,0
+1421,nevus,nevus,1
+1422,pigmented benign keratosis,pigmented benign keratosis,1
+1423,melanoma,nevus,0
+1424,nevus,nevus,1
+1425,pigmented benign keratosis,basal cell carcinoma,0
+1426,nevus,nevus,1
+1427,basal cell carcinoma,pigmented benign keratosis,0
+1428,nevus,nevus,1
+1429,melanoma,melanoma,1
+1430,nevus,nevus,1
+1431,nevus,nevus,1
+1432,nevus,nevus,1
+1433,nevus,melanoma,0
+1434,nevus,nevus,1
+1435,nevus,nevus,1
+1436,nevus,nevus,1
+1437,pigmented benign keratosis,nevus,0
+1438,nevus,nevus,1
+1439,nevus,nevus,1
+1440,melanoma,nevus,0
+1441,melanoma,nevus,0
+1442,nevus,nevus,1
+1443,nevus,nevus,1
+1444,nevus,nevus,1
+1445,vascular lesion,nevus,0
+1446,nevus,nevus,1
+1447,nevus,nevus,1
+1448,nevus,basal cell carcinoma,0
+1449,nevus,nevus,1
+1450,pigmented benign keratosis,pigmented benign keratosis,1
+1451,nevus,basal cell carcinoma,0
+1452,pigmented benign keratosis,pigmented benign keratosis,1
+1453,basal cell carcinoma,basal cell carcinoma,1
+1454,nevus,nevus,1
+1455,nevus,nevus,1
+1456,nevus,nevus,1
+1457,nevus,nevus,1
+1458,nevus,nevus,1
+1459,pigmented benign keratosis,basal cell carcinoma,0
+1460,pigmented benign keratosis,melanoma,0
+1461,basal cell carcinoma,basal cell carcinoma,1
+1462,pigmented benign keratosis,pigmented benign keratosis,1
+1463,nevus,nevus,1
+1464,pigmented benign keratosis,pigmented benign keratosis,1
+1465,nevus,nevus,1
+1466,nevus,nevus,1
+1467,melanoma,nevus,0
+1468,nevus,nevus,1
+1469,nevus,nevus,1
+1470,nevus,nevus,1
+1471,nevus,nevus,1
+1472,nevus,nevus,1
+1473,melanoma,pigmented benign keratosis,0
+1474,nevus,nevus,1
+1475,melanoma,nevus,0
+1476,nevus,nevus,1
+1477,nevus,nevus,1
+1478,nevus,nevus,1
+1479,actinic keratosis,basal cell carcinoma,0
+1480,nevus,nevus,1
+1481,nevus,nevus,1
+1482,nevus,nevus,1
+1483,nevus,nevus,1
+1484,nevus,nevus,1
+1485,nevus,nevus,1
+1486,nevus,nevus,1
+1487,nevus,nevus,1
+1488,nevus,nevus,1
+1489,nevus,nevus,1
+1490,nevus,nevus,1
+1491,pigmented benign keratosis,nevus,0
+1492,nevus,nevus,1
+1493,nevus,nevus,1
+1494,nevus,nevus,1
+1495,melanoma,nevus,0
+1496,nevus,nevus,1
+1497,basal cell carcinoma,basal cell carcinoma,1
+1498,nevus,nevus,1
+1499,melanoma,nevus,0
+1500,nevus,nevus,1
+1501,basal cell carcinoma,nevus,0
+1502,nevus,nevus,1
+1503,nevus,nevus,1
+1504,nevus,nevus,1
+1505,nevus,nevus,1
+1506,basal cell carcinoma,nevus,0
+1507,nevus,pigmented benign keratosis,0
+1508,nevus,nevus,1
+1509,nevus,nevus,1
+1510,nevus,nevus,1
+1511,nevus,pigmented benign keratosis,0
+1512,nevus,nevus,1
+1513,nevus,nevus,1
+1514,nevus,nevus,1
+1515,pigmented benign keratosis,nevus,0
+1516,nevus,nevus,1
+1517,nevus,nevus,1
+1518,nevus,nevus,1
+1519,nevus,nevus,1
+1520,nevus,nevus,1
+1521,basal cell carcinoma,nevus,0
+1522,nevus,nevus,1
+1523,nevus,nevus,1
+1524,nevus,nevus,1
+1525,nevus,nevus,1
+1526,basal cell carcinoma,basal cell carcinoma,1
+1527,nevus,nevus,1
+1528,nevus,nevus,1
+1529,nevus,nevus,1
+1530,nevus,nevus,1
+1531,melanoma,nevus,0
+1532,nevus,nevus,1
+1533,nevus,nevus,1
+1534,nevus,nevus,1
+1535,melanoma,nevus,0
+1536,nevus,nevus,1
+1537,nevus,nevus,1
+1538,pigmented benign keratosis,pigmented benign keratosis,1
+1539,nevus,nevus,1
+1540,pigmented benign keratosis,pigmented benign keratosis,1
+1541,squamous cell carcinoma,basal cell carcinoma,0
+1542,nevus,nevus,1
+1543,nevus,nevus,1
+1544,vascular lesion,nevus,0
+1545,nevus,nevus,1
+1546,nevus,nevus,1
+1547,nevus,nevus,1
+1548,pigmented benign keratosis,pigmented benign keratosis,1
+1549,nevus,basal cell carcinoma,0
+1550,basal cell carcinoma,nevus,0
+1551,actinic keratosis,nevus,0
+1552,basal cell carcinoma,nevus,0
+1553,nevus,nevus,1
+1554,pigmented benign keratosis,basal cell carcinoma,0
+1555,vascular lesion,basal cell carcinoma,0
+1556,nevus,nevus,1
+1557,nevus,nevus,1
+1558,nevus,nevus,1
+1559,melanoma,nevus,0
+1560,nevus,nevus,1
+1561,nevus,nevus,1
+1562,nevus,nevus,1
+1563,melanoma,nevus,0
+1564,nevus,nevus,1
+1565,nevus,nevus,1
+1566,squamous cell carcinoma,nevus,0
+1567,nevus,nevus,1
+1568,melanoma,nevus,0
+1569,nevus,nevus,1
+1570,nevus,nevus,1
+1571,nevus,nevus,1
+1572,nevus,nevus,1
+1573,nevus,pigmented benign keratosis,0
+1574,nevus,nevus,1
+1575,pigmented benign keratosis,pigmented benign keratosis,1
+1576,pigmented benign keratosis,nevus,0
+1577,pigmented benign keratosis,nevus,0
+1578,melanoma,nevus,0
+1579,nevus,nevus,1
+1580,nevus,nevus,1
+1581,nevus,nevus,1
+1582,nevus,nevus,1
+1583,melanoma,melanoma,1
+1584,nevus,nevus,1
+1585,nevus,nevus,1
+1586,nevus,nevus,1
+1587,nevus,nevus,1
+1588,nevus,nevus,1
+1589,nevus,nevus,1
+1590,nevus,nevus,1
+1591,nevus,nevus,1
+1592,nevus,nevus,1
+1593,nevus,nevus,1
+1594,nevus,nevus,1
+1595,nevus,nevus,1
+1596,pigmented benign keratosis,pigmented benign keratosis,1
+1597,nevus,nevus,1
+1598,nevus,nevus,1
+1599,nevus,nevus,1
+1600,nevus,pigmented benign keratosis,0
+1601,nevus,nevus,1
+1602,nevus,nevus,1
+1603,nevus,nevus,1
+1604,pigmented benign keratosis,nevus,0
+1605,nevus,nevus,1
+1606,pigmented benign keratosis,pigmented benign keratosis,1
+1607,nevus,nevus,1
+1608,nevus,nevus,1
+1609,nevus,nevus,1
+1610,nevus,nevus,1
+1611,nevus,nevus,1
+1612,pigmented benign keratosis,nevus,0
+1613,nevus,nevus,1
+1614,nevus,nevus,1
+1615,pigmented benign keratosis,pigmented benign keratosis,1
+1616,melanoma,nevus,0
+1617,nevus,nevus,1
+1618,nevus,nevus,1
+1619,nevus,nevus,1
+1620,nevus,nevus,1
+1621,basal cell carcinoma,pigmented benign keratosis,0
+1622,nevus,nevus,1
+1623,nevus,nevus,1
+1624,nevus,nevus,1
+1625,nevus,nevus,1
+1626,pigmented benign keratosis,pigmented benign keratosis,1
+1627,nevus,nevus,1
+1628,melanoma,nevus,0
+1629,nevus,nevus,1
+1630,actinic keratosis,nevus,0
+1631,melanoma,nevus,0
+1632,pigmented benign keratosis,nevus,0
+1633,nevus,nevus,1
+1634,nevus,nevus,1
+1635,nevus,nevus,1
+1636,pigmented benign keratosis,pigmented benign keratosis,1
+1637,nevus,nevus,1
+1638,nevus,pigmented benign keratosis,0
+1639,nevus,nevus,1
+1640,nevus,pigmented benign keratosis,0
+1641,nevus,melanoma,0
+1642,nevus,nevus,1
+1643,nevus,nevus,1
+1644,nevus,nevus,1
+1645,nevus,nevus,1
+1646,nevus,nevus,1
+1647,melanoma,nevus,0
+1648,nevus,nevus,1
+1649,nevus,nevus,1
+1650,pigmented benign keratosis,nevus,0
+1651,nevus,nevus,1
+1652,nevus,nevus,1
+1653,nevus,nevus,1
+1654,nevus,nevus,1
+1655,melanoma,nevus,0
+1656,nevus,nevus,1
+1657,pigmented benign keratosis,nevus,0
+1658,nevus,nevus,1
+1659,nevus,nevus,1
+1660,nevus,nevus,1
+1661,nevus,nevus,1
+1662,dermatofibroma,pigmented benign keratosis,0
+1663,nevus,nevus,1
+1664,nevus,nevus,1
+1665,nevus,nevus,1
+1666,basal cell carcinoma,basal cell carcinoma,1
+1667,nevus,pigmented benign keratosis,0
+1668,nevus,nevus,1
+1669,pigmented benign keratosis,nevus,0
+1670,squamous cell carcinoma,nevus,0
+1671,nevus,nevus,1
+1672,nevus,nevus,1
+1673,melanoma,nevus,0
+1674,nevus,nevus,1
+1675,nevus,nevus,1
+1676,pigmented benign keratosis,melanoma,0
+1677,nevus,nevus,1
+1678,nevus,pigmented benign keratosis,0
+1679,melanoma,nevus,0
+1680,pigmented benign keratosis,nevus,0
+1681,nevus,nevus,1
+1682,melanoma,melanoma,1
+1683,melanoma,nevus,0
+1684,nevus,nevus,1
+1685,nevus,nevus,1
+1686,melanoma,nevus,0
+1687,basal cell carcinoma,basal cell carcinoma,1
+1688,pigmented benign keratosis,nevus,0
+1689,nevus,nevus,1
+1690,nevus,nevus,1
+1691,nevus,nevus,1
+1692,pigmented benign keratosis,nevus,0
+1693,pigmented benign keratosis,pigmented benign keratosis,1
+1694,nevus,nevus,1
+1695,melanoma,nevus,0
+1696,nevus,nevus,1
+1697,nevus,nevus,1
+1698,nevus,nevus,1
+1699,nevus,nevus,1
+1700,vascular lesion,nevus,0
+1701,pigmented benign keratosis,pigmented benign keratosis,1
+1702,nevus,nevus,1
+1703,basal cell carcinoma,nevus,0
+1704,nevus,nevus,1
+1705,nevus,pigmented benign keratosis,0
+1706,nevus,nevus,1
+1707,nevus,nevus,1
+1708,nevus,nevus,1
+1709,nevus,nevus,1
+1710,nevus,nevus,1
+1711,pigmented benign keratosis,nevus,0
+1712,nevus,nevus,1
+1713,nevus,nevus,1
+1714,actinic keratosis,nevus,0
+1715,nevus,nevus,1
+1716,basal cell carcinoma,nevus,0
+1717,nevus,nevus,1
+1718,nevus,nevus,1
+1719,nevus,nevus,1
+1720,nevus,nevus,1
+1721,nevus,nevus,1
+1722,pigmented benign keratosis,pigmented benign keratosis,1
+1723,melanoma,nevus,0
+1724,vascular lesion,nevus,0
+1725,melanoma,nevus,0
+1726,nevus,nevus,1
+1727,nevus,nevus,1
+1728,nevus,nevus,1
+1729,pigmented benign keratosis,nevus,0
+1730,nevus,pigmented benign keratosis,0
+1731,pigmented benign keratosis,pigmented benign keratosis,1
+1732,nevus,nevus,1
+1733,basal cell carcinoma,basal cell carcinoma,1
+1734,pigmented benign keratosis,nevus,0
+1735,nevus,nevus,1
+1736,nevus,melanoma,0
+1737,nevus,nevus,1
+1738,pigmented benign keratosis,nevus,0
+1739,nevus,nevus,1
+1740,nevus,nevus,1
+1741,nevus,nevus,1
+1742,nevus,nevus,1
+1743,nevus,nevus,1
+1744,melanoma,melanoma,1
+1745,pigmented benign keratosis,pigmented benign keratosis,1
+1746,nevus,nevus,1
+1747,nevus,basal cell carcinoma,0
+1748,nevus,nevus,1
+1749,pigmented benign keratosis,nevus,0
+1750,nevus,nevus,1
+1751,nevus,nevus,1
+1752,melanoma,nevus,0
+1753,nevus,nevus,1
+1754,nevus,nevus,1
+1755,nevus,nevus,1
+1756,pigmented benign keratosis,nevus,0
+1757,nevus,pigmented benign keratosis,0
+1758,pigmented benign keratosis,pigmented benign keratosis,1
+1759,pigmented benign keratosis,nevus,0
+1760,melanoma,nevus,0
+1761,nevus,nevus,1
+1762,pigmented benign keratosis,pigmented benign keratosis,1
+1763,nevus,nevus,1
+1764,nevus,nevus,1
+1765,nevus,nevus,1
+1766,nevus,nevus,1
+1767,basal cell carcinoma,basal cell carcinoma,1
+1768,nevus,nevus,1
+1769,melanoma,melanoma,1
+1770,pigmented benign keratosis,nevus,0
+1771,nevus,nevus,1
+1772,nevus,nevus,1
+1773,melanoma,nevus,0
+1774,nevus,nevus,1
+1775,nevus,nevus,1
+1776,vascular lesion,nevus,0
+1777,nevus,nevus,1
+1778,melanoma,nevus,0
+1779,nevus,nevus,1
+1780,nevus,nevus,1
+1781,nevus,nevus,1
+1782,nevus,nevus,1
+1783,nevus,nevus,1
+1784,nevus,nevus,1
+1785,melanoma,nevus,0
+1786,nevus,nevus,1
+1787,nevus,nevus,1
+1788,nevus,nevus,1
+1789,nevus,nevus,1
+1790,nevus,nevus,1
+1791,nevus,nevus,1
+1792,nevus,nevus,1
+1793,nevus,nevus,1
+1794,nevus,nevus,1
+1795,nevus,nevus,1
+1796,nevus,nevus,1
+1797,nevus,nevus,1
+1798,nevus,nevus,1
+1799,nevus,nevus,1
+1800,nevus,nevus,1
+1801,nevus,nevus,1
+1802,nevus,nevus,1
+1803,nevus,nevus,1
+1804,melanoma,nevus,0
+1805,nevus,nevus,1
+1806,pigmented benign keratosis,nevus,0
+1807,nevus,nevus,1
+1808,basal cell carcinoma,nevus,0
+1809,nevus,nevus,1
+1810,nevus,nevus,1
+1811,pigmented benign keratosis,nevus,0
+1812,nevus,nevus,1
+1813,pigmented benign keratosis,nevus,0
+1814,nevus,nevus,1
+1815,melanoma,nevus,0
+1816,nevus,nevus,1
+1817,nevus,nevus,1
+1818,pigmented benign keratosis,basal cell carcinoma,0
+1819,nevus,nevus,1
+1820,melanoma,pigmented benign keratosis,0
+1821,nevus,nevus,1
+1822,nevus,nevus,1
+1823,squamous cell carcinoma,basal cell carcinoma,0
+1824,pigmented benign keratosis,nevus,0
+1825,pigmented benign keratosis,basal cell carcinoma,0
+1826,nevus,nevus,1
+1827,vascular lesion,nevus,0
+1828,pigmented benign keratosis,nevus,0
+1829,melanoma,nevus,0
+1830,nevus,nevus,1
+1831,basal cell carcinoma,nevus,0
+1832,nevus,nevus,1
+1833,pigmented benign keratosis,pigmented benign keratosis,1
+1834,nevus,nevus,1
+1835,actinic keratosis,basal cell carcinoma,0
+1836,nevus,melanoma,0
+1837,pigmented benign keratosis,pigmented benign keratosis,1
+1838,nevus,nevus,1
+1839,nevus,nevus,1
+1840,nevus,basal cell carcinoma,0
+1841,nevus,nevus,1
+1842,nevus,nevus,1
+1843,nevus,nevus,1
+1844,nevus,nevus,1
+1845,pigmented benign keratosis,nevus,0
+1846,melanoma,melanoma,1
+1847,nevus,nevus,1
+1848,melanoma,nevus,0
+1849,nevus,nevus,1
+1850,actinic keratosis,nevus,0
+1851,nevus,nevus,1
+1852,nevus,nevus,1
+1853,nevus,nevus,1
+1854,pigmented benign keratosis,nevus,0
+1855,nevus,nevus,1
+1856,vascular lesion,pigmented benign keratosis,0
+1857,vascular lesion,nevus,0
+1858,vascular lesion,nevus,0
+1859,nevus,nevus,1
+1860,melanoma,nevus,0
+1861,nevus,nevus,1
+1862,squamous cell carcinoma,pigmented benign keratosis,0
+1863,nevus,nevus,1
+1864,pigmented benign keratosis,pigmented benign keratosis,1
+1865,nevus,nevus,1
+1866,nevus,nevus,1
+1867,nevus,nevus,1
+1868,nevus,nevus,1
+1869,basal cell carcinoma,pigmented benign keratosis,0
+1870,pigmented benign keratosis,nevus,0
+1871,nevus,nevus,1
+1872,nevus,nevus,1
+1873,melanoma,pigmented benign keratosis,0
+1874,nevus,nevus,1
+1875,nevus,nevus,1
+1876,melanoma,nevus,0
+1877,nevus,nevus,1
+1878,nevus,nevus,1
+1879,nevus,nevus,1
+1880,melanoma,nevus,0
+1881,nevus,nevus,1
+1882,nevus,nevus,1
+1883,melanoma,nevus,0
+1884,nevus,nevus,1
+1885,nevus,nevus,1
+1886,nevus,nevus,1
+1887,nevus,nevus,1
+1888,nevus,nevus,1
+1889,nevus,nevus,1
+1890,pigmented benign keratosis,pigmented benign keratosis,1
+1891,nevus,nevus,1
+1892,nevus,pigmented benign keratosis,0
+1893,nevus,nevus,1
+1894,nevus,nevus,1
+1895,nevus,nevus,1
+1896,nevus,nevus,1
+1897,nevus,nevus,1
+1898,nevus,nevus,1
+1899,melanoma,nevus,0
+1900,nevus,nevus,1
+1901,melanoma,melanoma,1
+1902,nevus,nevus,1
+1903,nevus,nevus,1
+1904,nevus,nevus,1
+1905,nevus,nevus,1
+1906,nevus,nevus,1
+1907,basal cell carcinoma,basal cell carcinoma,1
+1908,nevus,nevus,1
+1909,nevus,nevus,1
+1910,nevus,nevus,1
+1911,nevus,nevus,1
+1912,nevus,nevus,1
+1913,pigmented benign keratosis,nevus,0
+1914,melanoma,pigmented benign keratosis,0
+1915,nevus,nevus,1
+1916,melanoma,melanoma,1
+1917,nevus,nevus,1
+1918,nevus,basal cell carcinoma,0
+1919,nevus,nevus,1
+1920,actinic keratosis,basal cell carcinoma,0
+1921,nevus,nevus,1
+1922,nevus,nevus,1
+1923,nevus,nevus,1
+1924,pigmented benign keratosis,nevus,0
+1925,nevus,nevus,1
+1926,nevus,pigmented benign keratosis,0
+1927,nevus,nevus,1
+1928,melanoma,nevus,0
+1929,nevus,nevus,1
+1930,nevus,nevus,1
+1931,melanoma,nevus,0
+1932,nevus,nevus,1
+1933,nevus,nevus,1
+1934,pigmented benign keratosis,nevus,0
+1935,nevus,nevus,1
+1936,nevus,nevus,1
+1937,pigmented benign keratosis,pigmented benign keratosis,1
+1938,vascular lesion,nevus,0
+1939,nevus,melanoma,0
+1940,melanoma,pigmented benign keratosis,0
+1941,melanoma,nevus,0
+1942,basal cell carcinoma,basal cell carcinoma,1
+1943,melanoma,pigmented benign keratosis,0
+1944,nevus,nevus,1
+1945,nevus,nevus,1
+1946,pigmented benign keratosis,nevus,0
+1947,nevus,nevus,1
+1948,nevus,nevus,1
+1949,basal cell carcinoma,basal cell carcinoma,1
+1950,nevus,nevus,1
+1951,melanoma,nevus,0
+1952,nevus,nevus,1
+1953,nevus,nevus,1
+1954,nevus,nevus,1
+1955,basal cell carcinoma,nevus,0
+1956,nevus,nevus,1
+1957,nevus,nevus,1
+1958,nevus,nevus,1
+1959,nevus,nevus,1
+1960,nevus,nevus,1
+1961,melanoma,melanoma,1
+1962,nevus,nevus,1
+1963,basal cell carcinoma,nevus,0
+1964,melanoma,nevus,0
+1965,nevus,nevus,1
+1966,nevus,nevus,1
+1967,nevus,nevus,1
+1968,nevus,nevus,1
+1969,nevus,nevus,1
+1970,pigmented benign keratosis,nevus,0
+1971,nevus,melanoma,0
+1972,nevus,nevus,1
+1973,nevus,nevus,1
+1974,melanoma,nevus,0
+1975,melanoma,nevus,0
+1976,nevus,nevus,1
+1977,nevus,nevus,1
+1978,nevus,nevus,1
+1979,nevus,nevus,1
+1980,melanoma,nevus,0
+1981,nevus,nevus,1
+1982,nevus,nevus,1
+1983,nevus,nevus,1
+1984,nevus,pigmented benign keratosis,0
+1985,nevus,nevus,1
+1986,nevus,pigmented benign keratosis,0
+1987,nevus,nevus,1
+1988,pigmented benign keratosis,pigmented benign keratosis,1
+1989,nevus,nevus,1
+1990,nevus,pigmented benign keratosis,0
+1991,nevus,nevus,1
+1992,melanoma,melanoma,1
+1993,nevus,nevus,1
+1994,nevus,pigmented benign keratosis,0
+1995,nevus,nevus,1
+1996,basal cell carcinoma,basal cell carcinoma,1
+1997,nevus,nevus,1
+1998,nevus,pigmented benign keratosis,0
+1999,melanoma,nevus,0
+2000,nevus,nevus,1
+2001,basal cell carcinoma,basal cell carcinoma,1
+2002,nevus,nevus,1
+2003,pigmented benign keratosis,pigmented benign keratosis,1
+2004,nevus,nevus,1
+2005,nevus,nevus,1
+2006,nevus,nevus,1
+2007,nevus,pigmented benign keratosis,0
+2008,nevus,nevus,1
+2009,melanoma,nevus,0
+2010,pigmented benign keratosis,melanoma,0
+2011,squamous cell carcinoma,nevus,0
+2012,nevus,nevus,1
+2013,melanoma,nevus,0
+2014,nevus,nevus,1
+2015,nevus,nevus,1
+2016,nevus,nevus,1
+2017,nevus,nevus,1
+2018,melanoma,nevus,0
+2019,nevus,nevus,1
+2020,nevus,nevus,1
+2021,nevus,nevus,1
+2022,nevus,nevus,1
+2023,actinic keratosis,nevus,0
+2024,nevus,nevus,1
+2025,nevus,nevus,1
+2026,nevus,nevus,1
+2027,nevus,nevus,1
+2028,basal cell carcinoma,nevus,0
+2029,nevus,nevus,1
+2030,nevus,nevus,1
+2031,nevus,nevus,1
+2032,nevus,nevus,1
+2033,basal cell carcinoma,nevus,0
+2034,melanoma,melanoma,1
+2035,nevus,nevus,1
+2036,melanoma,nevus,0
+2037,nevus,nevus,1
+2038,melanoma,nevus,0
+2039,melanoma,nevus,0
+2040,nevus,nevus,1
+2041,nevus,nevus,1
+2042,nevus,pigmented benign keratosis,0
+2043,nevus,nevus,1
+2044,nevus,pigmented benign keratosis,0
+2045,nevus,nevus,1
+2046,nevus,nevus,1
+2047,nevus,nevus,1
+2048,nevus,nevus,1
+2049,nevus,nevus,1
+2050,nevus,nevus,1
+2051,nevus,nevus,1
+2052,melanoma,melanoma,1
+2053,nevus,nevus,1
+2054,melanoma,pigmented benign keratosis,0
+2055,nevus,nevus,1
+2056,nevus,nevus,1
+2057,pigmented benign keratosis,pigmented benign keratosis,1
+2058,nevus,nevus,1
+2059,melanoma,nevus,0
+2060,nevus,nevus,1
+2061,nevus,nevus,1
+2062,nevus,nevus,1
+2063,basal cell carcinoma,basal cell carcinoma,1
+2064,nevus,nevus,1
+2065,nevus,nevus,1
+2066,melanoma,nevus,0
+2067,nevus,pigmented benign keratosis,0
+2068,nevus,nevus,1
+2069,basal cell carcinoma,basal cell carcinoma,1
+2070,nevus,nevus,1
+2071,nevus,nevus,1
+2072,nevus,nevus,1
+2073,actinic keratosis,nevus,0
+2074,nevus,nevus,1
+2075,melanoma,pigmented benign keratosis,0
+2076,nevus,nevus,1
+2077,nevus,nevus,1
+2078,pigmented benign keratosis,pigmented benign keratosis,1
+2079,melanoma,pigmented benign keratosis,0
+2080,pigmented benign keratosis,nevus,0
+2081,squamous cell carcinoma,nevus,0
+2082,melanoma,nevus,0
+2083,basal cell carcinoma,nevus,0
+2084,nevus,nevus,1
+2085,nevus,nevus,1
+2086,nevus,nevus,1
+2087,nevus,pigmented benign keratosis,0
+2088,basal cell carcinoma,nevus,0
+2089,nevus,nevus,1
+2090,nevus,nevus,1
+2091,nevus,nevus,1
+2092,nevus,nevus,1
+2093,melanoma,nevus,0
+2094,nevus,nevus,1
+2095,nevus,nevus,1
+2096,nevus,nevus,1
+2097,melanoma,nevus,0
+2098,nevus,pigmented benign keratosis,0
+2099,basal cell carcinoma,basal cell carcinoma,1
+2100,nevus,nevus,1
+2101,nevus,nevus,1
+2102,nevus,nevus,1
+2103,pigmented benign keratosis,nevus,0
+2104,nevus,nevus,1
+2105,nevus,nevus,1
+2106,nevus,nevus,1
+2107,nevus,nevus,1
+2108,nevus,nevus,1
+2109,nevus,nevus,1
+2110,nevus,nevus,1
+2111,nevus,nevus,1
+2112,nevus,nevus,1
+2113,dermatofibroma,nevus,0
+2114,pigmented benign keratosis,pigmented benign keratosis,1
+2115,pigmented benign keratosis,pigmented benign keratosis,1
+2116,melanoma,nevus,0
+2117,nevus,nevus,1
+2118,nevus,nevus,1
+2119,nevus,nevus,1
+2120,melanoma,nevus,0
+2121,nevus,nevus,1
+2122,nevus,melanoma,0
+2123,nevus,nevus,1
+2124,melanoma,pigmented benign keratosis,0
+2125,pigmented benign keratosis,nevus,0
+2126,nevus,nevus,1
+2127,nevus,nevus,1
+2128,nevus,nevus,1
+2129,nevus,nevus,1
+2130,nevus,basal cell carcinoma,0
+2131,melanoma,melanoma,1
+2132,basal cell carcinoma,pigmented benign keratosis,0
+2133,nevus,nevus,1
+2134,nevus,nevus,1
+2135,nevus,nevus,1
+2136,melanoma,nevus,0
+2137,pigmented benign keratosis,nevus,0
+2138,melanoma,pigmented benign keratosis,0
+2139,nevus,nevus,1
+2140,pigmented benign keratosis,nevus,0
+2141,nevus,nevus,1
+2142,pigmented benign keratosis,nevus,0
+2143,vascular lesion,nevus,0
+2144,nevus,nevus,1
+2145,pigmented benign keratosis,nevus,0
+2146,basal cell carcinoma,nevus,0
+2147,melanoma,nevus,0
+2148,nevus,nevus,1
+2149,nevus,nevus,1
+2150,nevus,nevus,1
+2151,nevus,nevus,1
+2152,nevus,nevus,1
+2153,melanoma,nevus,0
+2154,nevus,pigmented benign keratosis,0
+2155,nevus,nevus,1
+2156,nevus,nevus,1
+2157,squamous cell carcinoma,nevus,0
+2158,nevus,basal cell carcinoma,0
+2159,nevus,nevus,1
+2160,squamous cell carcinoma,basal cell carcinoma,0
+2161,pigmented benign keratosis,nevus,0
+2162,dermatofibroma,nevus,0
+2163,nevus,nevus,1
+2164,nevus,nevus,1
+2165,nevus,nevus,1
+2166,melanoma,nevus,0
+2167,nevus,nevus,1
+2168,nevus,nevus,1
+2169,nevus,nevus,1
+2170,squamous cell carcinoma,nevus,0
+2171,nevus,nevus,1
+2172,squamous cell carcinoma,pigmented benign keratosis,0
+2173,squamous cell carcinoma,nevus,0
+2174,nevus,nevus,1
+2175,nevus,nevus,1
+2176,pigmented benign keratosis,nevus,0
+2177,actinic keratosis,nevus,0
+2178,pigmented benign keratosis,nevus,0
+2179,basal cell carcinoma,nevus,0
+2180,nevus,nevus,1
+2181,nevus,nevus,1
+2182,basal cell carcinoma,basal cell carcinoma,1
+2183,nevus,nevus,1
+2184,nevus,nevus,1
+2185,nevus,nevus,1
+2186,nevus,nevus,1
+2187,nevus,nevus,1
+2188,nevus,nevus,1
+2189,nevus,nevus,1
+2190,nevus,nevus,1
+2191,nevus,nevus,1
+2192,nevus,nevus,1
+2193,nevus,nevus,1
+2194,nevus,nevus,1
+2195,nevus,nevus,1
+2196,nevus,nevus,1
+2197,nevus,nevus,1
+2198,nevus,nevus,1
+2199,melanoma,pigmented benign keratosis,0
+2200,pigmented benign keratosis,nevus,0
+2201,basal cell carcinoma,basal cell carcinoma,1
+2202,nevus,nevus,1
+2203,nevus,pigmented benign keratosis,0
+2204,nevus,nevus,1
+2205,nevus,nevus,1
+2206,nevus,nevus,1
+2207,pigmented benign keratosis,nevus,0
+2208,nevus,nevus,1
+2209,nevus,nevus,1
+2210,basal cell carcinoma,pigmented benign keratosis,0
+2211,nevus,nevus,1
+2212,nevus,nevus,1
+2213,nevus,pigmented benign keratosis,0
+2214,nevus,nevus,1
+2215,melanoma,nevus,0
+2216,nevus,nevus,1
+2217,nevus,nevus,1
+2218,basal cell carcinoma,nevus,0
+2219,nevus,nevus,1
+2220,melanoma,nevus,0
+2221,nevus,nevus,1
+2222,squamous cell carcinoma,nevus,0
+2223,nevus,nevus,1
+2224,melanoma,pigmented benign keratosis,0
+2225,nevus,nevus,1
+2226,nevus,nevus,1
+2227,nevus,nevus,1
+2228,nevus,pigmented benign keratosis,0
+2229,nevus,nevus,1
+2230,nevus,nevus,1
+2231,nevus,nevus,1
+2232,nevus,nevus,1
+2233,nevus,nevus,1
+2234,melanoma,nevus,0
+2235,squamous cell carcinoma,nevus,0
+2236,nevus,nevus,1
+2237,nevus,nevus,1
+2238,pigmented benign keratosis,nevus,0
+2239,nevus,nevus,1
+2240,nevus,nevus,1
+2241,nevus,nevus,1
+2242,nevus,nevus,1
+2243,melanoma,melanoma,1
+2244,melanoma,pigmented benign keratosis,0
+2245,nevus,nevus,1
+2246,nevus,nevus,1
+2247,nevus,nevus,1
+2248,basal cell carcinoma,basal cell carcinoma,1
+2249,nevus,nevus,1
+2250,nevus,nevus,1
+2251,nevus,pigmented benign keratosis,0
+2252,nevus,nevus,1
+2253,pigmented benign keratosis,nevus,0
+2254,pigmented benign keratosis,nevus,0
+2255,nevus,nevus,1
+2256,nevus,nevus,1
+2257,nevus,nevus,1
+2258,nevus,nevus,1
+2259,nevus,nevus,1
+2260,nevus,nevus,1
+2261,nevus,nevus,1
+2262,nevus,nevus,1
+2263,nevus,nevus,1
+2264,nevus,nevus,1
+2265,nevus,nevus,1
+2266,nevus,nevus,1
+2267,nevus,nevus,1
+2268,nevus,nevus,1
+2269,nevus,nevus,1
+2270,nevus,nevus,1
+2271,melanoma,nevus,0
+2272,nevus,nevus,1
+2273,actinic keratosis,basal cell carcinoma,0
+2274,squamous cell carcinoma,basal cell carcinoma,0
+2275,nevus,nevus,1
+2276,basal cell carcinoma,pigmented benign keratosis,0
+2277,melanoma,melanoma,1
+2278,melanoma,pigmented benign keratosis,0
+2279,pigmented benign keratosis,nevus,0
+2280,pigmented benign keratosis,nevus,0
+2281,nevus,nevus,1
+2282,melanoma,pigmented benign keratosis,0
+2283,nevus,nevus,1
+2284,nevus,nevus,1
+2285,nevus,nevus,1
+2286,nevus,nevus,1
+2287,nevus,nevus,1
+2288,nevus,basal cell carcinoma,0
+2289,nevus,nevus,1
+2290,nevus,nevus,1
+2291,basal cell carcinoma,nevus,0
+2292,nevus,nevus,1
+2293,basal cell carcinoma,nevus,0
+2294,nevus,nevus,1
+2295,nevus,nevus,1
+2296,nevus,nevus,1
+2297,nevus,nevus,1
+2298,nevus,nevus,1
+2299,nevus,nevus,1
+2300,nevus,nevus,1
+2301,pigmented benign keratosis,nevus,0
+2302,vascular lesion,nevus,0
+2303,nevus,nevus,1
+2304,nevus,nevus,1
+2305,nevus,nevus,1
+2306,nevus,basal cell carcinoma,0
+2307,nevus,nevus,1
+2308,nevus,nevus,1
+2309,nevus,nevus,1
+2310,nevus,nevus,1
+2311,nevus,nevus,1
+2312,nevus,nevus,1
+2313,pigmented benign keratosis,pigmented benign keratosis,1
+2314,nevus,nevus,1
+2315,nevus,nevus,1
+2316,nevus,basal cell carcinoma,0
+2317,nevus,nevus,1
+2318,nevus,pigmented benign keratosis,0
+2319,nevus,nevus,1
+2320,nevus,nevus,1
+2321,pigmented benign keratosis,basal cell carcinoma,0
+2322,nevus,nevus,1
+2323,nevus,nevus,1
+2324,nevus,nevus,1
+2325,melanoma,nevus,0
+2326,melanoma,nevus,0
+2327,basal cell carcinoma,nevus,0
+2328,nevus,nevus,1
+2329,nevus,nevus,1
+2330,nevus,nevus,1
+2331,nevus,nevus,1
+2332,basal cell carcinoma,nevus,0
+2333,nevus,nevus,1
+2334,nevus,melanoma,0
+2335,pigmented benign keratosis,nevus,0
+2336,melanoma,nevus,0
+2337,nevus,nevus,1
+2338,nevus,pigmented benign keratosis,0
+2339,nevus,nevus,1
+2340,nevus,nevus,1
+2341,pigmented benign keratosis,nevus,0
+2342,nevus,nevus,1
+2343,squamous cell carcinoma,nevus,0
+2344,nevus,nevus,1
+2345,pigmented benign keratosis,nevus,0
+2346,pigmented benign keratosis,nevus,0
+2347,nevus,nevus,1
+2348,nevus,nevus,1
+2349,nevus,nevus,1
+2350,nevus,nevus,1
+2351,nevus,nevus,1
+2352,nevus,nevus,1
+2353,nevus,nevus,1
+2354,melanoma,nevus,0
+2355,nevus,nevus,1
+2356,nevus,nevus,1
+2357,nevus,nevus,1
+2358,pigmented benign keratosis,nevus,0
+2359,dermatofibroma,pigmented benign keratosis,0
+2360,pigmented benign keratosis,melanoma,0
+2361,nevus,nevus,1
+2362,nevus,nevus,1
+2363,nevus,nevus,1
+2364,nevus,nevus,1
+2365,dermatofibroma,pigmented benign keratosis,0
+2366,pigmented benign keratosis,pigmented benign keratosis,1
+2367,nevus,nevus,1
+2368,dermatofibroma,pigmented benign keratosis,0
+2369,nevus,nevus,1
+2370,nevus,nevus,1
+2371,nevus,nevus,1
+2372,nevus,nevus,1
+2373,nevus,nevus,1
+2374,nevus,nevus,1
+2375,nevus,nevus,1
+2376,nevus,nevus,1
+2377,nevus,nevus,1
+2378,nevus,nevus,1
+2379,nevus,nevus,1
+2380,nevus,nevus,1
+2381,nevus,nevus,1
+2382,nevus,nevus,1
+2383,nevus,nevus,1
+2384,nevus,nevus,1
+2385,melanoma,nevus,0
+2386,nevus,nevus,1
+2387,nevus,nevus,1
+2388,nevus,nevus,1
+2389,nevus,nevus,1
+2390,nevus,nevus,1
+2391,nevus,nevus,1
+2392,nevus,nevus,1
+2393,melanoma,nevus,0
+2394,nevus,nevus,1
+2395,nevus,pigmented benign keratosis,0
+2396,nevus,nevus,1
+2397,vascular lesion,nevus,0
+2398,nevus,nevus,1
+2399,nevus,melanoma,0
+2400,pigmented benign keratosis,pigmented benign keratosis,1
+2401,melanoma,pigmented benign keratosis,0
+2402,nevus,nevus,1
+2403,nevus,nevus,1
+2404,nevus,nevus,1
+2405,nevus,pigmented benign keratosis,0
+2406,nevus,nevus,1
+2407,dermatofibroma,nevus,0
+2408,nevus,nevus,1
+2409,nevus,nevus,1
+2410,pigmented benign keratosis,pigmented benign keratosis,1
+2411,nevus,nevus,1
+2412,basal cell carcinoma,nevus,0
+2413,pigmented benign keratosis,nevus,0
+2414,nevus,nevus,1
+2415,melanoma,nevus,0
+2416,nevus,nevus,1
+2417,nevus,nevus,1
+2418,nevus,nevus,1
+2419,nevus,nevus,1
+2420,melanoma,melanoma,1
+2421,melanoma,basal cell carcinoma,0
+2422,nevus,nevus,1
+2423,nevus,nevus,1
+2424,nevus,nevus,1
+2425,pigmented benign keratosis,pigmented benign keratosis,1
+2426,nevus,nevus,1
+2427,melanoma,pigmented benign keratosis,0
+2428,melanoma,nevus,0
+2429,vascular lesion,nevus,0
+2430,melanoma,pigmented benign keratosis,0
+2431,nevus,nevus,1
+2432,nevus,pigmented benign keratosis,0
+2433,nevus,nevus,1
+2434,nevus,nevus,1
+2435,nevus,nevus,1
+2436,nevus,nevus,1
+2437,nevus,pigmented benign keratosis,0
+2438,nevus,pigmented benign keratosis,0
+2439,nevus,nevus,1
+2440,nevus,nevus,1
+2441,nevus,nevus,1
+2442,melanoma,nevus,0
+2443,nevus,nevus,1
+2444,nevus,nevus,1
+2445,actinic keratosis,pigmented benign keratosis,0
+2446,nevus,nevus,1
+2447,nevus,nevus,1
+2448,nevus,nevus,1
+2449,nevus,nevus,1
+2450,melanoma,melanoma,1
+2451,nevus,nevus,1
+2452,nevus,nevus,1
+2453,pigmented benign keratosis,pigmented benign keratosis,1
+2454,nevus,nevus,1
+2455,nevus,pigmented benign keratosis,0
+2456,nevus,nevus,1
+2457,nevus,nevus,1
+2458,nevus,nevus,1
+2459,nevus,nevus,1
+2460,nevus,nevus,1
+2461,nevus,nevus,1
+2462,pigmented benign keratosis,pigmented benign keratosis,1
+2463,nevus,nevus,1
+2464,melanoma,nevus,0
+2465,nevus,nevus,1
+2466,nevus,nevus,1
+2467,pigmented benign keratosis,melanoma,0
+2468,nevus,nevus,1
+2469,nevus,nevus,1
+2470,melanoma,nevus,0
+2471,nevus,nevus,1
+2472,nevus,nevus,1
+2473,pigmented benign keratosis,nevus,0
+2474,nevus,nevus,1
+2475,nevus,nevus,1
+2476,pigmented benign keratosis,pigmented benign keratosis,1
+2477,melanoma,nevus,0
+2478,pigmented benign keratosis,basal cell carcinoma,0
+2479,nevus,nevus,1
+2480,nevus,nevus,1
+2481,nevus,melanoma,0
+2482,nevus,nevus,1
+2483,pigmented benign keratosis,pigmented benign keratosis,1
+2484,nevus,nevus,1
+2485,nevus,nevus,1
+2486,basal cell carcinoma,pigmented benign keratosis,0
+2487,nevus,nevus,1
+2488,nevus,nevus,1
+2489,nevus,nevus,1
+2490,nevus,pigmented benign keratosis,0
+2491,melanoma,nevus,0
+2492,nevus,nevus,1
+2493,nevus,nevus,1
+2494,nevus,nevus,1
+2495,nevus,nevus,1
+2496,nevus,nevus,1
+2497,nevus,basal cell carcinoma,0
+2498,nevus,nevus,1
+2499,nevus,melanoma,0
+2500,nevus,nevus,1
+2501,nevus,nevus,1
+2502,nevus,nevus,1
+2503,melanoma,nevus,0
+2504,nevus,nevus,1
+2505,melanoma,nevus,0
+2506,nevus,nevus,1
+2507,nevus,nevus,1
+2508,nevus,nevus,1
+2509,nevus,nevus,1
+2510,vascular lesion,nevus,0
+2511,nevus,nevus,1
+2512,nevus,nevus,1
+2513,nevus,nevus,1
+2514,nevus,nevus,1
+2515,nevus,nevus,1
+2516,melanoma,nevus,0
+2517,nevus,nevus,1
+2518,melanoma,pigmented benign keratosis,0
+2519,pigmented benign keratosis,nevus,0
+2520,nevus,nevus,1
+2521,nevus,nevus,1
+2522,nevus,melanoma,0
+2523,nevus,nevus,1
+2524,melanoma,pigmented benign keratosis,0
+2525,nevus,nevus,1
+2526,nevus,nevus,1
+2527,basal cell carcinoma,nevus,0
+2528,basal cell carcinoma,basal cell carcinoma,1
+2529,nevus,nevus,1
+2530,pigmented benign keratosis,basal cell carcinoma,0
+2531,vascular lesion,nevus,0
+2532,pigmented benign keratosis,basal cell carcinoma,0
+2533,nevus,nevus,1
+2534,nevus,nevus,1
+2535,pigmented benign keratosis,nevus,0
+2536,melanoma,nevus,0
+2537,basal cell carcinoma,nevus,0
+2538,nevus,nevus,1
+2539,nevus,nevus,1
+2540,pigmented benign keratosis,nevus,0
+2541,nevus,nevus,1
+2542,melanoma,nevus,0
+2543,squamous cell carcinoma,pigmented benign keratosis,0
+2544,nevus,nevus,1
+2545,nevus,pigmented benign keratosis,0
+2546,nevus,nevus,1
+2547,nevus,nevus,1
+2548,pigmented benign keratosis,nevus,0
+2549,melanoma,nevus,0
+2550,nevus,nevus,1
+2551,nevus,nevus,1
+2552,vascular lesion,nevus,0
+2553,nevus,nevus,1
+2554,nevus,nevus,1
+2555,melanoma,melanoma,1
+2556,nevus,nevus,1
+2557,melanoma,nevus,0
+2558,nevus,nevus,1
+2559,nevus,nevus,1
+2560,nevus,nevus,1
+2561,dermatofibroma,nevus,0
+2562,nevus,nevus,1
+2563,nevus,nevus,1
+2564,basal cell carcinoma,basal cell carcinoma,1
+2565,nevus,nevus,1
+2566,nevus,nevus,1
+2567,squamous cell carcinoma,nevus,0
+2568,nevus,nevus,1
+2569,nevus,nevus,1
+2570,basal cell carcinoma,nevus,0
+2571,nevus,nevus,1
+2572,nevus,nevus,1
+2573,basal cell carcinoma,basal cell carcinoma,1
+2574,nevus,nevus,1
+2575,pigmented benign keratosis,nevus,0
+2576,pigmented benign keratosis,nevus,0
+2577,nevus,nevus,1
+2578,nevus,nevus,1
+2579,basal cell carcinoma,nevus,0
+2580,nevus,nevus,1
+2581,nevus,nevus,1
+2582,nevus,nevus,1
+2583,nevus,melanoma,0
+2584,nevus,nevus,1
+2585,nevus,nevus,1
+2586,nevus,nevus,1
+2587,nevus,nevus,1
+2588,melanoma,nevus,0
+2589,pigmented benign keratosis,pigmented benign keratosis,1
+2590,nevus,nevus,1
+2591,nevus,nevus,1
+2592,nevus,nevus,1
+2593,nevus,nevus,1
+2594,nevus,nevus,1
+2595,nevus,nevus,1
+2596,nevus,nevus,1
+2597,melanoma,nevus,0
+2598,nevus,nevus,1
+2599,nevus,nevus,1
+2600,nevus,nevus,1
+2601,basal cell carcinoma,nevus,0
+2602,nevus,nevus,1
+2603,nevus,nevus,1
+2604,nevus,nevus,1
+2605,nevus,nevus,1
+2606,nevus,nevus,1
+2607,nevus,nevus,1
+2608,nevus,nevus,1
+2609,nevus,nevus,1
+2610,pigmented benign keratosis,pigmented benign keratosis,1
+2611,melanoma,nevus,0
+2612,nevus,nevus,1
+2613,nevus,nevus,1
+2614,nevus,nevus,1
+2615,nevus,melanoma,0
+2616,nevus,nevus,1
+2617,nevus,nevus,1
+2618,nevus,nevus,1
+2619,nevus,nevus,1
+2620,pigmented benign keratosis,nevus,0
+2621,melanoma,nevus,0
+2622,basal cell carcinoma,nevus,0
+2623,nevus,nevus,1
+2624,actinic keratosis,basal cell carcinoma,0
+2625,nevus,nevus,1
+2626,nevus,nevus,1
+2627,melanoma,nevus,0
+2628,nevus,nevus,1
+2629,nevus,nevus,1
+2630,nevus,nevus,1
+2631,nevus,nevus,1
+2632,nevus,nevus,1
+2633,pigmented benign keratosis,nevus,0
+2634,nevus,nevus,1
+2635,nevus,nevus,1
+2636,nevus,nevus,1
+2637,nevus,nevus,1
+2638,nevus,nevus,1
+2639,nevus,nevus,1
+2640,squamous cell carcinoma,nevus,0
+2641,nevus,nevus,1
+2642,nevus,nevus,1
+2643,nevus,nevus,1
+2644,nevus,nevus,1
+2645,nevus,nevus,1
+2646,nevus,nevus,1
+2647,nevus,nevus,1
+2648,melanoma,nevus,0
+2649,melanoma,nevus,0
+2650,pigmented benign keratosis,nevus,0
+2651,melanoma,pigmented benign keratosis,0
+2652,pigmented benign keratosis,nevus,0
+2653,nevus,nevus,1
+2654,nevus,nevus,1
+2655,pigmented benign keratosis,pigmented benign keratosis,1
+2656,nevus,nevus,1
+2657,pigmented benign keratosis,pigmented benign keratosis,1
+2658,nevus,nevus,1
+2659,nevus,nevus,1
+2660,nevus,pigmented benign keratosis,0
+2661,nevus,nevus,1
+2662,nevus,nevus,1
+2663,nevus,nevus,1
+2664,nevus,nevus,1
+2665,nevus,pigmented benign keratosis,0
+2666,nevus,nevus,1
+2667,nevus,nevus,1
+2668,nevus,nevus,1
+2669,nevus,nevus,1
+2670,nevus,nevus,1
+2671,vascular lesion,nevus,0
+2672,nevus,nevus,1
+2673,nevus,nevus,1
+2674,nevus,nevus,1
+2675,nevus,nevus,1
+2676,nevus,nevus,1
+2677,nevus,nevus,1
+2678,pigmented benign keratosis,nevus,0
+2679,nevus,nevus,1
+2680,nevus,nevus,1
+2681,nevus,nevus,1
+2682,nevus,nevus,1
+2683,nevus,nevus,1
+2684,nevus,nevus,1
+2685,nevus,nevus,1
+2686,squamous cell carcinoma,pigmented benign keratosis,0
+2687,vascular lesion,nevus,0
+2688,nevus,nevus,1
+2689,nevus,nevus,1
+2690,nevus,nevus,1
+2691,melanoma,nevus,0
+2692,nevus,nevus,1
+2693,nevus,nevus,1
+2694,pigmented benign keratosis,basal cell carcinoma,0
+2695,nevus,nevus,1
+2696,nevus,nevus,1
+2697,squamous cell carcinoma,nevus,0
+2698,nevus,basal cell carcinoma,0
+2699,nevus,nevus,1
+2700,melanoma,nevus,0
+2701,nevus,nevus,1
+2702,squamous cell carcinoma,basal cell carcinoma,0
+2703,pigmented benign keratosis,melanoma,0
+2704,nevus,nevus,1
+2705,nevus,nevus,1
+2706,pigmented benign keratosis,nevus,0
+2707,nevus,nevus,1
+2708,pigmented benign keratosis,nevus,0
+2709,nevus,nevus,1
+2710,pigmented benign keratosis,nevus,0
+2711,nevus,nevus,1
+2712,pigmented benign keratosis,nevus,0
+2713,pigmented benign keratosis,pigmented benign keratosis,1
+2714,nevus,nevus,1
+2715,vascular lesion,nevus,0
+2716,nevus,pigmented benign keratosis,0
+2717,vascular lesion,melanoma,0
+2718,melanoma,pigmented benign keratosis,0
+2719,melanoma,nevus,0
+2720,melanoma,pigmented benign keratosis,0
+2721,nevus,nevus,1
+2722,dermatofibroma,nevus,0
+2723,nevus,nevus,1
+2724,nevus,nevus,1
+2725,nevus,nevus,1
+2726,nevus,nevus,1
+2727,melanoma,melanoma,1
+2728,nevus,nevus,1
+2729,nevus,nevus,1
+2730,pigmented benign keratosis,pigmented benign keratosis,1
+2731,nevus,nevus,1
+2732,nevus,nevus,1
+2733,pigmented benign keratosis,pigmented benign keratosis,1
+2734,nevus,nevus,1
+2735,basal cell carcinoma,pigmented benign keratosis,0
+2736,nevus,nevus,1
+2737,nevus,nevus,1
+2738,nevus,melanoma,0
+2739,nevus,nevus,1
+2740,nevus,nevus,1
+2741,nevus,nevus,1
+2742,nevus,nevus,1
+2743,nevus,nevus,1
+2744,nevus,nevus,1
+2745,nevus,nevus,1
+2746,nevus,nevus,1
+2747,nevus,nevus,1
+2748,nevus,nevus,1
+2749,nevus,pigmented benign keratosis,0
+2750,nevus,nevus,1
+2751,nevus,nevus,1
+2752,nevus,nevus,1
+2753,nevus,nevus,1
+2754,nevus,nevus,1
+2755,nevus,nevus,1
+2756,nevus,nevus,1
+2757,nevus,nevus,1
+2758,pigmented benign keratosis,nevus,0
+2759,nevus,nevus,1
+2760,nevus,nevus,1
+2761,nevus,nevus,1
+2762,nevus,nevus,1
+2763,nevus,nevus,1
+2764,nevus,nevus,1
+2765,nevus,nevus,1
+2766,nevus,nevus,1
+2767,nevus,nevus,1
+2768,nevus,nevus,1
+2769,nevus,nevus,1
+2770,nevus,nevus,1
+2771,nevus,nevus,1
+2772,nevus,nevus,1
+2773,basal cell carcinoma,nevus,0
+2774,nevus,nevus,1
+2775,nevus,nevus,1
+2776,basal cell carcinoma,basal cell carcinoma,1
+2777,nevus,nevus,1
+2778,nevus,nevus,1
+2779,nevus,nevus,1
+2780,nevus,nevus,1
+2781,melanoma,melanoma,1
+2782,nevus,nevus,1
+2783,nevus,nevus,1
+2784,nevus,nevus,1
+2785,nevus,nevus,1
+2786,nevus,nevus,1
+2787,nevus,nevus,1
+2788,nevus,nevus,1
+2789,nevus,nevus,1
+2790,nevus,nevus,1
+2791,nevus,nevus,1
+2792,squamous cell carcinoma,basal cell carcinoma,0
+2793,nevus,pigmented benign keratosis,0
+2794,vascular lesion,nevus,0
+2795,nevus,nevus,1
+2796,pigmented benign keratosis,melanoma,0
+2797,melanoma,nevus,0
+2798,nevus,nevus,1
+2799,vascular lesion,nevus,0
+2800,pigmented benign keratosis,nevus,0
+2801,nevus,nevus,1
+2802,nevus,nevus,1
+2803,nevus,nevus,1
+2804,nevus,nevus,1
+2805,pigmented benign keratosis,nevus,0
+2806,nevus,nevus,1
+2807,nevus,nevus,1
+2808,nevus,nevus,1
+2809,basal cell carcinoma,basal cell carcinoma,1
+2810,nevus,nevus,1
+2811,nevus,nevus,1
+2812,nevus,nevus,1
+2813,pigmented benign keratosis,nevus,0
+2814,melanoma,nevus,0
+2815,melanoma,nevus,0
+2816,nevus,nevus,1
+2817,nevus,nevus,1
+2818,pigmented benign keratosis,pigmented benign keratosis,1
+2819,melanoma,nevus,0
+2820,squamous cell carcinoma,nevus,0
+2821,pigmented benign keratosis,pigmented benign keratosis,1
+2822,nevus,nevus,1
+2823,nevus,nevus,1
+2824,basal cell carcinoma,nevus,0
+2825,melanoma,nevus,0
+2826,melanoma,nevus,0
+2827,nevus,nevus,1
+2828,squamous cell carcinoma,nevus,0
+2829,nevus,nevus,1
+2830,nevus,nevus,1
+2831,nevus,nevus,1
+2832,nevus,nevus,1
+2833,melanoma,pigmented benign keratosis,0
+2834,nevus,nevus,1
+2835,melanoma,melanoma,1
+2836,nevus,nevus,1
+2837,nevus,nevus,1
+2838,basal cell carcinoma,basal cell carcinoma,1
+2839,basal cell carcinoma,basal cell carcinoma,1
+2840,nevus,nevus,1
+2841,nevus,nevus,1
+2842,nevus,nevus,1
+2843,basal cell carcinoma,basal cell carcinoma,1
+2844,melanoma,nevus,0
+2845,nevus,nevus,1
+2846,pigmented benign keratosis,basal cell carcinoma,0
+2847,melanoma,nevus,0
+2848,nevus,nevus,1
+2849,pigmented benign keratosis,pigmented benign keratosis,1
+2850,actinic keratosis,nevus,0
+2851,melanoma,nevus,0
+2852,nevus,nevus,1
+2853,nevus,nevus,1
+2854,nevus,nevus,1
+2855,nevus,melanoma,0
+2856,nevus,nevus,1
+2857,nevus,nevus,1
+2858,pigmented benign keratosis,nevus,0
+2859,basal cell carcinoma,nevus,0
+2860,nevus,nevus,1
+2861,melanoma,nevus,0
+2862,nevus,nevus,1
+2863,nevus,nevus,1
+2864,nevus,nevus,1
+2865,nevus,nevus,1
+2866,nevus,nevus,1
+2867,melanoma,nevus,0
+2868,nevus,nevus,1
+2869,nevus,pigmented benign keratosis,0
+2870,nevus,nevus,1
+2871,nevus,nevus,1
+2872,nevus,nevus,1
+2873,melanoma,melanoma,1
+2874,nevus,nevus,1
+2875,nevus,nevus,1
+2876,nevus,nevus,1
+2877,nevus,nevus,1
+2878,melanoma,nevus,0
+2879,basal cell carcinoma,nevus,0
+2880,nevus,basal cell carcinoma,0
+2881,nevus,nevus,1
+2882,nevus,nevus,1
+2883,melanoma,melanoma,1
+2884,nevus,nevus,1
+2885,nevus,nevus,1
+2886,vascular lesion,nevus,0
+2887,squamous cell carcinoma,pigmented benign keratosis,0
+2888,nevus,nevus,1
+2889,nevus,nevus,1
+2890,nevus,nevus,1
+2891,nevus,nevus,1
+2892,nevus,melanoma,0
+2893,basal cell carcinoma,basal cell carcinoma,1
+2894,nevus,nevus,1
+2895,melanoma,nevus,0
+2896,nevus,nevus,1
+2897,nevus,nevus,1
+2898,nevus,nevus,1
+2899,nevus,nevus,1
+2900,nevus,nevus,1
+2901,melanoma,nevus,0
+2902,nevus,nevus,1
+2903,nevus,nevus,1
+2904,pigmented benign keratosis,nevus,0
+2905,basal cell carcinoma,nevus,0
+2906,nevus,nevus,1
+2907,nevus,nevus,1
+2908,melanoma,nevus,0
+2909,pigmented benign keratosis,pigmented benign keratosis,1
+2910,nevus,nevus,1
+2911,nevus,nevus,1
+2912,nevus,nevus,1
+2913,nevus,nevus,1
+2914,nevus,nevus,1
+2915,nevus,nevus,1
+2916,nevus,nevus,1
+2917,nevus,nevus,1
+2918,basal cell carcinoma,basal cell carcinoma,1
+2919,nevus,nevus,1
+2920,nevus,nevus,1
+2921,nevus,nevus,1
+2922,nevus,nevus,1
+2923,nevus,melanoma,0
+2924,nevus,basal cell carcinoma,0
+2925,melanoma,melanoma,1
+2926,pigmented benign keratosis,melanoma,0
+2927,nevus,nevus,1
+2928,nevus,nevus,1
+2929,nevus,pigmented benign keratosis,0
+2930,nevus,nevus,1
+2931,nevus,nevus,1
+2932,nevus,nevus,1
+2933,pigmented benign keratosis,nevus,0
+2934,nevus,nevus,1
+2935,nevus,nevus,1
+2936,melanoma,nevus,0
+2937,actinic keratosis,nevus,0
+2938,nevus,nevus,1
+2939,nevus,nevus,1
+2940,nevus,nevus,1
+2941,nevus,pigmented benign keratosis,0
+2942,nevus,nevus,1
+2943,nevus,nevus,1
+2944,nevus,nevus,1
+2945,squamous cell carcinoma,basal cell carcinoma,0
+2946,nevus,melanoma,0
+2947,vascular lesion,nevus,0
+2948,pigmented benign keratosis,basal cell carcinoma,0
+2949,nevus,nevus,1
+2950,nevus,nevus,1
+2951,nevus,nevus,1
+2952,pigmented benign keratosis,pigmented benign keratosis,1
+2953,nevus,nevus,1
+2954,nevus,pigmented benign keratosis,0
+2955,melanoma,nevus,0
+2956,nevus,nevus,1
+2957,nevus,nevus,1
+2958,basal cell carcinoma,basal cell carcinoma,1
+2959,nevus,nevus,1
+2960,nevus,nevus,1
+2961,melanoma,nevus,0
+2962,nevus,nevus,1
+2963,nevus,nevus,1
+2964,nevus,nevus,1
+2965,melanoma,nevus,0
+2966,nevus,pigmented benign keratosis,0
+2967,nevus,nevus,1
+2968,melanoma,nevus,0
+2969,nevus,nevus,1
+2970,nevus,nevus,1
+2971,nevus,nevus,1
+2972,pigmented benign keratosis,nevus,0
+2973,nevus,pigmented benign keratosis,0
+2974,melanoma,nevus,0
+2975,nevus,nevus,1
+2976,squamous cell carcinoma,nevus,0
+2977,nevus,pigmented benign keratosis,0
+2978,nevus,nevus,1
+2979,melanoma,melanoma,1
+2980,nevus,nevus,1
+2981,nevus,nevus,1
+2982,nevus,nevus,1
+2983,nevus,nevus,1
+2984,nevus,nevus,1
+2985,nevus,nevus,1
+2986,nevus,nevus,1
+2987,nevus,nevus,1
+2988,nevus,nevus,1
+2989,nevus,nevus,1
+2990,nevus,nevus,1
+2991,pigmented benign keratosis,nevus,0
+2992,nevus,nevus,1
+2993,nevus,nevus,1
+2994,nevus,melanoma,0
+2995,pigmented benign keratosis,nevus,0
+2996,nevus,nevus,1
+2997,nevus,nevus,1
+2998,nevus,nevus,1
+2999,melanoma,nevus,0
+3000,nevus,nevus,1
+3001,pigmented benign keratosis,pigmented benign keratosis,1
+3002,nevus,nevus,1
+3003,nevus,nevus,1
+3004,melanoma,nevus,0
+3005,nevus,nevus,1
+3006,pigmented benign keratosis,nevus,0
+3007,nevus,nevus,1
+3008,nevus,nevus,1
+3009,nevus,nevus,1
+3010,actinic keratosis,nevus,0
+3011,pigmented benign keratosis,pigmented benign keratosis,1
+3012,nevus,nevus,1
+3013,nevus,melanoma,0
+3014,basal cell carcinoma,nevus,0
+3015,vascular lesion,nevus,0
+3016,nevus,nevus,1
+3017,pigmented benign keratosis,pigmented benign keratosis,1
+3018,nevus,melanoma,0
+3019,nevus,nevus,1
+3020,nevus,nevus,1
+3021,nevus,nevus,1
+3022,nevus,nevus,1
+3023,nevus,nevus,1
+3024,pigmented benign keratosis,pigmented benign keratosis,1
+3025,nevus,nevus,1
+3026,melanoma,nevus,0
+3027,melanoma,melanoma,1
+3028,pigmented benign keratosis,nevus,0
+3029,nevus,nevus,1
+3030,melanoma,melanoma,1
+3031,nevus,nevus,1
+3032,nevus,nevus,1
+3033,nevus,nevus,1
+3034,pigmented benign keratosis,nevus,0
+3035,nevus,nevus,1
+3036,nevus,nevus,1
+3037,melanoma,nevus,0
+3038,nevus,nevus,1
+3039,nevus,nevus,1
+3040,nevus,nevus,1
+3041,nevus,melanoma,0
+3042,pigmented benign keratosis,pigmented benign keratosis,1
+3043,vascular lesion,nevus,0
+3044,nevus,nevus,1
+3045,basal cell carcinoma,nevus,0
+3046,melanoma,nevus,0
+3047,nevus,nevus,1
+3048,melanoma,nevus,0
+3049,pigmented benign keratosis,pigmented benign keratosis,1
+3050,nevus,nevus,1
+3051,nevus,nevus,1
+3052,basal cell carcinoma,nevus,0
+3053,squamous cell carcinoma,melanoma,0
+3054,nevus,nevus,1
+3055,nevus,nevus,1
+3056,nevus,nevus,1
+3057,nevus,nevus,1
+3058,nevus,nevus,1
+3059,nevus,nevus,1
+3060,nevus,nevus,1
+3061,nevus,nevus,1
+3062,nevus,nevus,1
+3063,nevus,nevus,1
+3064,nevus,basal cell carcinoma,0
+3065,nevus,nevus,1
+3066,basal cell carcinoma,nevus,0
+3067,dermatofibroma,nevus,0
+3068,nevus,nevus,1
+3069,pigmented benign keratosis,nevus,0
+3070,melanoma,nevus,0
+3071,dermatofibroma,pigmented benign keratosis,0
+3072,melanoma,pigmented benign keratosis,0
+3073,nevus,nevus,1
+3074,nevus,nevus,1
+3075,nevus,nevus,1
+3076,melanoma,pigmented benign keratosis,0
+3077,nevus,pigmented benign keratosis,0
+3078,dermatofibroma,basal cell carcinoma,0
+3079,nevus,nevus,1
+3080,nevus,nevus,1
+3081,actinic keratosis,basal cell carcinoma,0
+3082,nevus,nevus,1
+3083,nevus,nevus,1
+3084,pigmented benign keratosis,nevus,0
+3085,basal cell carcinoma,basal cell carcinoma,1
+3086,melanoma,nevus,0
+3087,nevus,nevus,1
+3088,nevus,nevus,1
+3089,squamous cell carcinoma,nevus,0
+3090,nevus,nevus,1
+3091,melanoma,nevus,0
+3092,nevus,nevus,1
+3093,nevus,nevus,1
+3094,nevus,nevus,1
+3095,melanoma,nevus,0
+3096,nevus,nevus,1
+3097,nevus,nevus,1
+3098,melanoma,pigmented benign keratosis,0
+3099,nevus,nevus,1
+3100,nevus,pigmented benign keratosis,0
+3101,melanoma,nevus,0
+3102,nevus,nevus,1
+3103,nevus,nevus,1
+3104,nevus,nevus,1
+3105,nevus,nevus,1
+3106,nevus,nevus,1
+3107,nevus,nevus,1
+3108,nevus,nevus,1
+3109,nevus,nevus,1
+3110,melanoma,pigmented benign keratosis,0
+3111,melanoma,nevus,0
+3112,melanoma,basal cell carcinoma,0
+3113,melanoma,nevus,0
+3114,nevus,nevus,1
+3115,nevus,nevus,1
+3116,nevus,nevus,1
+3117,nevus,nevus,1
+3118,squamous cell carcinoma,pigmented benign keratosis,0
+3119,melanoma,nevus,0
+3120,nevus,nevus,1
+3121,squamous cell carcinoma,nevus,0
+3122,nevus,nevus,1
+3123,nevus,nevus,1
+3124,pigmented benign keratosis,pigmented benign keratosis,1
+3125,nevus,nevus,1
+3126,nevus,nevus,1
+3127,nevus,nevus,1
+3128,nevus,nevus,1
+3129,melanoma,nevus,0
+3130,basal cell carcinoma,nevus,0
+3131,nevus,pigmented benign keratosis,0
+3132,nevus,nevus,1
+3133,nevus,nevus,1
+3134,nevus,nevus,1
+3135,nevus,nevus,1
+3136,nevus,pigmented benign keratosis,0
+3137,nevus,nevus,1
+3138,melanoma,nevus,0
+3139,pigmented benign keratosis,nevus,0
+3140,melanoma,nevus,0
+3141,nevus,nevus,1
+3142,nevus,nevus,1
+3143,nevus,nevus,1
+3144,pigmented benign keratosis,nevus,0
+3145,nevus,nevus,1
+3146,nevus,nevus,1
+3147,nevus,nevus,1
+3148,melanoma,nevus,0
+3149,nevus,nevus,1
+3150,nevus,nevus,1
+3151,nevus,nevus,1
+3152,basal cell carcinoma,nevus,0
+3153,nevus,nevus,1
+3154,nevus,nevus,1
+3155,nevus,nevus,1
+3156,nevus,melanoma,0
+3157,nevus,nevus,1
+3158,nevus,nevus,1
+3159,pigmented benign keratosis,nevus,0
+3160,melanoma,nevus,0
+3161,nevus,nevus,1
+3162,basal cell carcinoma,nevus,0
+3163,nevus,nevus,1
+3164,pigmented benign keratosis,nevus,0
+3165,melanoma,nevus,0
+3166,nevus,nevus,1
+3167,nevus,nevus,1
+3168,nevus,nevus,1
+3169,nevus,nevus,1
+3170,nevus,nevus,1
+3171,nevus,nevus,1
+3172,basal cell carcinoma,basal cell carcinoma,1
+3173,melanoma,nevus,0
+3174,nevus,nevus,1
+3175,nevus,nevus,1
+3176,nevus,pigmented benign keratosis,0
+3177,nevus,nevus,1
+3178,melanoma,nevus,0
+3179,pigmented benign keratosis,pigmented benign keratosis,1
+3180,nevus,nevus,1
+3181,pigmented benign keratosis,basal cell carcinoma,0
+3182,nevus,nevus,1
+3183,basal cell carcinoma,basal cell carcinoma,1
+3184,nevus,nevus,1
+3185,melanoma,nevus,0
+3186,nevus,nevus,1
+3187,nevus,nevus,1
+3188,basal cell carcinoma,basal cell carcinoma,1
+3189,nevus,nevus,1
+3190,melanoma,nevus,0
+3191,melanoma,nevus,0
+3192,melanoma,melanoma,1
+3193,nevus,nevus,1
+3194,nevus,nevus,1
+3195,nevus,nevus,1
+3196,nevus,nevus,1
+3197,melanoma,nevus,0
+3198,nevus,nevus,1
+3199,nevus,nevus,1
+3200,nevus,nevus,1
+3201,dermatofibroma,basal cell carcinoma,0
+3202,nevus,nevus,1
+3203,nevus,nevus,1
+3204,nevus,nevus,1
+3205,melanoma,nevus,0
+3206,pigmented benign keratosis,nevus,0
+3207,nevus,nevus,1
+3208,pigmented benign keratosis,basal cell carcinoma,0
+3209,nevus,nevus,1
+3210,nevus,nevus,1
+3211,nevus,nevus,1
+3212,nevus,nevus,1
+3213,pigmented benign keratosis,melanoma,0
+3214,nevus,nevus,1
+3215,melanoma,nevus,0
+3216,nevus,nevus,1
+3217,pigmented benign keratosis,pigmented benign keratosis,1
+3218,pigmented benign keratosis,nevus,0
+3219,nevus,nevus,1
+3220,nevus,nevus,1
+3221,basal cell carcinoma,pigmented benign keratosis,0
+3222,pigmented benign keratosis,nevus,0
+3223,squamous cell carcinoma,nevus,0
+3224,nevus,nevus,1
+3225,nevus,nevus,1
+3226,nevus,nevus,1
+3227,nevus,nevus,1
+3228,nevus,nevus,1
+3229,melanoma,nevus,0
+3230,nevus,nevus,1
+3231,melanoma,nevus,0
+3232,nevus,pigmented benign keratosis,0
+3233,nevus,nevus,1
+3234,pigmented benign keratosis,nevus,0
+3235,nevus,nevus,1
+3236,nevus,nevus,1
+3237,basal cell carcinoma,nevus,0
+3238,nevus,nevus,1
+3239,nevus,nevus,1
+3240,nevus,nevus,1
+3241,nevus,nevus,1
+3242,nevus,nevus,1
+3243,nevus,nevus,1
+3244,nevus,nevus,1
+3245,nevus,nevus,1
+3246,nevus,nevus,1
+3247,melanoma,nevus,0
+3248,nevus,nevus,1
+3249,melanoma,pigmented benign keratosis,0
+3250,basal cell carcinoma,nevus,0
+3251,nevus,nevus,1
+3252,nevus,nevus,1
+3253,nevus,nevus,1
+3254,nevus,melanoma,0
+3255,actinic keratosis,nevus,0
+3256,nevus,nevus,1
+3257,nevus,nevus,1
+3258,pigmented benign keratosis,pigmented benign keratosis,1
+3259,nevus,nevus,1
+3260,basal cell carcinoma,basal cell carcinoma,1
+3261,nevus,nevus,1
+3262,nevus,basal cell carcinoma,0
+3263,melanoma,nevus,0
+3264,nevus,nevus,1
+3265,nevus,nevus,1
+3266,nevus,nevus,1
+3267,nevus,nevus,1
+3268,nevus,nevus,1
+3269,nevus,nevus,1
+3270,nevus,nevus,1
+3271,pigmented benign keratosis,nevus,0
+3272,pigmented benign keratosis,nevus,0
+3273,nevus,nevus,1
+3274,nevus,nevus,1
+3275,nevus,nevus,1
+3276,nevus,nevus,1
+3277,nevus,nevus,1
+3278,pigmented benign keratosis,pigmented benign keratosis,1
+3279,nevus,nevus,1
+3280,melanoma,nevus,0
+3281,nevus,nevus,1
+3282,basal cell carcinoma,nevus,0
+3283,basal cell carcinoma,nevus,0
+3284,nevus,nevus,1
+3285,nevus,nevus,1
+3286,pigmented benign keratosis,melanoma,0
+3287,melanoma,nevus,0
+3288,nevus,nevus,1
+3289,nevus,nevus,1
+3290,nevus,nevus,1
+3291,nevus,nevus,1
+3292,nevus,nevus,1
+3293,nevus,nevus,1
+3294,melanoma,nevus,0
+3295,nevus,nevus,1
+3296,pigmented benign keratosis,nevus,0
+3297,nevus,nevus,1
+3298,nevus,pigmented benign keratosis,0
+3299,nevus,nevus,1
+3300,nevus,nevus,1
+3301,pigmented benign keratosis,pigmented benign keratosis,1
+3302,nevus,nevus,1
+3303,nevus,nevus,1
+3304,nevus,pigmented benign keratosis,0

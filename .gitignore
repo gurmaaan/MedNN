@@ -44,6 +44,6 @@ CMakeLists.txt.user*
 .ipynb_checkpoints/
 img/
 *.jpg
-img.zip
+*.zip
 MedNN/Download_img - Jupyter Notebook.pdf
 _отчет/
