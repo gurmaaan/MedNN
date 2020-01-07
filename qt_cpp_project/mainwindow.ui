@@ -68,7 +68,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_4">
+            <widget class="QLabel" name="t0_lbl_foundMeta_l">
              <property name="enabled">
               <bool>false</bool>
              </property>
@@ -91,7 +91,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_5">
+            <widget class="QLabel" name="t0_lbl_foundMeta_r">
              <property name="enabled">
               <bool>false</bool>
              </property>
@@ -131,7 +131,7 @@
         <item>
          <widget class="QGroupBox" name="t0_gb_manualSplit">
           <property name="enabled">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="title">
            <string>Разделение</string>
@@ -287,6 +287,9 @@
               <width>20</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="whatsThis">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;- class 1&lt;/p&gt;&lt;p&gt;- class 2&lt;/p&gt;&lt;p&gt;- class 3&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="text">
              <string>?</string>
