@@ -12,6 +12,7 @@ from PyQt5 import QtWidgets
 from PyQt5 import QtGui
 import design_mainwindow
 
+
 class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
     meta_path = ""
     meta_df = pd.DataFrame()
@@ -36,11 +37,6 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             btn.setIcon(QtGui.QIcon())
 
         self.connections()
-
-    def activate_cmd(self, cmd_btn):
-        for btn in self.cmd_btns:
-            btn.setChecked(False)
-        cmd_btn.setChecked(True)
 
     def connections(self):
         self.t0_btn_openMeta.clicked.connect(self.browse_meta_file)
@@ -83,8 +79,8 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
 
     def browse_train_folder(self):
         train_dir_path = QtWidgets.QFileDialog.getExistingDirectory(self,
-                                                                     "Выберите папку с обучающей выборкой",
-                                                                     "C:/Users/Dima/PyFiles/MedNN/img/train")
+                                                                    "Выберите папку с обучающей выборкой",
+                                                                    "C:/Users/Dima/PyFiles/MedNN/img/train")
         if train_dir_path:
             self.train_path = train_dir_path
             self.t0_le_openTrain.setText(self.train_path)
@@ -92,17 +88,17 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
 
     def browse_test_folder(self):
         test_dir_path = QtWidgets.QFileDialog.getExistingDirectory(self,
-                                                                    "Выберите папку с тестовой выборкой",
-                                                                    "C:/Users/Dima/PyFiles/MedNN/img/test")
+                                                                   "Выберите папку с тестовой выборкой",
+                                                                   "C:/Users/Dima/PyFiles/MedNN/img/test")
         if test_dir_path:
             self.test_path = test_dir_path
             self.t0_le_openTest.setText(self.test_path)
             self.update_count(self.test_path)
 
     def browse_img_folder(self):
-        img_dir_path  = QtWidgets.QFileDialog.getExistingDirectory(self,
-                                                                   "Выберите папку с изображениями",
-                                                                   "C:/Users/Dima/PyFiles/MedNN/image")
+        img_dir_path = QtWidgets.QFileDialog.getExistingDirectory(self,
+                                                                  "Выберите папку с изображениями",
+                                                                  "C:/Users/Dima/PyFiles/MedNN/image")
         if img_dir_path:
             self.img_path = img_dir_path
             self.t0_le_openImg.setText(self.img_path)
@@ -133,7 +129,6 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         else:
             QtWidgets.QMessageBox.information(self, "Классы в выборке", "Пожалуйста выберите папку с изображениями")
 
-
     def set_train_test(self, test_count, train_count):
         self.t0_sb_countTest.setMaximum(test_count)
         self.t0_sb_countTest.setValue(test_count)
@@ -153,8 +148,13 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.cmd_balance_clicked()
 
         if "train" in self.img_count_dict:
-            sc = StaticMplCanvas(self.tabWidget, width=5, height=4, dpi=100)
+            sc = HistPlot(self.img_count_dict["train"].keys(), self.img_count_dict["train"].values())
             self.t1_lyt_plot.addWidget(sc)
+
+    def activate_cmd(self, cmd_btn):
+        for btn in self.cmd_btns:
+            btn.setChecked(False)
+        cmd_btn.setChecked(True)
 
     def cmd_open_clicked(self):
         self.activate_cmd(self.cmdBtn_open)
@@ -187,39 +187,39 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
     def debug(self):
         self.update_count("C:/Users/Dima/PyFiles/MedNN/img/train")
         self.update_count("C:/Users/Dima/PyFiles/MedNN/img/test")
+        self.go_to_balance_step()
+
 
 class MatPlotWidget(FigureCanvas):
-    def __init__(self, parent=None, width=16, height=9, dpi=100):
-        fig = Figure(figsize=(width, height), dpi=dpi)
+    def __init__(self):
+        fig = Figure()
         self.axes = fig.add_subplot(111)
-
         self.compute_initial_figure()
 
         FigureCanvas.__init__(self, fig)
-        self.setParent(parent)
-
-        FigureCanvas.setSizePolicy(self,
-                                   QtWidgets.QSizePolicy.Expanding,
-                                   QtWidgets.QSizePolicy.Expanding)
+        FigureCanvas.setSizePolicy(self, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
 
     def compute_initial_figure(self):
         pass
 
-class StaticMplCanvas(MatPlotWidget):
-    """Simple canvas with a sine plot."""
+
+class HistPlot(MatPlotWidget):
+    def __init__(self, labels, values):
+        super().__init__()
+        self.labels = list(labels)
+        self.values = list(values)
 
     def compute_initial_figure(self):
-        self.axes.xticks(rotation=90)
-        lbls = list(MainWindow.img_count_dict["train"].keys())
-        values = list(MainWindow.img_count_dict["train"].values())
-        self.axes.bar(lbls, values)
+        self.axes.bar(self.labels, self.values)
+
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
     window = MainWindow()
     window.show()
     app.exec_()
+
 
 if __name__ == '__main__':
     main()
