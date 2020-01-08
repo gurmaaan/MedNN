@@ -565,6 +565,12 @@
        <layout class="QVBoxLayout" name="verticalLayout_8">
         <item>
          <widget class="QLabel" name="label_11">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="text">
            <string>Баланс классов обучающей выборки:</string>
           </property>
@@ -572,6 +578,12 @@
         </item>
         <item>
          <widget class="QLabel" name="t1_lbl_hist">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -604,6 +616,9 @@
          <layout class="QHBoxLayout" name="horizontalLayout_10">
           <item>
            <widget class="QLabel" name="t1_lbl_enrichMin">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
              <string>Объем после обогащения</string>
             </property>
@@ -611,6 +626,9 @@
           </item>
           <item>
            <widget class="QSpinBox" name="t1_sb_enrichMin">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="buttonSymbols">
              <enum>QAbstractSpinBox::NoButtons</enum>
             </property>
@@ -646,6 +664,15 @@
         </item>
         <item>
          <widget class="QTableWidget" name="t1_table_enrichMax">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <column>
            <property name="text">
             <string>Класс</string>
@@ -660,6 +687,15 @@
         </item>
         <item>
          <widget class="QGroupBox" name="t1_gb_trans">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="title">
            <string>Трансформации</string>
           </property>
@@ -668,6 +704,9 @@
             <layout class="QHBoxLayout" name="horizontalLayout_11">
              <item>
               <widget class="QCheckBox" name="t1_chb_rot">
+               <property name="whatsThis">
+                <string>изображения будут повернуты на случайный угол в пределах выбранного</string>
+               </property>
                <property name="text">
                 <string>Вращения</string>
                </property>
@@ -973,12 +1012,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>616</x>
-     <y>207</y>
+     <x>804</x>
+     <y>303</y>
     </hint>
     <hint type="destinationlabel">
-     <x>829</x>
-     <y>207</y>
+     <x>848</x>
+     <y>302</y>
     </hint>
    </hints>
   </connection>
@@ -993,8 +1032,8 @@
      <y>128</y>
     </hint>
     <hint type="destinationlabel">
-     <x>564</x>
-     <y>187</y>
+     <x>824</x>
+     <y>314</y>
     </hint>
    </hints>
   </connection>
@@ -1009,8 +1048,8 @@
      <y>128</y>
     </hint>
     <hint type="destinationlabel">
-     <x>564</x>
-     <y>187</y>
+     <x>824</x>
+     <y>314</y>
     </hint>
    </hints>
   </connection>
@@ -1025,8 +1064,8 @@
      <y>128</y>
     </hint>
     <hint type="destinationlabel">
-     <x>564</x>
-     <y>275</y>
+     <x>824</x>
+     <y>223</y>
     </hint>
    </hints>
   </connection>
@@ -1041,8 +1080,200 @@
      <y>128</y>
     </hint>
     <hint type="destinationlabel">
+     <x>824</x>
+     <y>223</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t1_radio_enrichMin</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t1_lbl_enrichMin</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
      <x>564</x>
-     <y>275</y>
+     <y>298</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>334</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t1_radio_enrichMin</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t1_sb_enrichMin</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>298</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>425</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t1_radio_enrichMax</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t1_table_enrichMax</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>350</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>564</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t1_radio_enrichMin</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t1_gb_trans</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>298</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>564</x>
+     <y>554</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t1_radio_enrichMax</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t1_gb_trans</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>350</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>564</x>
+     <y>554</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t1_radio_no_changes</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t1_gb_trans</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>564</x>
+     <y>554</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t1_radio_no_changes</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t1_table_enrichMax</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>564</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t1_radio_no_changes</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t1_lbl_enrichMin</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>334</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t1_radio_no_changes</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t1_sb_enrichMin</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>425</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t1_radio_enrichMin</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t1_table_enrichMax</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>298</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>564</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t1_radio_enrichMax</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t1_lbl_enrichMin</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>350</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>334</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t1_radio_enrichMax</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t1_sb_enrichMin</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>350</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>425</x>
+     <y>324</y>
     </hint>
    </hints>
   </connection>

@@ -54,3 +54,4 @@ nn_coeffs/
 *.zip
 MedNN/Download_img - Jupyter Notebook.pdf
 *.pyc
+app/test.py

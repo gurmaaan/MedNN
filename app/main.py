@@ -1,9 +1,12 @@
 import sys
 import os
 from collections import defaultdict
-from matplotlib.figure import Figure
+
 import matplotlib.pyplot as plt
-from matplotlib.backends.backend_qt5agg import FigureCanvasQT
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
+import seaborn as sns
+
 import pandas as pd
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
@@ -23,7 +26,15 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+
         self.tabWidget.tabBar().hide()
+        self.tabWidget.setCurrentIndex(0)
+        self.cmd_btns = [self.cmdBtn_open, self.cmdBtn_balance, self.cmdBtn_view, self.cmdBtn_tensor, self.cmdBtn_train, self.cmdBtn_statistics, self.cmdBtn_usage]
+        for btn in self.cmd_btns:
+            btn.setIcon(QtGui.QIcon())
+
+        sc = StaticMplCanvas(self.centralwidget, width=5, height=4, dpi=100)
+        self.horizontalLayout_11.addWidget(sc)
         self.connections()
 
     def connections(self):
@@ -93,8 +104,6 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             self.t0_sb_countTest_perc.setValue( self.test_size * 100)
             self.t0_sb_countTrain_perc.setValue(100 - self.t0_sb_countTest_perc.value())
 
-            self.plot_hist(self.img_count_dict)
-
     def show_class_list(self):
         if len(self.class_names) > 0:
             class_list_str = '\n'.join(self.class_names)
@@ -124,7 +133,43 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.cmdBtn_balance.setEnabled(True)
         self.cmdBtn_balance.setChecked(True)
         self.cmdBtn_open.setChecked(False)
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(1)
+
+        if "train" in self.img_count_dict:
+            plt.xticks(rotation=90)
+            lbls = list(self.img_count_dict["train"].keys())
+            values = list(self.img_count_dict["train"].values())
+            plt.bar(lbls, values)
+            plt.show()
+
+class MplCanvas(FigureCanvas):
+    """Ultimately, this is a QWidget (as well as a FigureCanvasAgg, etc.)."""
+
+    def __init__(self, parent=None, width=5, height=4, dpi=100):
+        fig = Figure(figsize=(width, height), dpi=dpi)
+        self.axes = fig.add_subplot(111)
+
+        self.compute_initial_figure()
+
+        FigureCanvas.__init__(self, fig)
+        self.setParent(parent)
+
+        FigureCanvas.setSizePolicy(self,
+                                   QtWidgets.QSizePolicy.Expanding,
+                                   QtWidgets.QSizePolicy.Expanding)
+        FigureCanvas.updateGeometry(self)
+
+    def compute_initial_figure(self):
+        pass
+
+class StaticMplCanvas(MplCanvas):
+    """Simple canvas with a sine plot."""
+
+    def compute_initial_figure(self):
+        # plt.xticks(rotation=90)
+        lbls = list(MainWindow.img_count_dict["train"].keys())
+        values = list(MainWindow.img_count_dict["train"].values())
+        self.axes.bar(lbls, values)
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
