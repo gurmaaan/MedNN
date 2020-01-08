@@ -37,7 +37,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_open">
        <attribute name="title">
@@ -577,26 +577,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="t1_lbl_hist">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>200</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Class distribution histogram</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
+         <layout class="QVBoxLayout" name="t1_lyt_plot"/>
         </item>
         <item>
          <widget class="QRadioButton" name="t1_radio_no_changes">
@@ -983,6 +964,13 @@
        </property>
        <property name="description">
         <string>Классификация изображений и просмотр результатов</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="debug">
+       <property name="text">
+        <string>Debug</string>
        </property>
       </widget>
      </item>

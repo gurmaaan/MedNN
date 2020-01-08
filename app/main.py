@@ -29,13 +29,18 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
 
         self.tabWidget.tabBar().hide()
         self.tabWidget.setCurrentIndex(0)
-        self.cmd_btns = [self.cmdBtn_open, self.cmdBtn_balance, self.cmdBtn_view, self.cmdBtn_tensor, self.cmdBtn_train, self.cmdBtn_statistics, self.cmdBtn_usage]
+
+        self.cmd_btns = [self.cmdBtn_open, self.cmdBtn_balance, self.cmdBtn_view, self.cmdBtn_tensor,
+                         self.cmdBtn_train, self.cmdBtn_statistics, self.cmdBtn_usage]
         for btn in self.cmd_btns:
             btn.setIcon(QtGui.QIcon())
 
-        sc = StaticMplCanvas(self.centralwidget, width=5, height=4, dpi=100)
-        self.horizontalLayout_11.addWidget(sc)
         self.connections()
+
+    def activate_cmd(self, cmd_btn):
+        for btn in self.cmd_btns:
+            btn.setChecked(False)
+        cmd_btn.setChecked(True)
 
     def connections(self):
         self.t0_btn_openMeta.clicked.connect(self.browse_meta_file)
@@ -46,9 +51,22 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.t0_sb_trainSize.valueChanged.connect(self.update_test_size)
         self.t0_btn_next.clicked.connect(self.go_to_balance_step)
 
+        self.cmdBtn_open.clicked.connect(self.cmd_open_clicked)
+        self.cmdBtn_balance.clicked.connect(self.cmd_balance_clicked)
+        self.cmdBtn_view.clicked.connect(self.cmd_view_clicked)
+        self.cmdBtn_tensor.clicked.connect(self.cmd_tensor_clicked)
+        self.cmdBtn_train.clicked.connect(self.cmd_train_clicked)
+        self.cmdBtn_statistics.clicked.connect(self.cmd_statistics_clicked)
+        self.cmdBtn_usage.clicked.connect(self.cmd_usage_clicked)
+        self.debugBtn.clicked.connect(self.debug)
+
     def browse_meta_file(self):
-        self.meta_path, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите csv файл", "C:/Users/Dima/PyFiles/MedNN/", "csv (*.csv)")
-        if self.meta_path:
+        meta_file_path, _ = QtWidgets.QFileDialog.getOpenFileName(self,
+                                                                  "Выберите csv файл",
+                                                                  "C:/Users/Dima/PyFiles/MedNN/",
+                                                                  "csv (*.csv)")
+        if meta_file_path:
+            self.meta_path = meta_file_path
             self.t0_le_openMeta.setText(self.meta_path)
 
             meta_df = pd.read_csv(self.meta_path)
@@ -61,48 +79,52 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             self.t0_sb_foundMeta.setMaximum(meta_df.shape[0])
             self.t0_sb_foundMeta.setValue(meta_df.shape[0])
         else:
-            QtWidgets.QMessageBox.critical("Пожалуйста выберите файл с мета-данными")
+            QtWidgets.QMessageBox.critical(self, "Ошибка", "Пожалуйста выберите файл с мета-данными")
 
     def browse_train_folder(self):
-        self.train_path = QtWidgets.QFileDialog.getExistingDirectory(self, "Выберите папку с обучающей выборкой", "C:/Users/Dima/PyFiles/MedNN/img/train")
-        self.t0_le_openTrain.setText(self.train_path)
-        self.update_count(self.train_path)
+        train_dir_path = QtWidgets.QFileDialog.getExistingDirectory(self,
+                                                                     "Выберите папку с обучающей выборкой",
+                                                                     "C:/Users/Dima/PyFiles/MedNN/img/train")
+        if train_dir_path:
+            self.train_path = train_dir_path
+            self.t0_le_openTrain.setText(self.train_path)
+            self.update_count(self.train_path)
 
     def browse_test_folder(self):
-        self.test_path = QtWidgets.QFileDialog.getExistingDirectory(self, "Выберите папку с тестовой выборкой", "C:/Users/Dima/PyFiles/MedNN/img/test")
-        self.t0_le_openTest.setText(self.test_path)
-        self.update_count(self.test_path)
+        test_dir_path = QtWidgets.QFileDialog.getExistingDirectory(self,
+                                                                    "Выберите папку с тестовой выборкой",
+                                                                    "C:/Users/Dima/PyFiles/MedNN/img/test")
+        if test_dir_path:
+            self.test_path = test_dir_path
+            self.t0_le_openTest.setText(self.test_path)
+            self.update_count(self.test_path)
 
     def browse_img_folder(self):
-        self.img_path = QtWidgets.QFileDialog.getExistingDirectory(self, "Выберите папку с изображениями",  "C:/Users/Dima/PyFiles/MedNN/image")
-        self.t0_le_openImg.setText(self.img_path)
-        self.update_count(self.img_path)
+        img_dir_path  = QtWidgets.QFileDialog.getExistingDirectory(self,
+                                                                   "Выберите папку с изображениями",
+                                                                   "C:/Users/Dima/PyFiles/MedNN/image")
+        if img_dir_path:
+            self.img_path = img_dir_path
+            self.t0_le_openImg.setText(self.img_path)
+            self.update_count(self.img_path)
 
-        for clname in os.listdir(self.img_path):
-            self.img_cnt += len(os.listdir(self.img_path + os.sep + clname))
+            for clname in os.listdir(self.img_path):
+                self.img_cnt += len(os.listdir(self.img_path + os.sep + clname))
 
     def update_count(self, path):
         mode = path.split('/')[-1]
-        count_dict = {}
-        self.class_names = os.listdir(path)
-        for clname in self.class_names:
-            count_dict[clname] = len(os.listdir(path + os.sep + clname))
 
-        self.img_count_dict[mode] = count_dict
+        self.class_names = os.listdir(path)
         self.t0_sb_foundClasses.setValue(len(self.class_names))
 
-        if self.train_path and self.test_path:
-            train_cnt = self.dict_sum(self.img_count_dict["train"])
-            test_cnt = self.dict_sum(self.img_count_dict["test"])
-            all_cnt = train_cnt + test_cnt
-            self.test_size = test_cnt / all_cnt
+        for clname in self.class_names:
+            self.img_count_dict[mode][clname] = len(os.listdir(path + os.sep + clname))
 
-            self.t0_sb_countTest.setMaximum(test_cnt)
-            self.t0_sb_countTest.setValue(test_cnt)
-            self.t0_sb_countTrain.setMaximum(train_cnt)
-            self.t0_sb_countTrain.setValue(train_cnt)
-            self.t0_sb_countTest_perc.setValue( self.test_size * 100)
-            self.t0_sb_countTrain_perc.setValue(100 - self.t0_sb_countTest_perc.value())
+        if self.train_path and self.test_path:
+            train_cnt = sum([x for x in self.img_count_dict["train"]])
+            test_cnt = sum([x for x in self.img_count_dict["test"]])
+            self.test_size = test_cnt / (train_cnt + test_cnt)
+            self.set_train_test(test_cnt, train_cnt)
 
     def show_class_list(self):
         if len(self.class_names) > 0:
@@ -111,41 +133,63 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         else:
             QtWidgets.QMessageBox.information(self, "Классы в выборке", "Пожалуйста выберите папку с изображениями")
 
-    def dict_sum(self, count_dict):
-        sum = 0
-        for k in count_dict:
-            sum+= count_dict[k]
-        return sum
 
-    def update_test_size(self, value):
-        self.test_size = value / 100
+    def set_train_test(self, test_count, train_count):
+        self.t0_sb_countTest.setMaximum(test_count)
+        self.t0_sb_countTest.setValue(test_count)
+        self.t0_sb_countTrain.setMaximum(train_count)
+        self.t0_sb_countTrain.setValue(train_count)
         self.t0_sb_countTest_perc.setValue(self.test_size * 100)
         self.t0_sb_countTrain_perc.setValue(100 - self.t0_sb_countTest_perc.value())
 
+    def update_test_size(self, value):
+        self.test_size = value / 100
         test_cnt = self.img_cnt * self.test_size
         train_cnt = self.img_cnt - test_cnt
-        self.t0_sb_countTest.setMaximum(test_cnt)
-        self.t0_sb_countTest.setValue(test_cnt)
-        self.t0_sb_countTrain.setMaximum(train_cnt)
-        self.t0_sb_countTrain.setValue(train_cnt)
+        self.set_train_test(test_cnt, train_cnt)
 
     def go_to_balance_step(self):
         self.cmdBtn_balance.setEnabled(True)
-        self.cmdBtn_balance.setChecked(True)
-        self.cmdBtn_open.setChecked(False)
-        self.tabWidget.setCurrentIndex(1)
+        self.cmd_balance_clicked()
 
         if "train" in self.img_count_dict:
-            plt.xticks(rotation=90)
-            lbls = list(self.img_count_dict["train"].keys())
-            values = list(self.img_count_dict["train"].values())
-            plt.bar(lbls, values)
-            plt.show()
+            sc = StaticMplCanvas(self.tabWidget, width=5, height=4, dpi=100)
+            self.t1_lyt_plot.addWidget(sc)
 
-class MplCanvas(FigureCanvas):
-    """Ultimately, this is a QWidget (as well as a FigureCanvasAgg, etc.)."""
+    def cmd_open_clicked(self):
+        self.activate_cmd(self.cmdBtn_open)
+        self.tabWidget.setCurrentIndex(0)
 
-    def __init__(self, parent=None, width=5, height=4, dpi=100):
+    def cmd_balance_clicked(self):
+        self.activate_cmd(self.cmdBtn_balance)
+        self.tabWidget.setCurrentIndex(1)
+
+    def cmd_view_clicked(self):
+        self.activate_cmd(self.cmdBtn_view)
+        self.tabWidget.setCurrentIndex(2)
+
+    def cmd_tensor_clicked(self):
+        self.activate_cmd(self.cmdBtn_tensor)
+        self.tabWidget.setCurrentIndex(3)
+
+    def cmd_train_clicked(self):
+        self.activate_cmd(self.cmdBtn_train)
+        self.tabWidget.setCurrentIndex(4)
+
+    def cmd_statistics_clicked(self):
+        self.activate_cmd(self.cmdBtn_statistics)
+        self.tabWidget.setCurrentIndex(5)
+
+    def cmd_usage_clicked(self):
+        self.activate_cmd(self.cmdBtn_usage)
+        self.tabWidget.setCurrentIndex(6)
+
+    def debug(self):
+        self.update_count("C:/Users/Dima/PyFiles/MedNN/img/train")
+        self.update_count("C:/Users/Dima/PyFiles/MedNN/img/test")
+
+class MatPlotWidget(FigureCanvas):
+    def __init__(self, parent=None, width=16, height=9, dpi=100):
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = fig.add_subplot(111)
 
@@ -162,11 +206,11 @@ class MplCanvas(FigureCanvas):
     def compute_initial_figure(self):
         pass
 
-class StaticMplCanvas(MplCanvas):
+class StaticMplCanvas(MatPlotWidget):
     """Simple canvas with a sine plot."""
 
     def compute_initial_figure(self):
-        # plt.xticks(rotation=90)
+        self.axes.xticks(rotation=90)
         lbls = list(MainWindow.img_count_dict["train"].keys())
         values = list(MainWindow.img_count_dict["train"].values())
         self.axes.bar(lbls, values)
