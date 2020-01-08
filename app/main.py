@@ -1,9 +1,12 @@
 import sys
 import os
 from collections import defaultdict
+from matplotlib.figure import Figure
+import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQT
 import pandas as pd
 from PyQt5 import QtWidgets
+from PyQt5 import QtGui
 import design_mainwindow
 
 class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
@@ -12,8 +15,10 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
     test_path = ""
     train_path = ""
     img_path = ""
+    img_cnt = 0
     img_count_dict = defaultdict(dict)
     class_names = []
+    test_size = 0.0
 
     def __init__(self):
         super().__init__()
@@ -27,6 +32,8 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.t0_btn_openTest.clicked.connect(self.browse_test_folder)
         self.t0_btn_openImg.clicked.connect(self.browse_img_folder)
         self.t0_btn_classesInfo.clicked.connect(self.show_class_list)
+        self.t0_sb_trainSize.valueChanged.connect(self.update_test_size)
+        self.t0_btn_next.clicked.connect(self.go_to_balance_step)
 
     def browse_meta_file(self):
         self.meta_path, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите csv файл", "C:/Users/Dima/PyFiles/MedNN/", "csv (*.csv)")
@@ -60,6 +67,9 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.t0_le_openImg.setText(self.img_path)
         self.update_count(self.img_path)
 
+        for clname in os.listdir(self.img_path):
+            self.img_cnt += len(os.listdir(self.img_path + os.sep + clname))
+
     def update_count(self, path):
         mode = path.split('/')[-1]
         count_dict = {}
@@ -74,12 +84,16 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             train_cnt = self.dict_sum(self.img_count_dict["train"])
             test_cnt = self.dict_sum(self.img_count_dict["test"])
             all_cnt = train_cnt + test_cnt
+            self.test_size = test_cnt / all_cnt
+
             self.t0_sb_countTest.setMaximum(test_cnt)
             self.t0_sb_countTest.setValue(test_cnt)
             self.t0_sb_countTrain.setMaximum(train_cnt)
             self.t0_sb_countTrain.setValue(train_cnt)
-            self.t0_sb_countTest_perc.setValue( (test_cnt / all_cnt) * 100)
+            self.t0_sb_countTest_perc.setValue( self.test_size * 100)
             self.t0_sb_countTrain_perc.setValue(100 - self.t0_sb_countTest_perc.value())
+
+            self.plot_hist(self.img_count_dict)
 
     def show_class_list(self):
         if len(self.class_names) > 0:
@@ -94,9 +108,23 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             sum+= count_dict[k]
         return sum
 
-    # def plot_hist(self, img_dict, gr_widget):
-    #     scene = QtWidgets.QGraphicsScene()
-    #     gr_Widget
+    def update_test_size(self, value):
+        self.test_size = value / 100
+        self.t0_sb_countTest_perc.setValue(self.test_size * 100)
+        self.t0_sb_countTrain_perc.setValue(100 - self.t0_sb_countTest_perc.value())
+
+        test_cnt = self.img_cnt * self.test_size
+        train_cnt = self.img_cnt - test_cnt
+        self.t0_sb_countTest.setMaximum(test_cnt)
+        self.t0_sb_countTest.setValue(test_cnt)
+        self.t0_sb_countTrain.setMaximum(train_cnt)
+        self.t0_sb_countTrain.setValue(train_cnt)
+
+    def go_to_balance_step(self):
+        self.cmdBtn_balance.setEnabled(True)
+        self.cmdBtn_balance.setChecked(True)
+        self.cmdBtn_open.setChecked(False)
+        self.tabWidget.setCurrentIndex(2)
 
 def main():
     app = QtWidgets.QApplication(sys.argv)

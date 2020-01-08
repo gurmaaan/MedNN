@@ -37,7 +37,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_open">
        <attribute name="title">
@@ -135,76 +135,6 @@
          </layout>
         </item>
         <item>
-         <widget class="QGroupBox" name="t0_gb_manualSplit">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="title">
-           <string>Разделение</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout">
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_4">
-             <item>
-              <widget class="QLabel" name="label_7">
-               <property name="text">
-                <string>Папка с изображениями</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="t0_le_openImg"/>
-             </item>
-             <item>
-              <widget class="QToolButton" name="t0_btn_openImg">
-               <property name="text">
-                <string>...</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_5">
-             <item>
-              <widget class="QLabel" name="label_6">
-               <property name="text">
-                <string>Объем обучающей выборки</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QSlider" name="t0_sldr_trainSize">
-               <property name="maximum">
-                <number>100</number>
-               </property>
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QSpinBox" name="t0_sb_trainSize">
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-               <property name="buttonSymbols">
-                <enum>QAbstractSpinBox::NoButtons</enum>
-               </property>
-               <property name="suffix">
-                <string> %</string>
-               </property>
-               <property name="maximum">
-                <number>100</number>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
          <widget class="QGroupBox" name="t0_gb_autoSplit">
           <property name="enabled">
            <bool>false</bool>
@@ -246,6 +176,76 @@
               <string>...</string>
              </property>
             </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="t0_gb_manualSplit">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="title">
+           <string>Разделение</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QLabel" name="label_7">
+               <property name="text">
+                <string>Папка с изображениями</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="t0_le_openImg"/>
+             </item>
+             <item>
+              <widget class="QToolButton" name="t0_btn_openImg">
+               <property name="text">
+                <string>...</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QLabel" name="label_6">
+               <property name="text">
+                <string>Объем тестовой выборки</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="t0_sldr_trainSize">
+               <property name="maximum">
+                <number>100</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="t0_sb_trainSize">
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+               <property name="buttonSymbols">
+                <enum>QAbstractSpinBox::NoButtons</enum>
+               </property>
+               <property name="suffix">
+                <string> %</string>
+               </property>
+               <property name="maximum">
+                <number>100</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -409,9 +409,6 @@
               </item>
              </layout>
             </item>
-            <item>
-             <widget class="QGraphicsView" name="t0_grView_train"/>
-            </item>
            </layout>
           </item>
           <item>
@@ -511,12 +508,22 @@
               </item>
              </layout>
             </item>
-            <item>
-             <widget class="QGraphicsView" name="t0_grView_test"/>
-            </item>
            </layout>
           </item>
          </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_8">
@@ -555,6 +562,194 @@
        <attribute name="title">
         <string>Баланс классов</string>
        </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <item>
+         <widget class="QLabel" name="label_11">
+          <property name="text">
+           <string>Баланс классов обучающей выборки:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="t1_lbl_hist">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>200</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Class distribution histogram</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="t1_radio_no_changes">
+          <property name="text">
+           <string>Оставить без изменений</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="t1_radio_enrichMin">
+          <property name="text">
+           <string>Ограничить минимальным и обогатить в равной степени</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_10">
+          <item>
+           <widget class="QLabel" name="t1_lbl_enrichMin">
+            <property name="text">
+             <string>Объем после обогащения</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="t1_sb_enrichMin">
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="showGroupSeparator" stdset="0">
+             <bool>true</bool>
+            </property>
+            <property name="maximum">
+             <number>10000</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="t1_radio_enrichMax">
+          <property name="text">
+           <string>Обогатить недостающие до максимума</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="t1_table_enrichMax">
+          <column>
+           <property name="text">
+            <string>Класс</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Будет добавлено</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="t1_gb_trans">
+          <property name="title">
+           <string>Трансформации</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_11">
+             <item>
+              <widget class="QCheckBox" name="t1_chb_rot">
+               <property name="text">
+                <string>Вращения</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="t1_sb_rot">
+               <property name="buttonSymbols">
+                <enum>QAbstractSpinBox::NoButtons</enum>
+               </property>
+               <property name="suffix">
+                <string> °</string>
+               </property>
+               <property name="maximum">
+                <number>360</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="t1_chb_vertFlip">
+             <property name="text">
+              <string>Вертикальные отображения</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="t1_chb_horFlip">
+             <property name="text">
+              <string>Горизонтальные отображения</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_12">
+          <item>
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="t1_btn_reset">
+            <property name="text">
+             <string>Сброс</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="t1_btn_next">
+            <property name="text">
+             <string>Далее</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_view">
        <attribute name="title">
