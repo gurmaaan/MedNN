@@ -37,7 +37,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_open">
        <attribute name="title">
@@ -580,6 +580,13 @@
          <layout class="QVBoxLayout" name="t1_lyt_plot"/>
         </item>
         <item>
+         <widget class="Line" name="line_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QRadioButton" name="t1_radio_no_changes">
           <property name="text">
            <string>Оставить без изменений</string>
@@ -654,6 +661,9 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
           <column>
            <property name="text">
             <string>Класс</string>
@@ -968,7 +978,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="debug">
+      <widget class="QPushButton" name="debugBtn">
        <property name="text">
         <string>Debug</string>
        </property>

@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 
+
 class MatPlotWidget(FigureCanvas):
     def __init__(self):
         fig, ax = plt.subplots()

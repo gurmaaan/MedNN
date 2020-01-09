@@ -31,6 +31,10 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         for btn in self.cmd_btns:
             btn.setIcon(QtGui.QIcon())
 
+        table_header = self.t1_table_enrichMax.horizontalHeader()
+        table_header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        table_header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+
         self.connections()
 
         self.debug()
@@ -51,6 +55,9 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.cmdBtn_train.clicked.connect(self.cmd_train_clicked)
         self.cmdBtn_statistics.clicked.connect(self.cmd_statistics_clicked)
         self.cmdBtn_usage.clicked.connect(self.cmd_usage_clicked)
+
+        self.t1_btn_next.clicked.connect(self.go_to_view_step)
+
         self.debugBtn.clicked.connect(self.debug)
 
     def browse_meta_file(self):
@@ -147,6 +154,13 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         if "train" in self.img_count_dict:
             sc = HistPlot(self.img_count_dict["train"].keys(), self.img_count_dict["train"].values())
             self.t1_lyt_plot.addWidget(sc)
+            self.calc_enrichment()
+
+    def go_to_view_step(self):
+        self.cmdBtn_view.setEnabled(True)
+        self.cmdBtn_tensor.setEnabled(True)
+        self.cmd_view_clicked()
+
 
     def activate_cmd(self, cmd_btn):
         for btn in self.cmd_btns:
@@ -180,6 +194,15 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
     def cmd_usage_clicked(self):
         self.activate_cmd(self.cmdBtn_usage)
         self.tabWidget.setCurrentIndex(6)
+
+    def calc_enrichment(self):
+        self.t1_table_enrichMax.clearContents()
+        max_cnt = max(list(self.img_count_dict["train"].values()))
+        for i, clname in enumerate(self.img_count_dict["train"]):
+            self.t1_table_enrichMax.insertRow(i)
+            self.t1_table_enrichMax.setItem(i, 0, QtWidgets.QTableWidgetItem(clname))
+            append_cnt = max_cnt - self.img_count_dict["train"][clname]
+            self.t1_table_enrichMax.setItem(i, 1, QtWidgets.QTableWidgetItem(str(append_cnt)))
 
     def debug(self):
         self.update_count("C:/Users/Dima/PyFiles/MedNN/img/train")
