@@ -1,17 +1,12 @@
 import sys
 import os
 from collections import defaultdict
-
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
-import seaborn as sns
-
 import pandas as pd
+
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
 import design_mainwindow
-
+from plots import HistPlot
 
 class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
     meta_path = ""
@@ -37,6 +32,8 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             btn.setIcon(QtGui.QIcon())
 
         self.connections()
+
+        self.debug()
 
     def connections(self):
         self.t0_btn_openMeta.clicked.connect(self.browse_meta_file)
@@ -188,31 +185,6 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.update_count("C:/Users/Dima/PyFiles/MedNN/img/train")
         self.update_count("C:/Users/Dima/PyFiles/MedNN/img/test")
         self.go_to_balance_step()
-
-
-class MatPlotWidget(FigureCanvas):
-    def __init__(self):
-        fig = Figure()
-        self.axes = fig.add_subplot(111)
-        self.compute_initial_figure()
-
-        FigureCanvas.__init__(self, fig)
-        FigureCanvas.setSizePolicy(self, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        FigureCanvas.updateGeometry(self)
-
-    def compute_initial_figure(self):
-        pass
-
-
-class HistPlot(MatPlotWidget):
-    def __init__(self, labels, values):
-        super().__init__()
-        self.labels = list(labels)
-        self.values = list(values)
-
-    def compute_initial_figure(self):
-        self.axes.bar(self.labels, self.values)
-
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
