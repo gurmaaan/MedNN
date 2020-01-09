@@ -55,3 +55,4 @@ nn_coeffs/
 MedNN/Download_img - Jupyter Notebook.pdf
 *.pyc
 app/test.py
+models_score.csv
