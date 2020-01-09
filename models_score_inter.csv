@@ -1,0 +1,10 @@
+scope;inception_v3
+total;84.36
+nevus;93.98
+pigmented benign keratosis;74.05
+melanoma;47.98
+basal cell carcinoma;83.64
+squamous cell carcinoma;31.67
+vascular lesion;97.78
+actinic keratosis;70.27
+dermatofibroma;75.76
