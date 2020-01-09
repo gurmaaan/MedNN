@@ -8,6 +8,7 @@ from PyQt5 import QtGui
 import design_mainwindow
 from plots import HistPlot
 
+
 class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
     meta_path = ""
     meta_df = pd.DataFrame()
