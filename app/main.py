@@ -42,9 +42,13 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.tabWidget.tabBar().hide()
         self.tabWidget.setCurrentIndex(0)
 
+        self.t2_lbl_progress.setVisible(False)
+        self.t2_progress.setVisible(False)
+
         self.cmd_btns = [self.cmdBtn_open, self.cmdBtn_balance, self.cmdBtn_view, self.cmdBtn_tensor,
                          self.cmdBtn_train, self.cmdBtn_statistics, self.cmdBtn_usage]
         for btn in self.cmd_btns:
+            btn.setEnabled(True)
             btn.setIcon(QtGui.QIcon())
 
         table_header = self.t1_twgt.horizontalHeader()
@@ -78,6 +82,38 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
 
         self.debugBtn.clicked.connect(self.debug)
 
+    def mousePressEvent(self, event: QtGui.QMouseEvent) -> None:
+        widget = self.childAt(event.pos())
+        if widget.__class__.__name__ == "QLabel":
+            clicked_ind = self.t2_lytGrid.indexOf(widget)
+            img_name = os.listdir(self.train_path + '/' + self.t2_lwgt.currentItem().text())[clicked_ind].split('.')[0]
+            img_names = self.meta_df['name'].unique()
+            if (len(self.meta_df) > 0) and (img_name in img_names) and self.t2_gb_info.isEnabled():
+                df = self.meta_df[self.meta_df["name"] == img_name]
+                sex_str = df["sex"].tolist()[0]
+                if sex_str == "male":
+                    self.check_sex_radio(self.t2_radio_sexM)
+                elif sex_str == "female":
+                    self.check_sex_radio(self.t2_radio_sexF)
+                else:
+                    self.check_sex_radio(None)
+
+                self.t2_sb_age.setValue(int(df['age'].tolist()[0]))
+                self.t2_le_type.setText(df['diagnosis_confirm_type'].tolist()[0])
+            else:
+                self.clear_info_gb()
+
+    def check_sex_radio(self, widget):
+        self.t2_radio_sexF.setChecked(False)
+        self.t2_radio_sexM.setChecked(False)
+        if widget is not None:
+            widget.setChecked(True)
+
+    def clear_info_gb(self):
+        self.t2_le_type.setText("")
+        self.t2_sb_age.setValue(0)
+        self.check_sex_radio(None)
+
     def browse_meta_file(self):
         meta_file_path, _ = QtWidgets.QFileDialog.getOpenFileName(self,
                                                                   "Выберите csv файл",
@@ -90,6 +126,7 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             meta_df = pd.read_csv(self.meta_path)
             meta_df.drop(meta_df[meta_df["dataset"] != "HAM10000"].index, inplace=True)
             meta_df.reset_index(inplace=True)
+            self.meta_df = meta_df
 
             self.t0_lbl_foundMeta_l.setEnabled(True)
             self.t0_lbl_foundMeta_r.setEnabled(True)
@@ -179,6 +216,8 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.cmdBtn_tensor.setEnabled(True)
         self.cmd_view_clicked()
 
+        self.t2_lwgt.clear()
+
         for cl in self.class_names:
             self.t2_lwgt.addItem(QtWidgets.QListWidgetItem(cl))
 
@@ -228,15 +267,29 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         dir_path = self.train_path + '/' + item.text() + '/'
         img_paths = [dir_path + img_name for img_name in os.listdir(dir_path)]
 
+        self.t2_gb_info.setEnabled(True)
+        self.clear_info_gb()
+
+        self.t2_progress.setVisible(True)
+        self.t2_lbl_progress.setVisible(True)
+        self.t2_progress.setValue(0)
+        self.t2_progress.setMaximum(len(img_paths))
+
         lyt_w = self.t2_lytGrid.geometry().width()
         self.clear_layot(self.t2_lytGrid)
         for row, group in enumerate(grouper(3, img_paths)):
             for col, ip in enumerate(group):
+                # pixmap = QtGui.QPixmap(ip)
+                self.t2_progress.setValue(self.t2_lytGrid.count() + 1)
                 pixmap = QtGui.QPixmap(ip)
                 label = QtWidgets.QLabel()
+                label.setText(ip)
                 label.resize(lyt_w / 3, lyt_w / 3)
                 label.setPixmap(pixmap.scaled(label.size(), QtCore.Qt.KeepAspectRatio))
                 self.t2_lytGrid.addWidget(label, row, col)
+
+        self.t2_progress.setVisible(False)
+        self.t2_lbl_progress.setVisible(False)
 
     @staticmethod
     def clear_layot(layout):
@@ -244,6 +297,10 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             layout.itemAt(i).widget().deleteLater()
 
     def debug(self):
+        self.meta_df = pd.read_csv("C:/Users/Dima/PyFiles/MedNN/img_meta.csv")
+        self.meta_df.drop(self.meta_df[self.meta_df["dataset"] != "HAM10000"].index, inplace=True)
+        self.meta_df.reset_index(inplace=True)
+
         train_path = "C:/Users/Dima/PyFiles/MedNN/img/train"
         self.train_path = train_path
         self.update_count(train_path)
