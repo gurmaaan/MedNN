@@ -48,7 +48,7 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.cmd_btns = [self.cmdBtn_open, self.cmdBtn_balance, self.cmdBtn_view, self.cmdBtn_tensor,
                          self.cmdBtn_train, self.cmdBtn_statistics, self.cmdBtn_usage]
         for btn in self.cmd_btns:
-            btn.setEnabled(True)
+            # btn.setEnabled(True)
             btn.setIcon(QtGui.QIcon())
 
         table_header = self.t1_twgt.horizontalHeader()
@@ -68,14 +68,18 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.cmdBtn_statistics.clicked.connect(self.cmd_statistics_clicked)
         self.cmdBtn_usage.clicked.connect(self.cmd_usage_clicked)
 
+        self.t0_btn_next.clicked.connect(self.go_to_balance_step)
+        self.t1_btn_next.clicked.connect(self.go_to_view_step)
+        self.t2_btn_next.clicked.connect(self.go_to_tensor_step)
+        self.t3_btn_next.clicked.connect(self.go_to_train_step)
+        self.t4_btn_next.clicked.connect(self.go_to_stat_step)
+        self.t5_btn_next.clicked.connect(self.cmd_usage_clicked)
+
         self.t0_btn_openMeta.clicked.connect(self.browse_meta_file)
         self.t0_btn_openTrain.clicked.connect(self.browse_train_folder)
         self.t0_btn_openTest.clicked.connect(self.browse_test_folder)
         self.t0_btn_openImg.clicked.connect(self.browse_img_folder)
         self.t0_sb_trainSize.valueChanged.connect(self.update_test_size)
-        self.t0_btn_next.clicked.connect(self.go_to_balance_step)
-
-        self.t1_btn_next.clicked.connect(self.go_to_view_step)
 
         self.t2_lwgt.itemClicked.connect(self.view_images)
 
@@ -221,9 +225,21 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.cmd_view_clicked()
 
         self.t2_lwgt.clear()
-
         for cl in self.class_names:
             self.t2_lwgt.addItem(QtWidgets.QListWidgetItem(cl))
+
+    def go_to_tensor_step(self):
+        self.cmdBtn_tensor.setEnabled(True)
+        self.cmd_tensor_clicked()
+
+    def go_to_train_step(self):
+        self.cmdBtn_train.setEnabled(True)
+        self.cmd_train_clicked()
+
+    def go_to_stat_step(self):
+        self.cmdBtn_statistics.setEnabled(True)
+        self.cmdBtn_usage.setEnabled(True)
+        self.cmd_statistics_clicked()
 
     def activate_cmd(self, cmd_btn):
         for btn in self.cmd_btns:
