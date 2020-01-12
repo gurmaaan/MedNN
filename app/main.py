@@ -1,12 +1,27 @@
 import sys
 import os
 from collections import defaultdict
+import itertools
 import pandas as pd
 
-from PyQt5 import QtWidgets
-from PyQt5 import QtGui
+from PyQt5 import QtWidgets, QtGui, QtCore
 import design_mainwindow
 from plots import HistPlot
+
+# Icon to Windows taskbar
+import ctypes
+
+myappid = 'mycompany.myproduct.subproduct.version'  # arbitrary string
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+
+
+def grouper(n, iterable):
+    it = iter(iterable)
+    while True:
+        chunk = tuple(itertools.islice(it, n))
+        if not chunk:
+            return
+        yield chunk
 
 
 class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
@@ -32,7 +47,7 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         for btn in self.cmd_btns:
             btn.setIcon(QtGui.QIcon())
 
-        table_header = self.t1_table_enrichMax.horizontalHeader()
+        table_header = self.t1_twgt.horizontalHeader()
         table_header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
         table_header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
 
@@ -41,14 +56,6 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.debug()
 
     def connections(self):
-        self.t0_btn_openMeta.clicked.connect(self.browse_meta_file)
-        self.t0_btn_openTrain.clicked.connect(self.browse_train_folder)
-        self.t0_btn_openTest.clicked.connect(self.browse_test_folder)
-        self.t0_btn_openImg.clicked.connect(self.browse_img_folder)
-        self.t0_btn_classesInfo.clicked.connect(self.show_class_list)
-        self.t0_sb_trainSize.valueChanged.connect(self.update_test_size)
-        self.t0_btn_next.clicked.connect(self.go_to_balance_step)
-
         self.cmdBtn_open.clicked.connect(self.cmd_open_clicked)
         self.cmdBtn_balance.clicked.connect(self.cmd_balance_clicked)
         self.cmdBtn_view.clicked.connect(self.cmd_view_clicked)
@@ -57,7 +64,17 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.cmdBtn_statistics.clicked.connect(self.cmd_statistics_clicked)
         self.cmdBtn_usage.clicked.connect(self.cmd_usage_clicked)
 
+        self.t0_btn_openMeta.clicked.connect(self.browse_meta_file)
+        self.t0_btn_openTrain.clicked.connect(self.browse_train_folder)
+        self.t0_btn_openTest.clicked.connect(self.browse_test_folder)
+        self.t0_btn_openImg.clicked.connect(self.browse_img_folder)
+        self.t0_btn_classesInfo.clicked.connect(self.show_class_list)
+        self.t0_sb_trainSize.valueChanged.connect(self.update_test_size)
+        self.t0_btn_next.clicked.connect(self.go_to_balance_step)
+
         self.t1_btn_next.clicked.connect(self.go_to_view_step)
+
+        self.t2_lwgt.itemClicked.connect(self.view_images)
 
         self.debugBtn.clicked.connect(self.debug)
 
@@ -162,6 +179,8 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.cmdBtn_tensor.setEnabled(True)
         self.cmd_view_clicked()
 
+        for cl in self.class_names:
+            self.t2_lwgt.addItem(QtWidgets.QListWidgetItem(cl))
 
     def activate_cmd(self, cmd_btn):
         for btn in self.cmd_btns:
@@ -197,18 +216,44 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.tabWidget.setCurrentIndex(6)
 
     def calc_enrichment(self):
-        self.t1_table_enrichMax.clearContents()
+        self.t1_twgt.clearContents()
         max_cnt = max(list(self.img_count_dict["train"].values()))
         for i, clname in enumerate(self.img_count_dict["train"]):
-            self.t1_table_enrichMax.insertRow(i)
-            self.t1_table_enrichMax.setItem(i, 0, QtWidgets.QTableWidgetItem(clname))
+            self.t1_twgt.insertRow(i)
+            self.t1_twgt.setItem(i, 0, QtWidgets.QTableWidgetItem(clname))
             append_cnt = max_cnt - self.img_count_dict["train"][clname]
-            self.t1_table_enrichMax.setItem(i, 1, QtWidgets.QTableWidgetItem(str(append_cnt)))
+            self.t1_twgt.setItem(i, 1, QtWidgets.QTableWidgetItem(str(append_cnt)))
+
+    def view_images(self, item: QtWidgets.QListWidgetItem) -> None:
+        dir_path = self.train_path + '/' + item.text() + '/'
+        img_paths = [dir_path + img_name for img_name in os.listdir(dir_path)]
+
+        lyt_w = self.t2_lytGrid.geometry().width()
+        self.clear_layot(self.t2_lytGrid)
+        for row, group in enumerate(grouper(3, img_paths)):
+            for col, ip in enumerate(group):
+                pixmap = QtGui.QPixmap(ip)
+                label = QtWidgets.QLabel()
+                label.resize(lyt_w / 3, lyt_w / 3)
+                label.setPixmap(pixmap.scaled(label.size(), QtCore.Qt.KeepAspectRatio))
+                self.t2_lytGrid.addWidget(label, row, col)
+
+    @staticmethod
+    def clear_layot(layout):
+        for i in reversed(range(layout.count())):
+            layout.itemAt(i).widget().deleteLater()
 
     def debug(self):
-        self.update_count("C:/Users/Dima/PyFiles/MedNN/img/train")
-        self.update_count("C:/Users/Dima/PyFiles/MedNN/img/test")
-        self.go_to_balance_step()
+        train_path = "C:/Users/Dima/PyFiles/MedNN/img/train"
+        self.train_path = train_path
+        self.update_count(train_path)
+
+        test_path = "C:/Users/Dima/PyFiles/MedNN/img/test"
+        # self.test_path = test_path
+        self.update_count(test_path)
+
+        self.go_to_view_step()
+
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
