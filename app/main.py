@@ -4,15 +4,26 @@ from collections import defaultdict
 import itertools
 import json
 from matplotlib import pyplot as plt
+from PIL import Image
 import pandas as pd
+
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.optim import lr_scheduler
+from torch.utils.data import DataLoader
+
+import torchvision
+import torchvision.transforms as transforms
+from torchvision.datasets import ImageFolder
+from torchvision import models
 
 from PyQt5 import QtWidgets, QtGui, QtCore
 import design_mainwindow
-from plots import HistPlot, AccuracyPlot, LossPlot
+from plots import HistPlot, AccuracyPlot, LossPlot, ProbaPlot
 
 # Icon to Windows taskbar
 import ctypes
-
 myappid = 'mycompany.myproduct.subproduct.version'  # arbitrary string
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
@@ -37,6 +48,21 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
     class_names = []
     test_size = 0.0
     nn_path = ""
+    model_dict = {
+        "inception_v3" : models.inception_v3(pretrained=True),
+        "resnet18" : models.resnet18(pretrained=True),
+        "resnet50" : models.resnet50(pretrained=True)
+        # "vgg16": models.vgg16(pretrained=True)
+    }
+    data_transforms = [
+        transforms.Resize(300),
+        transforms.CenterCrop(300),
+        transforms.RandomHorizontalFlip(),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+    ]
+
+    most_prob_class = ""
 
     def __init__(self):
         super().__init__()
@@ -88,6 +114,9 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.t5_btn_nnPath.clicked.connect(self.browse_nn_folder)
         self.t5_combo.activated.connect(self.show_stat)
         self.t5_btn_save.clicked.connect(self.save_plot)
+
+        self.t6_btn_openImg.clicked.connect(self.browse_prediction_img)
+        self.t6_btn_sameItems.clicked.connect(self.show_most_prob)
 
     def mousePressEvent(self, event: QtGui.QMouseEvent) -> None:
         widget = self.childAt(event.pos())
@@ -278,7 +307,6 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.clear_layot(self.t2_lytGrid)
         for row, group in enumerate(grouper(3, img_paths)):
             for col, ip in enumerate(group):
-                # pixmap = QtGui.QPixmap(ip)
                 self.t2_progress.setValue(self.t2_lytGrid.count() + 1)
                 pixmap = QtGui.QPixmap(ip)
                 label = QtWidgets.QLabel()
@@ -324,7 +352,8 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         scores = df[nn_name].tolist()
         self.t5_twgt.clearContents()
         for i in range(len(classes)):
-            self.t5_twgt.insertRow(i)
+            if i >= self.t5_twgt.rowCount():
+                self.t5_twgt.insertRow(i)
             self.t5_twgt.setItem(i, 0, QtWidgets.QTableWidgetItem(classes[i]))
             self.t5_twgt.setItem(i, 1, QtWidgets.QTableWidgetItem(str(scores[i])))
 
@@ -369,6 +398,57 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         save_path, _ = QtWidgets.QFileDialog.getSaveFileName()
         fig.savefig(save_path)
 
+    def browse_prediction_img(self, pred_path = None):
+        if not pred_path:
+            pred_path, _ = QtWidgets.QFileDialog.getOpenFileName(self,
+                                                                 "Выберите изображение",
+                                                                 "C:/Users/Dima/PyFiles/MedNN/img",
+                                                                 "jpg (*.jpg)")
+        if pred_path:
+            self.t6_le_openImg.setText(pred_path)
+            pixmap = QtGui.QPixmap(pred_path)
+            self.t6_lbl_img.setPixmap(pixmap.scaled(self.t6_lbl_img.size(), QtCore.Qt.KeepAspectRatio))
+            self.predict(pred_path)
+
+    def predict(self, pred_path=None):
+        if not pred_path:
+            pred_path = self.t6_le_openImg.text()
+
+        model_name = self.t5_combo.currentText()
+        model = self.model_dict[model_name]
+        num_ftrs = model.fc.in_features
+        model.fc = nn.Linear(num_ftrs, len(self.class_names))
+        model.load_state_dict(torch.load(self.t5_le_nnPath.text() + "/coeffs/" + model_name + ".pth"))
+        model.eval()
+
+        img = Image.open(pred_path)
+        img_input = transforms.Compose(self.data_transforms)(img)
+        img_input = img_input.unsqueeze(0)
+        with torch.no_grad():
+            output = model(img_input)
+            proba = torch.nn.functional.softmax(output, dim=1).tolist()[0]
+
+            data = {"class" : self.class_names, "proba" : proba}
+            pdf = pd.DataFrame(data)
+            pdf = pdf.sort_values(["proba"], ascending=False)
+            self.most_prob_class = pdf["class"].tolist()[0]
+            print(self.most_prob_class)
+            self.clear_layot(self.t6_lytH_results)
+            proba_plt = ProbaPlot(self.class_names, proba)
+            self.t6_lytH_results.addWidget(proba_plt)
+
+    def show_most_prob(self, class_name=None):
+        self.cmd_view_clicked()
+
+        if not class_name:
+            class_name = self.most_prob_class
+
+        for i in range(self.t2_lwgt.count()):
+            if self.t2_lwgt.item(i).text() == class_name:
+                self.t2_lwgt.item(i).setSelected(True)
+                self.view_images(self.t2_lwgt.item(i))
+                break
+
     def debug(self):
         self.browse_meta_file("C:/Users/Dima/PyFiles/MedNN/img_meta.csv")
 
@@ -379,7 +459,8 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.browse_test_folder("C:/Users/Dima/PyFiles/MedNN/img/test")
 
         self.browse_nn_folder("C:/Users/Dima/PyFiles/MedNN/nn/default")
-        self.cmd_statistics_clicked()
+        self.browse_prediction_img("C:/Users/Dima/PyFiles/MedNN/img/carcinoma.jpg")
+        self.cmd_usage_clicked()
 
 
 def main():
