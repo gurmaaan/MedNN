@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+import json
 
 
 class MatPlotWidget(FigureCanvas):
@@ -13,6 +14,9 @@ class MatPlotWidget(FigureCanvas):
 
     def compute_initial_figure(self):
         pass
+
+    def save(self, path):
+        self.fig.savefig(path)
 
 
 class HistPlot(MatPlotWidget):
@@ -33,3 +37,43 @@ class HistPlot(MatPlotWidget):
         self.axes.barh(self.labels, self.values, color=clrs)
         for i, v in enumerate(self.values):
             self.axes.text(v, i, str(v), fontsize=8)
+
+
+class AccuracyPlot(MatPlotWidget):
+    def __init__(self, path):
+        super().__init__()
+        self.path = path
+        self.data = json.load(open(path, 'r'))
+        self.compute_initial_figure()
+
+    def compute_initial_figure(self):
+        epochs = self.data["train"]["epoch"]
+        self.axes.plot(epochs, self.data["train"]["acc"], label="train")
+        self.axes.plot(epochs, self.data["test"]["acc"], label="test")
+
+        self.axes.set_xlabel("Эпохи")
+        self.axes.set_xticks([xt for xt in range(0, epochs[-1], 2)])
+        self.axes.set_ylabel("Точность (accuracy)")
+        self.axes.legend(loc=1)
+        self.axes.grid()
+        self.axes.set_xlim(xmin=0, xmax=epochs[-1])
+
+
+class LossPlot(MatPlotWidget):
+    def __init__(self, path):
+        super().__init__()
+        self.path = path
+        self.data = json.load(open(path, 'r'))
+        self.compute_initial_figure()
+
+    def compute_initial_figure(self):
+        epochs = self.data["train"]["epoch"]
+        self.axes.plot(epochs, self.data["train"]["loss"], label="train")
+        self.axes.plot(epochs, self.data["test"]["loss"], label="test")
+
+        self.axes.set_xlabel("Эпохи")
+        self.axes.set_xticks([xt for xt in range(0, epochs[-1], 2)])
+        self.axes.set_ylabel("Loss")
+        self.axes.legend(loc=1)
+        self.axes.grid()
+        self.axes.set_xlim(xmin=0, xmax=epochs[-1])

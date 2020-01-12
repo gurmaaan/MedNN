@@ -2,11 +2,13 @@ import sys
 import os
 from collections import defaultdict
 import itertools
+import json
+from matplotlib import pyplot as plt
 import pandas as pd
 
 from PyQt5 import QtWidgets, QtGui, QtCore
 import design_mainwindow
-from plots import HistPlot
+from plots import HistPlot, AccuracyPlot, LossPlot
 
 # Icon to Windows taskbar
 import ctypes
@@ -34,6 +36,7 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
     img_count_dict = defaultdict(dict)
     class_names = []
     test_size = 0.0
+    nn_path = ""
 
     def __init__(self):
         super().__init__()
@@ -47,16 +50,15 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
 
         self.cmd_btns = [self.cmdBtn_open, self.cmdBtn_balance, self.cmdBtn_view, self.cmdBtn_tensor,
                          self.cmdBtn_train, self.cmdBtn_statistics, self.cmdBtn_usage]
+
         for btn in self.cmd_btns:
-            # btn.setEnabled(True)
+            btn.setEnabled(True)
             btn.setIcon(QtGui.QIcon())
 
-        table_header = self.t1_twgt.horizontalHeader()
-        table_header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
-        table_header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+        self.stretch_headers(self.t1_twgt)
+        self.stretch_headers(self.t5_twgt)
 
         self.connections()
-
         self.debug()
 
     def connections(self):
@@ -68,11 +70,11 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.cmdBtn_statistics.clicked.connect(self.cmd_statistics_clicked)
         self.cmdBtn_usage.clicked.connect(self.cmd_usage_clicked)
 
-        self.t0_btn_next.clicked.connect(self.go_to_balance_step)
-        self.t1_btn_next.clicked.connect(self.go_to_view_step)
-        self.t2_btn_next.clicked.connect(self.go_to_tensor_step)
-        self.t3_btn_next.clicked.connect(self.go_to_train_step)
-        self.t4_btn_next.clicked.connect(self.go_to_stat_step)
+        self.t0_btn_next.clicked.connect(self.cmd_balance_clicked)
+        self.t1_btn_next.clicked.connect(self.cmd_view_clicked)
+        self.t2_btn_next.clicked.connect(self.cmd_tensor_clicked)
+        self.t3_btn_next.clicked.connect(self.cmd_train_clicked)
+        self.t4_btn_next.clicked.connect(self.cmd_statistics_clicked)
         self.t5_btn_next.clicked.connect(self.cmd_usage_clicked)
 
         self.t0_btn_openMeta.clicked.connect(self.browse_meta_file)
@@ -83,30 +85,31 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
 
         self.t2_lwgt.itemClicked.connect(self.view_images)
 
-        self.t5_btn_coeffPath.clicked.connect(self.show_results)
-
-        self.debugBtn.clicked.connect(self.debug)
+        self.t5_btn_nnPath.clicked.connect(self.browse_nn_folder)
+        self.t5_combo.activated.connect(self.show_stat)
+        self.t5_btn_save.clicked.connect(self.save_plot)
 
     def mousePressEvent(self, event: QtGui.QMouseEvent) -> None:
         widget = self.childAt(event.pos())
         if widget.__class__.__name__ == "QLabel":
             clicked_ind = self.t2_lytGrid.indexOf(widget)
-            img_name = os.listdir(self.train_path + '/' + self.t2_lwgt.currentItem().text())[clicked_ind].split('.')[0]
-            img_names = self.meta_df['name'].unique()
-            if (len(self.meta_df) > 0) and (img_name in img_names) and self.t2_gb_info.isEnabled():
-                df = self.meta_df[self.meta_df["name"] == img_name]
-                sex_str = df["sex"].tolist()[0]
-                if sex_str == "male":
-                    self.check_sex_radio(self.t2_radio_sexM)
-                elif sex_str == "female":
-                    self.check_sex_radio(self.t2_radio_sexF)
-                else:
-                    self.check_sex_radio(None)
+            if clicked_ind != -1:
+                img_name = os.listdir(self.train_path + '/' + self.t2_lwgt.currentItem().text())[clicked_ind].split('.')[0]
+                img_names = self.meta_df['name'].unique()
+                if (len(self.meta_df) > 0) and (img_name in img_names) and self.t2_gb_info.isEnabled():
+                    df = self.meta_df[self.meta_df["name"] == img_name]
+                    sex_str = df["sex"].tolist()[0]
+                    if sex_str == "male":
+                        self.check_sex_radio(self.t2_radio_sexM)
+                    elif sex_str == "female":
+                        self.check_sex_radio(self.t2_radio_sexF)
+                    else:
+                        self.check_sex_radio(None)
 
-                self.t2_sb_age.setValue(int(df['age'].tolist()[0]))
-                self.t2_le_type.setText(df['diagnosis_confirm_type'].tolist()[0])
-            else:
-                self.clear_info_gb()
+                    self.t2_sb_age.setValue(int(df['age'].tolist()[0]))
+                    self.t2_le_type.setText(df['diagnosis_confirm_type'].tolist()[0])
+                else:
+                    self.clear_info_gb()
 
     def check_sex_radio(self, widget):
         self.t2_radio_sexF.setChecked(False)
@@ -193,13 +196,14 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             self.set_train_test(test_cnt, train_cnt)
 
             self.t0_lwgt_classesInfo.clear()
+            self.t2_lwgt.clear()
             for cl in self.class_names:
                 self.t0_lwgt_classesInfo.addItem(QtWidgets.QListWidgetItem(cl))
+                self.t2_lwgt.addItem(QtWidgets.QListWidgetItem(cl))
 
             hist = HistPlot(self.img_count_dict["train"].keys(), self.img_count_dict["train"].values())
             self.t1_lyt_plot.addWidget(hist)
             self.calc_enrichment()
-
 
     def set_train_test(self, test_count, train_count):
         self.t0_sb_countTest.setMaximum(test_count)
@@ -215,33 +219,8 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         train_cnt = self.img_cnt - test_cnt
         self.set_train_test(test_cnt, train_cnt)
 
-    def go_to_balance_step(self):
-        self.cmdBtn_balance.setEnabled(True)
-        self.cmd_balance_clicked()
-
-    def go_to_view_step(self):
-        self.cmdBtn_view.setEnabled(True)
-        self.cmdBtn_tensor.setEnabled(True)
-        self.cmd_view_clicked()
-
-        self.t2_lwgt.clear()
-        for cl in self.class_names:
-            self.t2_lwgt.addItem(QtWidgets.QListWidgetItem(cl))
-
-    def go_to_tensor_step(self):
-        self.cmdBtn_tensor.setEnabled(True)
-        self.cmd_tensor_clicked()
-
-    def go_to_train_step(self):
-        self.cmdBtn_train.setEnabled(True)
-        self.cmd_train_clicked()
-
-    def go_to_stat_step(self):
-        self.cmdBtn_statistics.setEnabled(True)
-        self.cmdBtn_usage.setEnabled(True)
-        self.cmd_statistics_clicked()
-
-    def activate_cmd(self, cmd_btn):
+    def activate_cmd(self, cmd_btn: QtWidgets.QCommandLinkButton) -> None:
+        cmd_btn.setEnabled(True)
         for btn in self.cmd_btns:
             btn.setChecked(False)
         cmd_btn.setChecked(True)
@@ -316,8 +295,79 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         for i in reversed(range(layout.count())):
             layout.itemAt(i).widget().deleteLater()
 
-    def show_results(self):
-        print("Xui")
+    @staticmethod
+    def stretch_headers(table : QtWidgets.QTableWidget):
+        table_header = table.horizontalHeader()
+        table_header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        table_header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+
+    def browse_nn_folder(self, nn_path=None):
+        if nn_path:
+            self.nn_path = nn_path
+        else:
+            self.nn_path = QtWidgets.QFileDialog.getExistingDirectory(self,
+                                                                      "Выберите папку с результатами нейросети",
+                                                                      "C:/Users/Dima/PyFiles/MedNN/nn/default")
+        if self.nn_path:
+            self.t5_le_nnPath.setText(self.nn_path)
+            nn_names = [nn_name.split('.')[0] for nn_name in os.listdir(nn_path + '/' + "coeffs")]
+            self.t5_combo.addItems(nn_names)
+            self.t5_combo.setEnabled(True)
+            self.show_stat(nn_name=nn_names[0])
+
+    def show_stat(self, index = 0, nn_name = None):
+        if not nn_name:
+            nn_name  = self.t5_combo.currentText()
+
+        df = pd.read_csv(self.nn_path + "/models_score.csv", sep=';')
+        classes = df["scope"].tolist()
+        scores = df[nn_name].tolist()
+        self.t5_twgt.clearContents()
+        for i in range(len(classes)):
+            self.t5_twgt.insertRow(i)
+            self.t5_twgt.setItem(i, 0, QtWidgets.QTableWidgetItem(classes[i]))
+            self.t5_twgt.setItem(i, 1, QtWidgets.QTableWidgetItem(str(scores[i])))
+
+        json_path = self.nn_path + "/learning/" + nn_name + ".json"
+
+        self.clear_layot(self.t5_lytH_acc)
+        acc_plt = AccuracyPlot(json_path)
+        self.t5_lytH_acc.addWidget(acc_plt)
+
+        self.clear_layot(self.t5_lytH_loss)
+        loss_plt = LossPlot(json_path)
+        self.t5_lytH_loss.addWidget(loss_plt)
+
+    def save_plot(self):
+        json_path = self.t5_le_nnPath.text() + "/learning/" + self.t5_combo.currentText() + ".json"
+        data = json.load(open(json_path, 'r'))
+
+        epochs = data["train"]["epoch"]
+
+        fig, axs = plt.subplots(2, figsize=(16, 12))
+        title = json_path.split('/')[-1].split('.')[0]
+        fig.suptitle(title)
+
+        axs[0].set_title("Loss")
+        axs[0].plot(epochs, data["train"]["loss"], label="train")
+        axs[0].plot(epochs, data["test"]["loss"], label="test")
+        axs[0].set_xlabel("Epochs")
+        axs[0].legend(loc=1)
+        axs[0].grid()
+        axs[0].set_xlim(xmin=0, xmax=epochs[-1])
+        axs[0].set_xticks([xt for xt in range(0, epochs[-1], 2)])
+
+        axs[1].set_title("Accuracy")
+        axs[1].plot(epochs, data["train"]["acc"], label="train")
+        axs[1].plot(epochs, data["test"]["acc"], label="test")
+        axs[1].legend(loc=1)
+        axs[1].grid()
+        axs[1].set_xlim(xmin=0, xmax=epochs[-1])
+        axs[1].set_xlabel("Epochs")
+        axs[1].set_xticks([xt for xt in range(0, epochs[-1], 2)])
+
+        save_path, _ = QtWidgets.QFileDialog.getSaveFileName()
+        fig.savefig(save_path)
 
     def debug(self):
         self.browse_meta_file("C:/Users/Dima/PyFiles/MedNN/img_meta.csv")
@@ -327,7 +377,9 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
 
         self.browse_train_folder("C:/Users/Dima/PyFiles/MedNN/img/train")
         self.browse_test_folder("C:/Users/Dima/PyFiles/MedNN/img/test")
-        self.go_to_view_step()
+
+        self.browse_nn_folder("C:/Users/Dima/PyFiles/MedNN/nn/default")
+        self.cmd_statistics_clicked()
 
 
 def main():
