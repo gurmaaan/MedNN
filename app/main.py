@@ -72,13 +72,14 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.t0_btn_openTrain.clicked.connect(self.browse_train_folder)
         self.t0_btn_openTest.clicked.connect(self.browse_test_folder)
         self.t0_btn_openImg.clicked.connect(self.browse_img_folder)
-        self.t0_btn_classesInfo.clicked.connect(self.show_class_list)
         self.t0_sb_trainSize.valueChanged.connect(self.update_test_size)
         self.t0_btn_next.clicked.connect(self.go_to_balance_step)
 
         self.t1_btn_next.clicked.connect(self.go_to_view_step)
 
         self.t2_lwgt.itemClicked.connect(self.view_images)
+
+        self.t5_btn_coeffPath.clicked.connect(self.show_results)
 
         self.debugBtn.clicked.connect(self.debug)
 
@@ -114,13 +115,15 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.t2_sb_age.setValue(0)
         self.check_sex_radio(None)
 
-    def browse_meta_file(self):
-        meta_file_path, _ = QtWidgets.QFileDialog.getOpenFileName(self,
-                                                                  "Выберите csv файл",
-                                                                  "C:/Users/Dima/PyFiles/MedNN/",
-                                                                  "csv (*.csv)")
+    def browse_meta_file(self, meta_file_path=None):
         if meta_file_path:
             self.meta_path = meta_file_path
+        else:
+            self.meta_path, _ = QtWidgets.QFileDialog.getOpenFileName(self,
+                                                                      "Выберите csv файл",
+                                                                      "C:/Users/Dima/PyFiles/MedNN/",
+                                                                      "csv (*.csv)")
+        if self.meta_path:
             self.t0_le_openMeta.setText(self.meta_path)
 
             meta_df = pd.read_csv(self.meta_path)
@@ -136,21 +139,25 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         else:
             QtWidgets.QMessageBox.critical(self, "Ошибка", "Пожалуйста выберите файл с мета-данными")
 
-    def browse_train_folder(self):
-        train_dir_path = QtWidgets.QFileDialog.getExistingDirectory(self,
-                                                                    "Выберите папку с обучающей выборкой",
-                                                                    "C:/Users/Dima/PyFiles/MedNN/img/train")
+    def browse_train_folder(self, train_dir_path=None):
         if train_dir_path:
             self.train_path = train_dir_path
+        else:
+            self.train_path = QtWidgets.QFileDialog.getExistingDirectory(self,
+                                                                         "Выберите папку с обучающей выборкой",
+                                                                         "C:/Users/Dima/PyFiles/MedNN/img/train")
+        if self.train_path:
             self.t0_le_openTrain.setText(self.train_path)
             self.update_count(self.train_path)
 
-    def browse_test_folder(self):
-        test_dir_path = QtWidgets.QFileDialog.getExistingDirectory(self,
-                                                                   "Выберите папку с тестовой выборкой",
-                                                                   "C:/Users/Dima/PyFiles/MedNN/img/test")
+    def browse_test_folder(self, test_dir_path=None):
         if test_dir_path:
             self.test_path = test_dir_path
+        else:
+            self.test_path = QtWidgets.QFileDialog.getExistingDirectory(self,
+                                                                        "Выберите папку с тестовой выборкой",
+                                                                        "C:/Users/Dima/PyFiles/MedNN/img/test")
+        if self.test_path:
             self.t0_le_openTest.setText(self.test_path)
             self.update_count(self.test_path)
 
@@ -176,17 +183,19 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             self.img_count_dict[mode][clname] = len(os.listdir(path + os.sep + clname))
 
         if self.train_path and self.test_path:
-            train_cnt = sum([x for x in self.img_count_dict["train"]])
-            test_cnt = sum([x for x in self.img_count_dict["test"]])
+            train_cnt = sum([x for x in self.img_count_dict["train"].values()])
+            test_cnt = sum([x for x in self.img_count_dict["test"].values()])
             self.test_size = test_cnt / (train_cnt + test_cnt)
             self.set_train_test(test_cnt, train_cnt)
 
-    def show_class_list(self):
-        if len(self.class_names) > 0:
-            class_list_str = '\n'.join(self.class_names)
-            QtWidgets.QMessageBox.information(self, "Классы в выборке", class_list_str)
-        else:
-            QtWidgets.QMessageBox.information(self, "Классы в выборке", "Пожалуйста выберите папку с изображениями")
+            self.t0_lwgt_classesInfo.clear()
+            for cl in self.class_names:
+                self.t0_lwgt_classesInfo.addItem(QtWidgets.QListWidgetItem(cl))
+
+            hist = HistPlot(self.img_count_dict["train"].keys(), self.img_count_dict["train"].values())
+            self.t1_lyt_plot.addWidget(hist)
+            self.calc_enrichment()
+
 
     def set_train_test(self, test_count, train_count):
         self.t0_sb_countTest.setMaximum(test_count)
@@ -205,11 +214,6 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
     def go_to_balance_step(self):
         self.cmdBtn_balance.setEnabled(True)
         self.cmd_balance_clicked()
-
-        if "train" in self.img_count_dict:
-            sc = HistPlot(self.img_count_dict["train"].keys(), self.img_count_dict["train"].values())
-            self.t1_lyt_plot.addWidget(sc)
-            self.calc_enrichment()
 
     def go_to_view_step(self):
         self.cmdBtn_view.setEnabled(True)
@@ -296,19 +300,17 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         for i in reversed(range(layout.count())):
             layout.itemAt(i).widget().deleteLater()
 
+    def show_results(self):
+        print("Xui")
+
     def debug(self):
-        self.meta_df = pd.read_csv("C:/Users/Dima/PyFiles/MedNN/img_meta.csv")
-        self.meta_df.drop(self.meta_df[self.meta_df["dataset"] != "HAM10000"].index, inplace=True)
-        self.meta_df.reset_index(inplace=True)
+        self.browse_meta_file("C:/Users/Dima/PyFiles/MedNN/img_meta.csv")
 
-        train_path = "C:/Users/Dima/PyFiles/MedNN/img/train"
-        self.train_path = train_path
-        self.update_count(train_path)
+        self.t0_radio_yes.setChecked(True)
+        self.t0_gb_autoSplit.setEnabled(True)
 
-        test_path = "C:/Users/Dima/PyFiles/MedNN/img/test"
-        # self.test_path = test_path
-        self.update_count(test_path)
-
+        self.browse_train_folder("C:/Users/Dima/PyFiles/MedNN/img/train")
+        self.browse_test_folder("C:/Users/Dima/PyFiles/MedNN/img/test")
         self.go_to_view_step()
 
 
