@@ -460,7 +460,7 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
 
         self.browse_nn_folder("C:/Users/Dima/PyFiles/MedNN/nn/default")
         self.browse_prediction_img("C:/Users/Dima/PyFiles/MedNN/img/carcinoma.jpg")
-        self.cmd_usage_clicked()
+        # self.cmd_usage_clicked()
 
 
 def main():
