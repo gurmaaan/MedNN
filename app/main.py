@@ -351,11 +351,12 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             self.nn_path = nn_path
         else:
             self.nn_path = QtWidgets.QFileDialog.getExistingDirectory(self,
-                                                                      "Выберите папку с результатами нейросети",
-                                                                      self.root_path + "nn/default")
+                                                                         "Выберите папку с результатами нейросети",
+                                                                         "C:\\Users\\Dima\\YandexDisk\\EDUCATION"
+                                                                         "\\_Deeplom\\nn")
         if self.nn_path:
             self.t5_le_nnPath.setText(self.nn_path)
-            nn_names = [nn_name.split('.')[0] for nn_name in os.listdir(nn_path + '/' + "coeffs")]
+            nn_names = [nn_name.split('.')[0] for nn_name in os.listdir(self.nn_path + '/' + "coeffs")]
             self.t5_combo.addItems(nn_names)
             self.t5_combo.setEnabled(True)
             self.show_stat(nn_name=nn_names[0])
@@ -416,7 +417,7 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         fig.savefig(save_path)
 
     def browse_prediction_img(self, pred_path=None):
-        if not pred_path and os.path.isfile(pred_path):
+        if not pred_path:
             pred_path, _ = QtWidgets.QFileDialog.getOpenFileName(self,
                                                                  "Выберите изображение",
                                                                  self.root_path + "img",
@@ -470,20 +471,22 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.t4_progress.setValue(100)
 
     def debug(self):
-        self.browse_meta_file(self.root_path + "img_meta.csv")
+        print("Release")
+        # self.browse_meta_file(self.root_path + "img_meta.csv")
         # #
         # self.t0_radio_yes.setChecked(True)
         # self.t0_gb_autoSplit.setEnabled(True)
         # self.browse_train_folder(self.root_path + "img/train")
         # self.browse_test_folder(self.root_path + "img/test")
-        #
-        # self.t0_gb_manualSplit.setEnabled(True)
-        # self.t0_radio_no.setChecked(True)
-        # self.browse_img_folder(self.root_path + "img")
-        #
-        # self.browse_nn_folder(self.root_path + "nn/default")
-        # self.browse_prediction_img(self.root_path + "img/carcinoma.jpg")
-        self.cmd_train_clicked()
+        # #
+        # # self.t0_gb_manualSplit.setEnabled(True)
+        # # self.t0_radio_no.setChecked(True)
+        # # self.browse_img_folder(self.root_path + "img")
+        # #
+        # # self.browse_nn_folder(self.root_path + "nn/default")
+        # # self.browse_prediction_img(self.root_path + "img/carcinoma.jpg")
+        # self.cmd_statistics_clicked()
+        # #
 
 
 def main():
