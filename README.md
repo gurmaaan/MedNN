@@ -22,6 +22,7 @@
 
 ## 3. Обучение нейросети
 В работе исследовалось несколько различных подходов для обучения нейросети.
+Все из них реализованы с помощью фреймворка [PyTorch](https://pytorch.org/)
 
 ### 3.1 Обучение собственной сверточной нейросети на исходных данных без изменения 
 Был взят базовый [туториал с сайта PyTorch](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) по созданию CNN. Вместо датасета CIFAR10 использовался HAM10000. Архитектура нейросети без изменений. Проводились эксперименты с размером картинок для обучения и было достигнуто глобальное понимание как работает обучение в PyTorch. Результат в блокноте [Training_own_CNN_no_changes_in_data.ipynb](https://github.com/gurmaaan/MedNN/blob/master/Training_own_CNN_no_changes_in_data.ipynb)
@@ -34,22 +35,31 @@
 Далее чтобы увеличить объем выборки над изображениями производились различные манипуляции (вращения / отображения / обрезки и т.д.). В результате производилось обучение на фиктивной, зато равномерно распределенной обучающей выборке. Результат в блокноте [Training_own_CNN_fixed_images_count.ipynb](https://github.com/gurmaaan/MedNN/blob/master/Training_own_CNN_fixed_images_count.ipynb)
 
 ### 3.3 Использование предобученных нейронных сетей (transfer learning)
-Вместо использования своей слабой архитектуры были взяты готовые предобученные сети:
+Вместо использования своей слабой архитектуры были взяты все готовые предобученные сети, такие как:
 * [ResNet](https://arxiv.org/abs/1512.03385)
 * [Inception v3](https://arxiv.org/abs/1512.00567)
 * [VGG](https://arxiv.org/abs/1409.1556)
 * [AlexNet](https://arxiv.org/abs/1404.5997)
+* ...
 
 Далее по принципу transfer learning в каждой из сетей был изменен последний полносвязный слой на собственный с 8-ю выходными нейронами. 
 Результат в блокноте [Trained_CNN_no_changes_in_data.ipynb](https://github.com/gurmaaan/MedNN/blob/master/Trained_CNN_no_changes_in_data.ipynb)
 
-## 4. GUI на Qt C++ (in progress)
-1. Нужно для удобства
-2. Основной функционал: 
-  * просмотр
-  * предсказание
-  * похожие 
-  * рекомендация
-  * фильтрация по критериям
-  * обучение
-3. Что где лежит в проекте 
+## 4. GUI 
+Необходим для удобства настройки всех параметров и отображения результатов.
+Реализован на [PyQt5](https://doc.qt.io/qtforpython/)
+
+Окно открытия папок
+![Окно открытия папок](https://github.com/gurmaaan/MedNN/blob/master/screenshots/0_open2.png)
+Окно настройки баланса классов
+![Окно настройки баланса классов](https://github.com/gurmaaan/MedNN/blob/master/screenshots/1_balance1.png)
+Окно просмотра представителей классов
+![Окно просмотра представителей классов](https://github.com/gurmaaan/MedNN/blob/master/screenshots/2_view1.png)
+Окно конвертации изображений в тензоры
+![Окно конвертации изображений в тензоры](https://github.com/gurmaaan/MedNN/blob/master/screenshots/3_tensor1.png)
+Окно настройки параметров обучения нейросети
+![Окно настройки параметров обучения нейросети](https://github.com/gurmaaan/MedNN/blob/master/screenshots/4_train2.png)
+Окно просмотра результатов валидации модели
+![Окно просмотра результатов валидации модели](https://github.com/gurmaaan/MedNN/blob/master/screenshots/5_stat1.png)
+Окно предсказания
+![Окно предсказания](https://github.com/gurmaaan/MedNN/blob/master/screenshots/6_usage2.png)

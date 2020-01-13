@@ -47,6 +47,7 @@ CMakeLists.txt.user*
 .idea/
 img/
 _отчет/
+__pycache__
 
 # Files
 *.jpg
