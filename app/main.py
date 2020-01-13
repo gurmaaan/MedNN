@@ -1,18 +1,19 @@
 import sys
 import os
+import ctypes
 from collections import defaultdict
 import itertools
 import json
 from matplotlib import pyplot as plt
 from PIL import Image
 import pandas as pd
+from sklearn.model_selection import train_test_split
 
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.optim import lr_scheduler
 from torch.utils.data import DataLoader
-
 import torchvision
 import torchvision.transforms as transforms
 from torchvision.datasets import ImageFolder
@@ -21,20 +22,6 @@ from torchvision import models
 from PyQt5 import QtWidgets, QtGui, QtCore
 import design_mainwindow
 from plots import HistPlot, AccuracyPlot, LossPlot, ProbaPlot
-
-# Icon to Windows taskbar
-import ctypes
-myappid = 'mycompany.myproduct.subproduct.version'  # arbitrary string
-ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
-
-
-def grouper(n, iterable):
-    it = iter(iterable)
-    while True:
-        chunk = tuple(itertools.islice(it, n))
-        if not chunk:
-            return
-        yield chunk
 
 
 class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
@@ -49,9 +36,9 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
     test_size = 0.0
     nn_path = ""
     model_dict = {
-        "inception_v3" : models.inception_v3(pretrained=True),
-        "resnet18" : models.resnet18(pretrained=True),
-        "resnet50" : models.resnet50(pretrained=True)
+        "inception_v3": models.inception_v3(pretrained=True),
+        "resnet18": models.resnet18(pretrained=True),
+        "resnet50": models.resnet50(pretrained=True)
         # "vgg16": models.vgg16(pretrained=True)
     }
     data_transforms = [
@@ -64,9 +51,11 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
 
     most_prob_class = ""
 
-    def __init__(self):
+    def __init__(self, root):
         super().__init__()
         self.setupUi(self)
+
+        self.root_path = root
 
         self.tabWidget.tabBar().hide()
         self.tabWidget.setCurrentIndex(0)
@@ -78,7 +67,7 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
                          self.cmdBtn_train, self.cmdBtn_statistics, self.cmdBtn_usage]
 
         for btn in self.cmd_btns:
-            btn.setEnabled(True)
+            # btn.setEnabled(True)
             btn.setIcon(QtGui.QIcon())
 
         self.stretch_headers(self.t1_twgt)
@@ -123,7 +112,8 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         if widget.__class__.__name__ == "QLabel":
             clicked_ind = self.t2_lytGrid.indexOf(widget)
             if clicked_ind != -1:
-                img_name = os.listdir(self.train_path + '/' + self.t2_lwgt.currentItem().text())[clicked_ind].split('.')[0]
+                img_name = \
+                    os.listdir(self.train_path + '/' + self.t2_lwgt.currentItem().text())[clicked_ind].split('.')[0]
                 img_names = self.meta_df['name'].unique()
                 if (len(self.meta_df) > 0) and (img_name in img_names) and self.t2_gb_info.isEnabled():
                     df = self.meta_df[self.meta_df["name"] == img_name]
@@ -152,12 +142,12 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.check_sex_radio(None)
 
     def browse_meta_file(self, meta_file_path=None):
-        if meta_file_path:
+        if meta_file_path and os.path.isfile(meta_file_path):
             self.meta_path = meta_file_path
         else:
             self.meta_path, _ = QtWidgets.QFileDialog.getOpenFileName(self,
                                                                       "Выберите csv файл",
-                                                                      "C:/Users/Dima/PyFiles/MedNN/",
+                                                                      self.root_path,
                                                                       "csv (*.csv)")
         if self.meta_path:
             self.t0_le_openMeta.setText(self.meta_path)
@@ -176,38 +166,42 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             QtWidgets.QMessageBox.critical(self, "Ошибка", "Пожалуйста выберите файл с мета-данными")
 
     def browse_train_folder(self, train_dir_path=None):
-        if train_dir_path:
+        if train_dir_path and os.path.isdir(train_dir_path):
             self.train_path = train_dir_path
         else:
             self.train_path = QtWidgets.QFileDialog.getExistingDirectory(self,
                                                                          "Выберите папку с обучающей выборкой",
-                                                                         "C:/Users/Dima/PyFiles/MedNN/img/train")
+                                                                         self.root_path + "img/train")
         if self.train_path:
             self.t0_le_openTrain.setText(self.train_path)
             self.update_count(self.train_path)
 
     def browse_test_folder(self, test_dir_path=None):
-        if test_dir_path:
+        if test_dir_path and os.path.isdir(test_dir_path):
             self.test_path = test_dir_path
         else:
             self.test_path = QtWidgets.QFileDialog.getExistingDirectory(self,
                                                                         "Выберите папку с тестовой выборкой",
-                                                                        "C:/Users/Dima/PyFiles/MedNN/img/test")
+                                                                        self.root_path + "img/test")
         if self.test_path:
             self.t0_le_openTest.setText(self.test_path)
             self.update_count(self.test_path)
 
-    def browse_img_folder(self):
-        img_dir_path = QtWidgets.QFileDialog.getExistingDirectory(self,
-                                                                  "Выберите папку с изображениями",
-                                                                  "C:/Users/Dima/PyFiles/MedNN/image")
-        if img_dir_path:
+    def browse_img_folder(self, img_dir_path=None):
+        if img_dir_path and os.path.isdir(img_dir_path):
             self.img_path = img_dir_path
+        else:
+            self.img_path = QtWidgets.QFileDialog.getExistingDirectory(self,
+                                                                       "Выберите папку с изображениями",
+                                                                       self.root_path + "img")
+        if self.img_path:
             self.t0_le_openImg.setText(self.img_path)
-            self.update_count(self.img_path)
+            self.split_test_train(self.img_path)
 
-            for clname in os.listdir(self.img_path):
-                self.img_cnt += len(os.listdir(self.img_path + os.sep + clname))
+    def split_test_train(self, img_path=None):
+        if not img_path:
+            img_path = self.img_path
+        X = self.meta_df["name"]
 
     def update_count(self, path):
         mode = path.split('/')[-1]
@@ -324,18 +318,18 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             layout.itemAt(i).widget().deleteLater()
 
     @staticmethod
-    def stretch_headers(table : QtWidgets.QTableWidget):
+    def stretch_headers(table: QtWidgets.QTableWidget):
         table_header = table.horizontalHeader()
         table_header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
         table_header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
 
     def browse_nn_folder(self, nn_path=None):
-        if nn_path:
+        if nn_path and os.path.isdir(nn_path):
             self.nn_path = nn_path
         else:
             self.nn_path = QtWidgets.QFileDialog.getExistingDirectory(self,
                                                                       "Выберите папку с результатами нейросети",
-                                                                      "C:/Users/Dima/PyFiles/MedNN/nn/default")
+                                                                      self.root_path + "nn/default")
         if self.nn_path:
             self.t5_le_nnPath.setText(self.nn_path)
             nn_names = [nn_name.split('.')[0] for nn_name in os.listdir(nn_path + '/' + "coeffs")]
@@ -343,9 +337,9 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             self.t5_combo.setEnabled(True)
             self.show_stat(nn_name=nn_names[0])
 
-    def show_stat(self, index = 0, nn_name = None):
+    def show_stat(self, index=0, nn_name=None):
         if not nn_name:
-            nn_name  = self.t5_combo.currentText()
+            nn_name = self.t5_combo.currentText()
 
         df = pd.read_csv(self.nn_path + "/models_score.csv", sep=';')
         classes = df["scope"].tolist()
@@ -398,11 +392,11 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         save_path, _ = QtWidgets.QFileDialog.getSaveFileName()
         fig.savefig(save_path)
 
-    def browse_prediction_img(self, pred_path = None):
-        if not pred_path:
+    def browse_prediction_img(self, pred_path=None):
+        if not pred_path and os.path.isfile(pred_path):
             pred_path, _ = QtWidgets.QFileDialog.getOpenFileName(self,
                                                                  "Выберите изображение",
-                                                                 "C:/Users/Dima/PyFiles/MedNN/img",
+                                                                 self.root_path + "img",
                                                                  "jpg (*.jpg)")
         if pred_path:
             self.t6_le_openImg.setText(pred_path)
@@ -428,7 +422,7 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             output = model(img_input)
             proba = torch.nn.functional.softmax(output, dim=1).tolist()[0]
 
-            data = {"class" : self.class_names, "proba" : proba}
+            data = {"class": self.class_names, "proba": proba}
             pdf = pd.DataFrame(data)
             pdf = pdf.sort_values(["proba"], ascending=False)
             self.most_prob_class = pdf["class"].tolist()[0]
@@ -450,24 +444,42 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
                 break
 
     def debug(self):
-        self.browse_meta_file("C:/Users/Dima/PyFiles/MedNN/img_meta.csv")
-
-        self.t0_radio_yes.setChecked(True)
-        self.t0_gb_autoSplit.setEnabled(True)
-
-        self.browse_train_folder("C:/Users/Dima/PyFiles/MedNN/img/train")
-        self.browse_test_folder("C:/Users/Dima/PyFiles/MedNN/img/test")
-
-        self.browse_nn_folder("C:/Users/Dima/PyFiles/MedNN/nn/default")
-        self.browse_prediction_img("C:/Users/Dima/PyFiles/MedNN/img/carcinoma.jpg")
+        print(self.root_path)
+        self.browse_meta_file(self.root_path + "img_meta.csv")
+        #
+        # self.t0_radio_yes.setChecked(True)
+        # self.t0_gb_autoSplit.setEnabled(True)
+        # self.browse_train_folder(self.root_path + "img/train")
+        # self.browse_test_folder(self.root_path + "img/test")
+        #
+        self.t0_gb_manualSplit.setEnabled(True)
+        self.t0_radio_no.setChecked(True)
+        self.browse_img_folder(self.root_path + "img")
+        #
+        # self.browse_nn_folder(self.root_path + "nn/default")
+        # self.browse_prediction_img(self.root_path + "img/carcinoma.jpg")
         # self.cmd_usage_clicked()
 
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    window = MainWindow()
+
+    myappid = "mycompany.myproduct.subproduct.version"
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+
+    root = os.sep.join(os.getcwd().split(os.sep)[0:-1]) + os.sep
+    window = MainWindow(root)
     window.show()
     app.exec_()
+
+
+def grouper(n, iterable):
+    it = iter(iterable)
+    while True:
+        chunk = tuple(itertools.islice(it, n))
+        if not chunk:
+            return
+        yield chunk
 
 
 if __name__ == '__main__':
