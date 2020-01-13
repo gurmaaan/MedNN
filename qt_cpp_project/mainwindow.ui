@@ -37,7 +37,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="tab_open">
        <attribute name="title">
@@ -927,7 +927,7 @@
                  <x>0</x>
                  <y>0</y>
                  <width>328</width>
-                 <height>600</height>
+                 <height>615</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1504,19 +1504,381 @@
        <attribute name="title">
         <string>Обучение</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_14">
+       <layout class="QVBoxLayout" name="verticalLayout_25">
         <item>
-         <spacer name="verticalSpacer_2">
+         <widget class="QSplitter" name="splitter_2">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>569</height>
-           </size>
-          </property>
-         </spacer>
+          <widget class="QWidget" name="">
+           <layout class="QVBoxLayout" name="verticalLayout_24">
+            <item>
+             <widget class="QGroupBox" name="groupBox_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Архитектура</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_2">
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="t4_cb_inceptionV3">
+                 <property name="text">
+                  <string>Inception_v3</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QCheckBox" name="t4_cb_googleNet">
+                 <property name="text">
+                  <string>GoogLeNet</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="t4_cb_shuffleNetV2">
+                 <property name="text">
+                  <string>ShuffleNet_v2</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QCheckBox" name="t4_cb_denseNet">
+                 <property name="text">
+                  <string>DenseNet</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QCheckBox" name="t4_cb_mobileNetV2">
+                 <property name="text">
+                  <string>MobileNet_v2</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="t4_cb_resNet">
+                 <property name="text">
+                  <string>ResNet</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QCheckBox" name="t4_cb_wideResNet">
+                 <property name="text">
+                  <string>WideResNet</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="t4_cb_resNetXt">
+                 <property name="text">
+                  <string>ResNeXt</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QCheckBox" name="t4_cb_vgg">
+                 <property name="text">
+                  <string>VGG</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="t4_cb_alexNet">
+                 <property name="text">
+                  <string>AlexNet</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QCheckBox" name="t4_cb_mnasNet">
+                 <property name="text">
+                  <string>MNASNet</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_31">
+              <item>
+               <widget class="QLabel" name="t4_lbl_layersCnt">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Количество слоев</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="t4_combo_layersCnt">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>18</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>34</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>50</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>101</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>152</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_32">
+              <item>
+               <widget class="QLabel" name="t4_lbl_epochsCnt">
+                <property name="text">
+                 <string>Количество эпох</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSlider" name="t4_sldr_epochsCnt">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="t4_sb_epochsCnt"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_33">
+              <item>
+               <widget class="QLabel" name="t4_lbl_batchSize">
+                <property name="text">
+                 <string>Размер батча</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSlider" name="t4_sldr_batchSize">
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="t4_sb_batchSize">
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_34">
+              <item>
+               <widget class="QLabel" name="t4_lbl_loss">
+                <property name="text">
+                 <string>Функция потерь</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="t4_combo_loss">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>CrossEntropyLoss - combines nn.LogSoftmax() and nn.NLLLoss()</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>L1Loss - measures the mean absolute error (MAE) between each element</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>MSELoss - measures the mean squared error (squared L2 norm) between each element</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CTCLoss - Connectionist Temporal Classification loss</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>NLLLoss -  negative log likelihood loss</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>PoissonNLLLoss - Negative log likelihood loss with Poisson distribution</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>KLDivLoss - Kullback-Leibler divergence Loss</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>BCELoss - criterion that measures the Binary Cross Entropy</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_35">
+              <item>
+               <widget class="QLabel" name="t4_lbl_optim">
+                <property name="text">
+                 <string>Оптимизатор</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="t4_combo_optim">
+                <item>
+                 <property name="text">
+                  <string>SGD</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Adam</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="t4_lbl_optim_2">
+                <property name="text">
+                 <string>Скорость обучения</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDoubleSpinBox" name="t4_sb_learningRate">
+                <property name="decimals">
+                 <number>3</number>
+                </property>
+                <property name="maximum">
+                 <double>1.000000000000000</double>
+                </property>
+                <property name="singleStep">
+                 <double>0.001000000000000</double>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="t4_cb_lrscheduler">
+              <property name="text">
+               <string>Динамическая скорость обучения</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="Line" name="line_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_36">
+              <item>
+               <spacer name="horizontalSpacer_8">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="t4_btn_train">
+                <property name="text">
+                 <string>Обучить</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_9">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="">
+           <layout class="QVBoxLayout" name="verticalLayout_14">
+            <item>
+             <widget class="QProgressBar" name="t4_progress">
+              <property name="value">
+               <number>0</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTextEdit" name="t4_te"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_22">
@@ -2120,8 +2482,8 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>298</y>
+     <x>824</x>
+     <y>243</y>
     </hint>
     <hint type="destinationlabel">
      <x>334</x>
@@ -2136,12 +2498,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>298</y>
+     <x>824</x>
+     <y>243</y>
     </hint>
     <hint type="destinationlabel">
-     <x>425</x>
-     <y>324</y>
+     <x>444</x>
+     <y>323</y>
     </hint>
    </hints>
   </connection>
@@ -2152,8 +2514,8 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>350</y>
+     <x>824</x>
+     <y>401</y>
     </hint>
     <hint type="destinationlabel">
      <x>564</x>
@@ -2168,8 +2530,8 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>298</y>
+     <x>824</x>
+     <y>243</y>
     </hint>
     <hint type="destinationlabel">
      <x>564</x>
@@ -2184,8 +2546,8 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>350</y>
+     <x>824</x>
+     <y>401</y>
     </hint>
     <hint type="destinationlabel">
      <x>564</x>
@@ -2200,8 +2562,8 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>274</y>
+     <x>824</x>
+     <y>219</y>
     </hint>
     <hint type="destinationlabel">
      <x>564</x>
@@ -2216,8 +2578,8 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>274</y>
+     <x>824</x>
+     <y>219</y>
     </hint>
     <hint type="destinationlabel">
      <x>564</x>
@@ -2232,8 +2594,8 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>274</y>
+     <x>824</x>
+     <y>219</y>
     </hint>
     <hint type="destinationlabel">
      <x>334</x>
@@ -2248,12 +2610,12 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>274</y>
+     <x>824</x>
+     <y>219</y>
     </hint>
     <hint type="destinationlabel">
-     <x>425</x>
-     <y>324</y>
+     <x>444</x>
+     <y>323</y>
     </hint>
    </hints>
   </connection>
@@ -2264,8 +2626,8 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>298</y>
+     <x>824</x>
+     <y>243</y>
     </hint>
     <hint type="destinationlabel">
      <x>564</x>
@@ -2280,8 +2642,8 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>350</y>
+     <x>824</x>
+     <y>401</y>
     </hint>
     <hint type="destinationlabel">
      <x>334</x>
@@ -2296,12 +2658,12 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>350</y>
+     <x>824</x>
+     <y>401</y>
     </hint>
     <hint type="destinationlabel">
-     <x>425</x>
-     <y>324</y>
+     <x>444</x>
+     <y>323</y>
     </hint>
    </hints>
   </connection>
@@ -2318,6 +2680,230 @@
     <hint type="destinationlabel">
      <x>911</x>
      <y>74</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_sldr_epochsCnt</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>t4_sb_epochsCnt</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>489</x>
+     <y>205</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>918</x>
+     <y>205</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_sldr_batchSize</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>t4_sb_batchSize</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>383</x>
+     <y>241</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>914</x>
+     <y>250</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_cb_resNet</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t4_combo_layersCnt</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>317</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>910</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_cb_resNetXt</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t4_combo_layersCnt</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>462</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>904</x>
+     <y>165</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_cb_wideResNet</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t4_combo_layersCnt</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>667</x>
+     <y>116</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>896</x>
+     <y>166</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_cb_alexNet</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t4_combo_layersCnt</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>354</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>903</x>
+     <y>157</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_cb_vgg</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t4_combo_layersCnt</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>486</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>926</x>
+     <y>165</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_cb_inceptionV3</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t4_combo_layersCnt</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>350</x>
+     <y>99</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>924</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_cb_alexNet</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t4_lbl_layersCnt</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>336</x>
+     <y>74</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_cb_vgg</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t4_lbl_layersCnt</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>506</x>
+     <y>77</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>152</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_cb_inceptionV3</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t4_lbl_layersCnt</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>357</x>
+     <y>95</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>338</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_cb_resNet</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t4_lbl_layersCnt</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>403</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>383</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_cb_resNetXt</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t4_lbl_layersCnt</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>540</x>
+     <y>122</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>521</x>
+     <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>t4_cb_wideResNet</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>t4_lbl_layersCnt</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>637</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>569</x>
+     <y>156</y>
     </hint>
    </hints>
   </connection>

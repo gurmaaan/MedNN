@@ -47,7 +47,6 @@ CMakeLists.txt.user*
 .idea/
 img/
 _отчет/
-nn_coeffs/
 
 # Files
 *.jpg

@@ -101,6 +101,8 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
 
         self.t2_lwgt.itemClicked.connect(self.view_images)
 
+        self.t4_btn_train.clicked.connect(self.train)
+
         self.t5_btn_nnPath.clicked.connect(self.browse_nn_folder)
         self.t5_combo.activated.connect(self.show_stat)
         self.t5_btn_save.clicked.connect(self.save_plot)
@@ -464,22 +466,24 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
                 self.view_images(self.t2_lwgt.item(i))
                 break
 
+    def train(self):
+        self.t4_progress.setValue(100)
+
     def debug(self):
-        print(self.root_path)
         self.browse_meta_file(self.root_path + "img_meta.csv")
-        #
+        # #
         # self.t0_radio_yes.setChecked(True)
         # self.t0_gb_autoSplit.setEnabled(True)
         # self.browse_train_folder(self.root_path + "img/train")
         # self.browse_test_folder(self.root_path + "img/test")
         #
-        self.t0_gb_manualSplit.setEnabled(True)
-        self.t0_radio_no.setChecked(True)
-        self.browse_img_folder(self.root_path + "img")
+        # self.t0_gb_manualSplit.setEnabled(True)
+        # self.t0_radio_no.setChecked(True)
+        # self.browse_img_folder(self.root_path + "img")
         #
         # self.browse_nn_folder(self.root_path + "nn/default")
         # self.browse_prediction_img(self.root_path + "img/carcinoma.jpg")
-        # self.cmd_usage_clicked()
+        self.cmd_train_clicked()
 
 
 def main():
