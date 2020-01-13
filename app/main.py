@@ -213,7 +213,7 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         for i, img_name in enumerate(x):
             mode = "train" if img_name in x_train else "test"
             old_path = self.root_path + "img/" + img_name + ".jpg"
-            new_dir = self.root_path + mode + '/' + y[i] + '/'
+            new_dir = self.root_path + "img/" + mode + '/' + y[i] + '/'
             new_path = new_dir + img_name + ".jpg"
             if not os.path.isdir(new_dir):
                 os.makedirs(new_dir)
