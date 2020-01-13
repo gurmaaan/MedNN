@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\Users\Dima\PyFiles\MedNN\qt_cpp_project\mainwindow.ui'
+# Form implementation generated from reading ui file 'C:\Users\Dima\PyFiles\MedNN\app\mainwindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
