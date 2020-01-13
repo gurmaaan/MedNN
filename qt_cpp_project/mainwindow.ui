@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>964</width>
-    <height>734</height>
+    <height>764</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -37,7 +37,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_open">
        <attribute name="title">
@@ -220,7 +220,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QSlider" name="t0_sldr_trainSize">
+              <widget class="QSlider" name="t0_sldr_testSize">
                <property name="maximum">
                 <number>100</number>
                </property>
@@ -230,7 +230,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="t0_sb_trainSize">
+              <widget class="QSpinBox" name="t0_sb_testSize">
                <property name="readOnly">
                 <bool>true</bool>
                </property>
@@ -242,6 +242,13 @@
                </property>
                <property name="maximum">
                 <number>100</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="t0_btn_trainTestSplit">
+               <property name="text">
+                <string>Разбить</string>
                </property>
               </widget>
              </item>
@@ -920,7 +927,7 @@
                  <x>0</x>
                  <y>0</y>
                  <width>328</width>
-                 <height>585</height>
+                 <height>600</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -2027,9 +2034,9 @@
  <resources/>
  <connections>
   <connection>
-   <sender>t0_sldr_trainSize</sender>
+   <sender>t0_sldr_testSize</sender>
    <signal>sliderMoved(int)</signal>
-   <receiver>t0_sb_trainSize</receiver>
+   <receiver>t0_sb_testSize</receiver>
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">

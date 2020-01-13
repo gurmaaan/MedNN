@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\Users\Dima\PyFiles\MedNN\qt_cpp_project\mainwindow.ui'
+# Form implementation generated from reading ui file 'mainwindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
@@ -12,7 +12,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(964, 734)
+        MainWindow.resize(964, 764)
         MainWindow.setMinimumSize(QtCore.QSize(650, 0))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("favicon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -118,17 +118,20 @@ class Ui_MainWindow(object):
         self.label_6 = QtWidgets.QLabel(self.t0_gb_manualSplit)
         self.label_6.setObjectName("label_6")
         self.horizontalLayout_5.addWidget(self.label_6)
-        self.t0_sldr_trainSize = QtWidgets.QSlider(self.t0_gb_manualSplit)
-        self.t0_sldr_trainSize.setMaximum(100)
-        self.t0_sldr_trainSize.setOrientation(QtCore.Qt.Horizontal)
-        self.t0_sldr_trainSize.setObjectName("t0_sldr_trainSize")
-        self.horizontalLayout_5.addWidget(self.t0_sldr_trainSize)
-        self.t0_sb_trainSize = QtWidgets.QSpinBox(self.t0_gb_manualSplit)
-        self.t0_sb_trainSize.setReadOnly(True)
-        self.t0_sb_trainSize.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
-        self.t0_sb_trainSize.setMaximum(100)
-        self.t0_sb_trainSize.setObjectName("t0_sb_trainSize")
-        self.horizontalLayout_5.addWidget(self.t0_sb_trainSize)
+        self.t0_sldr_testSize = QtWidgets.QSlider(self.t0_gb_manualSplit)
+        self.t0_sldr_testSize.setMaximum(100)
+        self.t0_sldr_testSize.setOrientation(QtCore.Qt.Horizontal)
+        self.t0_sldr_testSize.setObjectName("t0_sldr_testSize")
+        self.horizontalLayout_5.addWidget(self.t0_sldr_testSize)
+        self.t0_sb_testSize = QtWidgets.QSpinBox(self.t0_gb_manualSplit)
+        self.t0_sb_testSize.setReadOnly(True)
+        self.t0_sb_testSize.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.t0_sb_testSize.setMaximum(100)
+        self.t0_sb_testSize.setObjectName("t0_sb_testSize")
+        self.horizontalLayout_5.addWidget(self.t0_sb_testSize)
+        self.t0_btn_trainTestSplit = QtWidgets.QPushButton(self.t0_gb_manualSplit)
+        self.t0_btn_trainTestSplit.setObjectName("t0_btn_trainTestSplit")
+        self.horizontalLayout_5.addWidget(self.t0_btn_trainTestSplit)
         self.verticalLayout.addLayout(self.horizontalLayout_5)
         self.verticalLayout_6.addWidget(self.t0_gb_manualSplit)
         self.line_2 = QtWidgets.QFrame(self.tab_open)
@@ -432,7 +435,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 328, 585))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 328, 600))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
@@ -950,8 +953,8 @@ class Ui_MainWindow(object):
         MainWindow.addDockWidget(QtCore.Qt.DockWidgetArea(1), self.dockWidget)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(3)
-        self.t0_sldr_trainSize.sliderMoved['int'].connect(self.t0_sb_trainSize.setValue)
+        self.tabWidget.setCurrentIndex(0)
+        self.t0_sldr_testSize.sliderMoved['int'].connect(self.t0_sb_testSize.setValue)
         self.t0_radio_no.clicked['bool'].connect(self.t0_gb_manualSplit.setEnabled)
         self.t0_radio_yes.clicked['bool'].connect(self.t0_gb_manualSplit.setDisabled)
         self.t0_radio_yes.clicked['bool'].connect(self.t0_gb_autoSplit.setEnabled)
@@ -990,7 +993,8 @@ class Ui_MainWindow(object):
         self.label_7.setText(_translate("MainWindow", "Папка с изображениями"))
         self.t0_btn_openImg.setText(_translate("MainWindow", "..."))
         self.label_6.setText(_translate("MainWindow", "Объем тестовой выборки"))
-        self.t0_sb_trainSize.setSuffix(_translate("MainWindow", " %"))
+        self.t0_sb_testSize.setSuffix(_translate("MainWindow", " %"))
+        self.t0_btn_trainTestSplit.setText(_translate("MainWindow", "Разбить"))
         self.t0_lbl_foundClasses_l.setText(_translate("MainWindow", "Найдено"))
         self.t0_lbl_foundClasses_r.setText(_translate("MainWindow", "классов:"))
         self.t0_lbl_trainPlot.setText(_translate("MainWindow", "Обучающая выборка"))

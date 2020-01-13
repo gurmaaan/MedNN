@@ -96,7 +96,8 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         self.t0_btn_openTrain.clicked.connect(self.browse_train_folder)
         self.t0_btn_openTest.clicked.connect(self.browse_test_folder)
         self.t0_btn_openImg.clicked.connect(self.browse_img_folder)
-        self.t0_sb_trainSize.valueChanged.connect(self.update_test_size)
+        self.t0_sb_testSize.valueChanged.connect(self.update_test_size)
+        self.t0_btn_trainTestSplit.clicked.connect(self.split_test_train)
 
         self.t2_lwgt.itemClicked.connect(self.view_images)
 
@@ -196,12 +197,32 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
                                                                        self.root_path + "img")
         if self.img_path:
             self.t0_le_openImg.setText(self.img_path)
-            self.split_test_train(self.img_path)
+            self.img_cnt = len(os.listdir(self.img_path))
 
-    def split_test_train(self, img_path=None):
+    def split_test_train(self, img_path=None, ts=0):
         if not img_path:
             img_path = self.img_path
-        X = self.meta_df["name"]
+
+        if ts == 0:
+            ts = self.t0_sb_testSize.value() / 100
+
+        x = self.meta_df["name"]
+        y = self.meta_df["diagnosis"]
+        x_train, _, _, _ = train_test_split(x, y, test_size=ts, random_state=42)
+
+        for i, img_name in enumerate(x):
+            mode = "train" if img_name in x_train else "test"
+            old_path = self.root_path + "img/" + img_name + ".jpg"
+            new_dir = self.root_path + mode + '/' + y[i] + '/'
+            new_path = new_dir + img_name + ".jpg"
+            if not os.path.isdir(new_dir):
+                os.makedirs(new_dir)
+            os.replace(old_path, new_path)
+
+        self.test_path = self.root_path + "img/test"
+        self.update_count(self.test_path)
+        self.train_path = self.train_path = self.root_path + "img/train"
+        self.update_count(self.train_path)
 
     def update_count(self, path):
         mode = path.split('/')[-1]
