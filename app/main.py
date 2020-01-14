@@ -211,7 +211,7 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         x = self.meta_df["name"]
         y = self.meta_df["diagnosis"]
         x_train, _, _, _ = train_test_split(x, y, test_size=ts, random_state=42)
-
+        x_train = list(x_train)
         for i, img_name in enumerate(x):
             mode = "train" if img_name in x_train else "test"
             old_path = self.root_path + "img/" + img_name + ".jpg"
