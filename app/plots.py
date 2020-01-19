@@ -49,7 +49,7 @@ class AccuracyPlot(MatPlotWidget):
     def compute_initial_figure(self):
         epochs = self.data["train"]["epoch"]
         self.axes.plot(epochs, self.data["train"]["acc"], label="train")
-        self.axes.plot(epochs, self.data["test"]["acc"], label="test")
+        self.axes.plot(epochs, self.data["valid"]["acc"], label="valid")
 
         self.axes.set_xlabel("Эпохи")
         self.axes.set_xticks([xt for xt in range(0, epochs[-1], 2)])
@@ -69,7 +69,7 @@ class LossPlot(MatPlotWidget):
     def compute_initial_figure(self):
         epochs = self.data["train"]["epoch"]
         self.axes.plot(epochs, self.data["train"]["loss"], label="train")
-        self.axes.plot(epochs, self.data["test"]["loss"], label="test")
+        self.axes.plot(epochs, self.data["valid"]["loss"], label="valid")
 
         self.axes.set_xlabel("Эпохи")
         self.axes.set_xticks([xt for xt in range(0, epochs[-1], 2)])
