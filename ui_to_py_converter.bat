@@ -1,1 +1,0 @@
-pyuic5 C:\Users\Dima\PyFiles\MedNN\app\mainwindow.ui -o C:\Users\Dima\PyFiles\MedNN\app\design_mainwindow.py

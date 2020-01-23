@@ -29,11 +29,13 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
     meta_df = pd.DataFrame()
     test_path = ""
     train_path = ""
+    valid_path = ""
     img_path = ""
     img_cnt = 0
     img_count_dict = defaultdict(dict)
     class_names = []
     test_size = 0.0
+    valid_size = 0.0
     nn_path = ""
     model_dict = {
         "inception_v3": models.inception_v3(pretrained=True),
@@ -67,16 +69,24 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
                          self.cmdBtn_train, self.cmdBtn_statistics, self.cmdBtn_usage]
 
         for btn in self.cmd_btns:
-            # btn.setEnabled(True)
+            btn.setEnabled(True)
             btn.setIcon(QtGui.QIcon())
 
         self.stretch_headers(self.t1_twgt)
         self.stretch_headers(self.t5_twgt)
 
+        self.t0_sldr_trainTestSplit.setSource(QtCore.QUrl.fromLocalFile("range_slider.qml"))
+        self.t0_sldr_trainTestSplit.rootContext().setContextProperty("mainWindow", self)
+
         self.connections()
         self.debug()
 
+    def print_xui(self):
+        print("Xui")
+
     def connections(self):
+        # self.t0_sldr_trainTestSplit.rootObject().first.moved.connect(self.print_xui)
+
         self.cmdBtn_open.clicked.connect(self.cmd_open_clicked)
         self.cmdBtn_balance.clicked.connect(self.cmd_balance_clicked)
         self.cmdBtn_view.clicked.connect(self.cmd_view_clicked)
@@ -94,9 +104,10 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
 
         self.t0_btn_openMeta.clicked.connect(self.browse_meta_file)
         self.t0_btn_openTrain.clicked.connect(self.browse_train_folder)
+        self.t0_btn_openValid.clicked.connect(self.browse_valid_folder)
         self.t0_btn_openTest.clicked.connect(self.browse_test_folder)
         self.t0_btn_openImg.clicked.connect(self.browse_img_folder)
-        self.t0_sb_testSize.valueChanged.connect(self.update_test_size)
+        # self.t0_sb_testSize.valueChanged.connect(self.update_test_size)
         self.t0_btn_trainTestSplit.clicked.connect(self.split_test_train)
 
         self.t2_lwgt.itemClicked.connect(self.view_images)
@@ -190,6 +201,17 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             self.t0_le_openTest.setText(self.test_path)
             self.update_count(self.test_path)
 
+    def browse_valid_folder(self, valid_dir_path=None):
+        if valid_dir_path and os.path.isdir(valid_dir_path):
+            self.valid_path = valid_dir_path
+        else:
+            self.valid_path = QtWidgets.QFileDialog.getExistingDirectory(self,
+                                                                         "Выберите папку с валидационной выборкой",
+                                                                         self.root_path + "img/valid")
+        if self.valid_path:
+            self.t0_le_openValid.setText(self.valid_path)
+            self.update_count(self.valid_path)
+
     def browse_img_folder(self, img_dir_path=None):
         if img_dir_path and os.path.isdir(img_dir_path):
             self.img_path = img_dir_path
@@ -199,14 +221,22 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
                                                                        self.root_path + "img")
         if self.img_path:
             self.t0_le_openImg.setText(self.img_path)
-            self.img_cnt = len(os.listdir(self.img_path))
+            for cl in os.listdir(self.img_path):
+                self.img_cnt += len(os.listdir(self.img_path + os.sep + cl))
 
     def split_test_train(self, img_path=None, ts=0):
+        """Функция разделения выборки на train/test/valid
+
+        :param img_path: путь к папке с изображениями
+        :type img_path: str
+        :param ts: доля тестовой выборки
+        :type ts: float
+        """
         if not img_path:
             img_path = self.img_path
 
-        if ts == 0:
-            ts = self.t0_sb_testSize.value() / 100
+        # if ts == 0:
+        #     ts = self.t0_sb_testSize.value() / 100
 
         x = self.meta_df["name"]
         y = self.meta_df["diagnosis"]
@@ -235,11 +265,13 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         for clname in self.class_names:
             self.img_count_dict[mode][clname] = len(os.listdir(path + os.sep + clname))
 
-        if self.train_path and self.test_path:
+        if self.train_path and self.test_path and self.valid_path:
             train_cnt = sum([x for x in self.img_count_dict["train"].values()])
+            valid_cnt = sum([x for x in self.img_count_dict["valid"].values()])
             test_cnt = sum([x for x in self.img_count_dict["test"].values()])
-            self.test_size = test_cnt / (train_cnt + test_cnt)
-            self.set_train_test(test_cnt, train_cnt)
+            self.test_size = test_cnt / (train_cnt + test_cnt + valid_cnt)
+            self.valid_size = valid_cnt / (train_cnt + test_cnt + valid_cnt)
+            self.set_train_valid_test(train_cnt, valid_cnt, test_cnt)
 
             self.t0_lwgt_classesInfo.clear()
             self.t2_lwgt.clear()
@@ -251,19 +283,29 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             self.t1_lyt_plot.addWidget(hist)
             self.calc_enrichment()
 
-    def set_train_test(self, test_count, train_count):
-        self.t0_sb_countTest.setMaximum(test_count)
-        self.t0_sb_countTest.setValue(test_count)
-        self.t0_sb_countTrain.setMaximum(train_count)
-        self.t0_sb_countTrain.setValue(train_count)
-        self.t0_sb_countTest_perc.setValue(self.test_size * 100)
-        self.t0_sb_countTrain_perc.setValue(100 - self.t0_sb_countTest_perc.value())
+    def set_train_valid_test(self, train_count, valid_count, test_count):
+        sbs_abs = [self.t0_sb_countTrain, self.t0_sb_countValid, self.t0_sb_countTest]
+        sbs_per = [self.t0_sb_countTrain_perc, self.t0_sb_countValidPerc, self.t0_sb_countTest_perc]
+        values = [train_count, valid_count, test_count]
 
-    def update_test_size(self, value):
-        self.test_size = value / 100
+        for i, v in enumerate(values):
+            sbs_abs[i].setMaximum(v)
+            sbs_abs[i].setValue(v)
+            sbs_per[i].setValue( (v / sum(values)) * 100)
+
+    @QtCore.pyqtSlot(int, int)
+    def update_test_size(self, arg1, arg2):
+        """
+        Обновление количества еrain / test / valid в спинбоксах по движению слайдера
+        :param arg1: левый (первый) ползунок, показывает конец трейна в процентах
+        :param arg2: правый(второй) ползунок, показывает конец валида в процентах
+        """
+        self.test_size = (100 - arg2) / 100
+        self.valid_size = (arg2 - arg1) / 100
         test_cnt = self.img_cnt * self.test_size
-        train_cnt = self.img_cnt - test_cnt
-        self.set_train_test(test_cnt, train_cnt)
+        valid_cnt = self.img_cnt * self.valid_size
+        train_cnt = self.img_cnt - test_cnt - valid_cnt
+        self.set_train_valid_test(train_cnt, valid_cnt, test_cnt)
 
     def activate_cmd(self, cmd_btn: QtWidgets.QCommandLinkButton) -> None:
         cmd_btn.setEnabled(True)
@@ -351,9 +393,9 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
             self.nn_path = nn_path
         else:
             self.nn_path = QtWidgets.QFileDialog.getExistingDirectory(self,
-                                                                         "Выберите папку с результатами нейросети",
-                                                                         "C:\\Users\\Dima\\YandexDisk\\EDUCATION"
-                                                                         "\\_Deeplom\\nn")
+                                                                      "Выберите папку с результатами нейросети",
+                                                                      "C:\\Users\\Dima\\YandexDisk\\EDUCATION"
+                                                                      "\\_Deeplom\\nn")
         if self.nn_path:
             self.t5_le_nnPath.setText(self.nn_path)
             nn_names = [nn_name.split('.')[0] for nn_name in os.listdir(self.nn_path + '/' + "coeffs")]
@@ -479,8 +521,8 @@ class MainWindow(QtWidgets.QMainWindow, design_mainwindow.Ui_MainWindow):
         # self.browse_train_folder(self.root_path + "img/train")
         # self.browse_test_folder(self.root_path + "img/test")
         # #
-        # # self.t0_gb_manualSplit.setEnabled(True)
-        # # self.t0_radio_no.setChecked(True)
+        self.t0_gb_manualSplit.setEnabled(True)
+        self.t0_radio_no.setChecked(True)
         # # self.browse_img_folder(self.root_path + "img")
         # #
         # # self.browse_nn_folder(self.root_path + "nn/default")

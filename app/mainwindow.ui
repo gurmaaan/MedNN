@@ -37,13 +37,13 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_open">
        <attribute name="title">
         <string>Открытие</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_6">
+       <layout class="QVBoxLayout" name="verticalLayout_26">
         <item>
          <widget class="QGroupBox" name="groupBox">
           <property name="title">
@@ -161,16 +161,33 @@
             </widget>
            </item>
            <item row="1" column="0">
+            <widget class="QLabel" name="label_18">
+             <property name="text">
+              <string>Valid</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="t0_le_openValid"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QToolButton" name="t0_btn_openValid">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
             <widget class="QLabel" name="label_3">
              <property name="text">
               <string>Test</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
+           <item row="2" column="1">
             <widget class="QLineEdit" name="t0_le_openTest"/>
            </item>
-           <item row="1" column="2">
+           <item row="2" column="2">
             <widget class="QToolButton" name="t0_btn_openTest">
              <property name="text">
               <string>...</string>
@@ -214,39 +231,38 @@
             <layout class="QHBoxLayout" name="horizontalLayout_5">
              <item>
               <widget class="QLabel" name="label_6">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="text">
-                <string>Объем тестовой выборки</string>
+                <string>train/valid/test</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QSlider" name="t0_sldr_testSize">
-               <property name="maximum">
-                <number>100</number>
+              <widget class="QQuickWidget" name="t0_sldr_trainTestSplit">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
                </property>
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QSpinBox" name="t0_sb_testSize">
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-               <property name="buttonSymbols">
-                <enum>QAbstractSpinBox::NoButtons</enum>
-               </property>
-               <property name="suffix">
-                <string> %</string>
-               </property>
-               <property name="maximum">
-                <number>100</number>
+               <property name="resizeMode">
+                <enum>QQuickWidget::SizeRootObjectToView</enum>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QPushButton" name="t0_btn_trainTestSplit">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="text">
                 <string>Разбить</string>
                </property>
@@ -427,6 +443,105 @@
               </item>
               <item>
                <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line_7">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QLabel" name="t0_lbl_valid">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Валидационная выборка</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_38">
+              <item>
+               <widget class="QSpinBox" name="t0_sb_countValidPerc">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> %</string>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_20">
+                <property name="text">
+                 <string>/</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="t0_sb_countValid">
+                <property name="minimumSize">
+                 <size>
+                  <width>38</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="suffix">
+                 <string/>
+                </property>
+                <property name="prefix">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_21">
+                <property name="text">
+                 <string>изображений</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_17">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
@@ -926,8 +1041,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>328</width>
-                 <height>615</height>
+                 <width>20</width>
+                 <height>20</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1510,7 +1625,7 @@
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <layout class="QVBoxLayout" name="verticalLayout_24">
             <item>
              <widget class="QGroupBox" name="groupBox_2">
@@ -1864,7 +1979,7 @@
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="">
+          <widget class="QWidget" name="layoutWidget">
            <layout class="QVBoxLayout" name="verticalLayout_14">
             <item>
              <widget class="QProgressBar" name="t4_progress">
@@ -2393,24 +2508,15 @@
    </widget>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QQuickWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">QtQuickWidgets/QQuickWidget</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
-  <connection>
-   <sender>t0_sldr_testSize</sender>
-   <signal>sliderMoved(int)</signal>
-   <receiver>t0_sb_testSize</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>804</x>
-     <y>303</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>848</x>
-     <y>302</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>t0_radio_no</sender>
    <signal>clicked(bool)</signal>
