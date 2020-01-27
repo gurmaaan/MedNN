@@ -11,3 +11,4 @@ __pycache__
 app/test.py
 training.csv
 test_sgd.py
+default_24ep.png
